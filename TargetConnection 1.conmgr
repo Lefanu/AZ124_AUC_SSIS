@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SVCTargetConnection"
+  DTS:DTSID="{557a18ac-ddea-49cd-a991-f9f0bde20ee1}"
+  DTS:Description="Target SVC"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::SVCTargetConnection_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Description">@[$Project::SVCTargetConnection_Description]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::SVCTargetConnection_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::SVCTargetConnection_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::SVCTargetConnection_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="RetainSameConnection">@[$Project::SVCTargetConnection_RetainSameConnection]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::SVCTargetConnection_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::SVCTargetConnection_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SQLINPSSVIL81;User ID=SVC;Initial Catalog=SVC;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEQXMzQs4jkmfLWI9eHtYVwAAAAACAAAAAAAQZgAAAAEAACAAAADPP5W9tfVouMpaVSrbEe5lztlm1dp45w413WvFAEyyqQAAAAAOgAAAAAIAACAAAACv4EMNTptBL9ZpxkcrBBfsfH9U+kLx3IKW6aG2aKkUnIAAAABRvEFfjOK7/XTLAVPi6EVtLo+8DntMTfN/Fm0XLer84bVzkA7mfoa9qWWmrcoJr1YuQFEK+t6Oywlw9ruWgGJE9IpzvKBjheca1QCmVyR391Itvy2AA5lCN7YiiPlSFyKAOfhALshVZb3XLkdENK16tStewoj5xZ1TcdStdQJ7ckAAAAB5PHOmSsyN1qXBg4bu0gQw1PlODuZvdbZEtu1DJbU11JcZI3zNfomxYgCRNxjP3ebCZzZ4OJYBxT3JIV4+DT90</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

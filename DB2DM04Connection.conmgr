@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DB2DM04Connection"
+  DTS:DTSID="{7C7A26B9-ED11-4E9A-A5CA-F1D1A9880C76}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::DB2DM04Connection_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DB2DM04Connection_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::DB2DM04Connection_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::DB2DM04Connection_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::DB2DM04Connection_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::DB2DM04Connection_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=A01DB2;User ID=WEBU0053;Initial Catalog=A01DB2;Provider=DB2OLEDB;Persist Security Info=True;Defer Prepare=True;Network Transport Library=TCPIP;Host CCSID=20280;Max Pool Size=40;Connect Timeout=15;Network Address=svil.host.inps;Network Port=5025;Package Collection=COLDASV;Connection Pooling=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="aOPx0miGig=="
+        p4:IV="QQmPN9LBufQ=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">OvRyTOj2HBf07+c+zUbhumBbM0Rmo/cYRj6hhKUsIgcTrN8teqyuCqlNqJZ5mgfamAm4HSlmBixV3VzGy7VEwTAIdiKjTVyvWD7OMSNIssDg57qE78RAmR1e/I+82MFjEzsop5tXk4d6A7iGIuLbsww2Q3rjwl17</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

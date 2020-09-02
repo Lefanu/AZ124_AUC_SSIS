@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Uniemens"
+  DTS:DTSID="{71F9ED9C-8C86-4D7D-93F8-CC31E6C77330}"
+  DTS:Description="UniemensPosPa"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::Uniemens_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Description">@[$Project::Uniemens_Description]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::Uniemens_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::Uniemens_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::Uniemens_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="RetainSameConnection">@[$Project::Uniemens_RetainSameConnection]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::Uniemens_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::Uniemens_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=sqlinpssvil01;User ID=INPDAPUser;Initial Catalog=UniemensPosPA;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=false;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="fE07RU7/5Q=="
+        p4:IV="IiZWvpnbBA4=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">uhG0JAiQffSGGxhNSofgiFNcqqBaNAkMx01GRVm7WuMn1ORGikKsMvhCqR4iqKJWhX3SgkWDTzzJg24Ydyj1Xk/CnjoCpgKJ54Ktn3VvRMNUTGMquUjf2RY4txNPmWfx15eDeUuzArkhJBit/7q9bQcJb9QGalJUXnabwkK5lrU=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

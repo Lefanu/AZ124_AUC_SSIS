@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ComUnicaSourceConnection"
+  DTS:DTSID="{F8B54F53-A4A7-4B52-87F4-17084AD21111}"
+  DTS:Description="ComunicazioneUNICA"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::ComUnicaSourceConnection_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Description">@[$Project::ComUnicaSourceConnection_Description]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::ComUnicaSourceConnection_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::ComUnicaSourceConnection_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::ComUnicaSourceConnection_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="RetainSameConnection">@[$Project::ComUnicaSourceConnection_RetainSameConnection]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ComUnicaSourceConnection_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::ComUnicaSourceConnection_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SQLINPSSVIL04,1900;User ID=ComunicazioneUnica;Initial Catalog=ComunicazioneUnica;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=false;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="U4rVyNjFQA=="
+        p4:IV="XN4h0ts76aE=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">YQqlSPGPS9xXbaSZkTomUhl5C5nOkHMG1JgTulEKP+VhjTlDkTkq1G2T1MKW9taWzrqyqgmimJsCBTb19ZK2BajDAWeNIjHqmXhPvWfXOliWS+EycCUitXjyRc0GaIfSiLZvVbQJCNszKi4hQGmn3mC2Dgkuesmx</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,1 @@
+"%ProgramFiles%\Microsoft SQL Server\120\DTS\Binn\isdeploymentwizard.exe"  /SourcePath:"\\filesrvp.servizi.inps\root\Applicazioni\SSISDeploy\2014\Deploy\AZ124_AUC\AZ124_AUC.ispac"  /DestinationServer:"sqlinps14\sqlinps14" /DestinationPath:"/SSISDB/AZ124_AUC/AZ124_AUC"

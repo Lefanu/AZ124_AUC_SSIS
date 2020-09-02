@@ -1,0 +1,1707 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/31/2018 3:50:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRV201201"
+  DTS:CreatorName="SRV201201\Administrator"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{F45F4275-6F52-4D6E-941F-5F7915F21E18}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LocaleID="1040"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Replica AURSS"
+  DTS:VersionGUID="{54B0861C-5C26-41E5-BB8C-0F31E6117043}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7274FF27-AD62-4C96-A042-93E84759FFDC}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLINPSSVIL06\SQL06,2059;User ID=auc;Initial Catalog=AUC;Provider=SQLNCLI11;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FD6B68C6-4E63-4263-95AA-722A6ADAD178}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=AUC.db.inps,2445;User ID=auc;Initial Catalog=AUC;Provider=SQLNCLI11;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{08D29AE1-15C2-4665-9D88-FD0C8343C19B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tb_stall_StoricoAllineamento_Aurss"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tb_stall_StoricoAllineamento_Aurss]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[ausca_codice_fiscale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="ausca_codice_fiscale"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[ausca_codice_fiscale]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ausca_codice_fiscale]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_ausca_codice_pk]"
+                      cachedDataType="i4"
+                      cachedName="aurss_ausca_codice_pk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_ausca_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_ausca_codice_pk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[ausco_codice_fiscale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="ausco_codice_fiscale"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[ausco_codice_fiscale]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ausco_codice_fiscale]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_ausco_codice_pk]"
+                      cachedDataType="i4"
+                      cachedName="aurss_ausco_codice_pk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_ausco_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_ausco_codice_pk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_aussu_codice_pk]"
+                      cachedDataType="i4"
+                      cachedName="aurss_aussu_codice_pk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_aussu_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_aussu_codice_pk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_autis_codice_pk]"
+                      cachedDataType="i4"
+                      cachedName="aurss_autis_codice_pk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_autis_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_autis_codice_pk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_inizio_validita]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_inizio_validita"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_inizio_validita]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_inizio_validita]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_di_fine_validita]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_di_fine_validita"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_di_fine_validita]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_di_fine_validita]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_iscr_libro_soci]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_iscr_libro_soci"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_iscr_libro_soci]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_iscr_libro_soci]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_atto_di_nomina]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_atto_di_nomina"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_atto_di_nomina]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_atto_di_nomina]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_nomina]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_nomina"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_nomina]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_nomina]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_fine_carica]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_fine_carica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_fine_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_fine_carica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_note]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="aurss_note"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_note]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_note]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_rappresentante_legale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="aurss_rappresentante_legale"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_rappresentante_legale]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_rappresentante_legale]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_modifica]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_modifica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_modifica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_modifica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_descr_utente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="aurss_descr_utente"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_descr_utente]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_descr_utente]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_relazione_certificata]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="aurss_relazione_certificata"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_relazione_certificata]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_relazione_certificata]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_cert_auten_cod_pk]"
+                      cachedDataType="i4"
+                      cachedName="aurss_cert_auten_cod_pk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cert_auten_cod_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_auten_cod_pk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_cert_cod_entita_rif]"
+                      cachedDataType="i4"
+                      cachedName="aurss_cert_cod_entita_rif"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cert_cod_entita_rif]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_cod_entita_rif]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_auten_codice_pk]"
+                      cachedDataType="i4"
+                      cachedName="aurss_auten_codice_pk"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_auten_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_auten_codice_pk]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_codice_entita_rif]"
+                      cachedDataType="i4"
+                      cachedName="aurss_codice_entita_rif"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_codice_entita_rif]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_codice_entita_rif]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_cert_data_modifica]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_cert_data_modifica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cert_data_modifica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_data_modifica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_indice_qualita_relazione]"
+                      cachedDataType="i4"
+                      cachedName="aurss_indice_qualita_relazione"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_indice_qualita_relazione]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_indice_qualita_relazione]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_codice_carica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="aurss_codice_carica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_codice_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_codice_carica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_provenienza]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="aurss_provenienza"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_provenienza]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_provenienza]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_iscrizione]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="aurss_data_iscrizione"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_iscrizione]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_iscrizione]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_flag_chiusura]"
+                      cachedDataType="i2"
+                      cachedName="aurss_flag_chiusura"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_flag_chiusura]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_flag_chiusura]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_cap_agire]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="aurss_cap_agire"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cap_agire]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cap_agire]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_flag_se_elettore]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="aurss_flag_se_elettore"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_flag_se_elettore]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_flag_se_elettore]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_potere_firma]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="aurss_potere_firma"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_potere_firma]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_potere_firma]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_quote_partec]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="aurss_quote_partec"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_quote_partec]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quote_partec]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_perce_partec]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="aurss_perce_partec"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_perce_partec]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_perce_partec]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_quote_partec_e]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="aurss_quote_partec_e"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_quote_partec_e]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quote_partec_e]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_quota_c_valuta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="aurss_quota_c_valuta"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_quota_c_valuta]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quota_c_valuta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_cod_durata_carica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="aurss_cod_durata_carica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cod_durata_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cod_durata_carica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_anni_ese_carica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="aurss_anni_ese_carica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_anni_ese_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_anni_ese_carica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_data_pres_carica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="aurss_data_pres_carica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_pres_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_pres_carica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_prog_pers]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="aurss_prog_pers"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_prog_pers]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_prog_pers]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_progressivo_carica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="aurss_progressivo_carica"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_progressivo_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_progressivo_carica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].Columns[aurss_posizione]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="aurss_posizione"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_posizione]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_posizione]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[ausca_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="ausca_codice_fiscale"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_ausca_codice_pk]"
+                      dataType="i4"
+                      name="aurss_ausca_codice_pk"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[ausco_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="ausco_codice_fiscale"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_ausco_codice_pk]"
+                      dataType="i4"
+                      name="aurss_ausco_codice_pk"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_aussu_codice_pk]"
+                      dataType="i4"
+                      name="aurss_aussu_codice_pk"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_autis_codice_pk]"
+                      dataType="i4"
+                      name="aurss_autis_codice_pk"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_inizio_validita]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_inizio_validita"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_di_fine_validita]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_di_fine_validita"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_iscr_libro_soci]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_iscr_libro_soci"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_atto_di_nomina]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_atto_di_nomina"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_nomina]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_nomina"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_fine_carica]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_fine_carica"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_note]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="aurss_note"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_rappresentante_legale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_rappresentante_legale"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_modifica]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_modifica"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_descr_utente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="aurss_descr_utente"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_relazione_certificata]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_relazione_certificata"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cert_auten_cod_pk]"
+                      dataType="i4"
+                      name="aurss_cert_auten_cod_pk"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cert_cod_entita_rif]"
+                      dataType="i4"
+                      name="aurss_cert_cod_entita_rif"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_auten_codice_pk]"
+                      dataType="i4"
+                      name="aurss_auten_codice_pk"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_codice_entita_rif]"
+                      dataType="i4"
+                      name="aurss_codice_entita_rif"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cert_data_modifica]"
+                      dataType="dbTimeStamp"
+                      name="aurss_cert_data_modifica"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_indice_qualita_relazione]"
+                      dataType="i4"
+                      name="aurss_indice_qualita_relazione"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_codice_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_codice_carica"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="aurss_provenienza"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_iscrizione]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_iscrizione"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_flag_chiusura]"
+                      dataType="i2"
+                      name="aurss_flag_chiusura"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cap_agire]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="aurss_cap_agire"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_flag_se_elettore]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_flag_se_elettore"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_potere_firma]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_potere_firma"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_quote_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="aurss_quote_partec"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_perce_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_perce_partec"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_quote_partec_e]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="aurss_quote_partec_e"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_quota_c_valuta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="aurss_quota_c_valuta"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_cod_durata_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="aurss_cod_durata_carica"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_anni_ese_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="aurss_anni_ese_carica"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_data_pres_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="aurss_data_pres_carica"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_prog_pers]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_prog_pers"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_progressivo_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_progressivo_carica"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input].ExternalColumns[aurss_posizione]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="aurss_posizione"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - Query"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Query"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT	ausca_codice_fiscale, 
+		0 As aurss_ausca_codice_pk, 
+		ausco_codice_fiscale ,
+		0 aurss_ausco_codice_pk, 
+		aurss_aussu_codice_pk, 
+		aurss_autis_codice_pk, 
+		aurss_data_inizio_validita, 
+		aurss_data_di_fine_validita, 
+		aurss_data_iscr_libro_soci, 
+		aurss_data_atto_di_nomina, 
+		aurss_data_nomina, 
+		aurss_data_fine_carica, 
+		aurss_note, 
+		aurss_rappresentante_legale, 
+		aurss_data_modifica, 
+		aurss_descr_utente, 
+		aurss_relazione_certificata, 
+		aurss_cert_auten_cod_pk, 
+		aurss_cert_cod_entita_rif, 
+		aurss_auten_codice_pk, 
+		aurss_codice_entita_rif, 
+		aurss_cert_data_modifica, 
+		aurss_indice_qualita_relazione, 
+		aurss_codice_carica, aurss_provenienza, 
+		aurss_data_iscrizione, 
+		aurss_flag_chiusura, 
+		aurss_cap_agire, 
+		aurss_flag_se_elettore, 
+		aurss_potere_firma, 
+		aurss_quote_partec, 
+		aurss_perce_partec, 
+		aurss_quote_partec_e, 
+		aurss_quota_c_valuta, 
+		aurss_cod_durata_carica, 
+		aurss_anni_ese_carica, 
+		aurss_data_pres_carica, 
+		aurss_prog_pers, 
+		aurss_progressivo_carica, 
+		aurss_posizione
+FROM tb_ausca_sog_contr_az 
+INNER JOIN tb_aurss_rel_sog_sog ON ausca_codice_pk = aurss_ausca_codice_pk 
+INNER JOIN tb_ausco_sog_contr_col ON aurss_ausco_codice_pk = ausco_codice_pk
+WHERE [ausca_codice_fiscale] IN (
+	SELECT ausru_codice_fiscale 
+	FROM tb_ausru_Storico_Richieste_Utente 
+	WHERE ausru_identificativo_richiesta &lt;&gt; '--'
+	AND ausru_stato_lavorazione = 9 AND ausru_codice_fiscale is not null
+	Group By ausru_codice_fiscale
+)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - Query.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ausca_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ausca_codice_fiscale]"
+                      length="16"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ausca_codice_fiscale]"
+                      name="ausca_codice_fiscale"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_ausca_codice_pk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_ausca_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_ausca_codice_pk]"
+                      name="aurss_ausca_codice_pk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ausco_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ausco_codice_fiscale]"
+                      length="16"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[ausco_codice_fiscale]"
+                      name="ausco_codice_fiscale"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_ausco_codice_pk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_ausco_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_ausco_codice_pk]"
+                      name="aurss_ausco_codice_pk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_aussu_codice_pk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_aussu_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_aussu_codice_pk]"
+                      name="aurss_aussu_codice_pk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_autis_codice_pk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_autis_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_autis_codice_pk]"
+                      name="aurss_autis_codice_pk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_inizio_validita]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_inizio_validita]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_inizio_validita]"
+                      name="aurss_data_inizio_validita"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_di_fine_validita]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_di_fine_validita]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_di_fine_validita]"
+                      name="aurss_data_di_fine_validita"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_iscr_libro_soci]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_iscr_libro_soci]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_iscr_libro_soci]"
+                      name="aurss_data_iscr_libro_soci"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_atto_di_nomina]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_atto_di_nomina]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_atto_di_nomina]"
+                      name="aurss_data_atto_di_nomina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_nomina]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_nomina]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_nomina]"
+                      name="aurss_data_nomina"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_fine_carica]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_fine_carica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_fine_carica]"
+                      name="aurss_data_fine_carica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_note]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_note]"
+                      length="200"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_note]"
+                      name="aurss_note"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_rappresentante_legale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_rappresentante_legale]"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_rappresentante_legale]"
+                      name="aurss_rappresentante_legale"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_modifica]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_modifica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_modifica]"
+                      name="aurss_data_modifica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_descr_utente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_descr_utente]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_descr_utente]"
+                      name="aurss_descr_utente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_relazione_certificata]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_relazione_certificata]"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_relazione_certificata]"
+                      name="aurss_relazione_certificata"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_auten_cod_pk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cert_auten_cod_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_auten_cod_pk]"
+                      name="aurss_cert_auten_cod_pk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_cod_entita_rif]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cert_cod_entita_rif]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_cod_entita_rif]"
+                      name="aurss_cert_cod_entita_rif"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_auten_codice_pk]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_auten_codice_pk]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_auten_codice_pk]"
+                      name="aurss_auten_codice_pk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_codice_entita_rif]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_codice_entita_rif]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_codice_entita_rif]"
+                      name="aurss_codice_entita_rif"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_data_modifica]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cert_data_modifica]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cert_data_modifica]"
+                      name="aurss_cert_data_modifica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_indice_qualita_relazione]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_indice_qualita_relazione]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_indice_qualita_relazione]"
+                      name="aurss_indice_qualita_relazione"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_codice_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_codice_carica]"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_codice_carica]"
+                      name="aurss_codice_carica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_provenienza]"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_provenienza]"
+                      name="aurss_provenienza"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_iscrizione]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_iscrizione]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_iscrizione]"
+                      name="aurss_data_iscrizione"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_flag_chiusura]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_flag_chiusura]"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_flag_chiusura]"
+                      name="aurss_flag_chiusura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cap_agire]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cap_agire]"
+                      length="2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cap_agire]"
+                      name="aurss_cap_agire"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_flag_se_elettore]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_flag_se_elettore]"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_flag_se_elettore]"
+                      name="aurss_flag_se_elettore"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_potere_firma]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_potere_firma]"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_potere_firma]"
+                      name="aurss_potere_firma"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quote_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_quote_partec]"
+                      length="15"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quote_partec]"
+                      name="aurss_quote_partec"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_perce_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_perce_partec]"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_perce_partec]"
+                      name="aurss_perce_partec"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quote_partec_e]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_quote_partec_e]"
+                      length="17"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quote_partec_e]"
+                      name="aurss_quote_partec_e"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quota_c_valuta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_quota_c_valuta]"
+                      length="3"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_quota_c_valuta]"
+                      name="aurss_quota_c_valuta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cod_durata_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cod_durata_carica]"
+                      length="2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_cod_durata_carica]"
+                      name="aurss_cod_durata_carica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_anni_ese_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_anni_ese_carica]"
+                      length="2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_anni_ese_carica]"
+                      name="aurss_anni_ese_carica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_pres_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_pres_carica]"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_data_pres_carica]"
+                      name="aurss_data_pres_carica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_prog_pers]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_prog_pers]"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_prog_pers]"
+                      name="aurss_prog_pers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_progressivo_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_progressivo_carica]"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_progressivo_carica]"
+                      name="aurss_progressivo_carica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_posizione]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_posizione]"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].Columns[aurss_posizione]"
+                      name="aurss_posizione"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ausca_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="ausca_codice_fiscale" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_ausca_codice_pk]"
+                      dataType="i4"
+                      name="aurss_ausca_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[ausco_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="ausco_codice_fiscale" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_ausco_codice_pk]"
+                      dataType="i4"
+                      name="aurss_ausco_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_aussu_codice_pk]"
+                      dataType="i4"
+                      name="aurss_aussu_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_autis_codice_pk]"
+                      dataType="i4"
+                      name="aurss_autis_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_inizio_validita]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_inizio_validita" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_di_fine_validita]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_di_fine_validita" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_iscr_libro_soci]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_iscr_libro_soci" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_atto_di_nomina]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_atto_di_nomina" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_nomina]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_nomina" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_fine_carica]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_fine_carica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_note]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="aurss_note" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_rappresentante_legale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_rappresentante_legale" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_modifica]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_modifica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_descr_utente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="aurss_descr_utente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_relazione_certificata]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_relazione_certificata" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cert_auten_cod_pk]"
+                      dataType="i4"
+                      name="aurss_cert_auten_cod_pk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cert_cod_entita_rif]"
+                      dataType="i4"
+                      name="aurss_cert_cod_entita_rif" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_auten_codice_pk]"
+                      dataType="i4"
+                      name="aurss_auten_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_codice_entita_rif]"
+                      dataType="i4"
+                      name="aurss_codice_entita_rif" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cert_data_modifica]"
+                      dataType="dbTimeStamp"
+                      name="aurss_cert_data_modifica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_indice_qualita_relazione]"
+                      dataType="i4"
+                      name="aurss_indice_qualita_relazione" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_codice_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_codice_carica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="aurss_provenienza" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_iscrizione]"
+                      dataType="dbTimeStamp"
+                      name="aurss_data_iscrizione" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_flag_chiusura]"
+                      dataType="i2"
+                      name="aurss_flag_chiusura" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cap_agire]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="aurss_cap_agire" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_flag_se_elettore]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_flag_se_elettore" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_potere_firma]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="aurss_potere_firma" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_quote_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="aurss_quote_partec" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_perce_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_perce_partec" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_quote_partec_e]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="aurss_quote_partec_e" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_quota_c_valuta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="aurss_quota_c_valuta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_cod_durata_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="aurss_cod_durata_carica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_anni_ese_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="aurss_anni_ese_carica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_data_pres_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="aurss_data_pres_carica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_prog_pers]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_prog_pers" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_progressivo_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="aurss_progressivo_carica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[aurss_posizione]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="aurss_posizione" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ausca_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ausca_codice_fiscale]"
+                      name="ausca_codice_fiscale" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_ausca_codice_pk]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_ausca_codice_pk]"
+                      name="aurss_ausca_codice_pk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ausco_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ausco_codice_fiscale]"
+                      name="ausco_codice_fiscale" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_ausco_codice_pk]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_ausco_codice_pk]"
+                      name="aurss_ausco_codice_pk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_aussu_codice_pk]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_aussu_codice_pk]"
+                      name="aurss_aussu_codice_pk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_autis_codice_pk]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_autis_codice_pk]"
+                      name="aurss_autis_codice_pk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_inizio_validita]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_inizio_validita]"
+                      name="aurss_data_inizio_validita" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_di_fine_validita]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_di_fine_validita]"
+                      name="aurss_data_di_fine_validita" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_iscr_libro_soci]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_iscr_libro_soci]"
+                      name="aurss_data_iscr_libro_soci" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_atto_di_nomina]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_atto_di_nomina]"
+                      name="aurss_data_atto_di_nomina" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_nomina]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_nomina]"
+                      name="aurss_data_nomina" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_fine_carica]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_fine_carica]"
+                      name="aurss_data_fine_carica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_note]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_note]"
+                      name="aurss_note" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_rappresentante_legale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_rappresentante_legale]"
+                      name="aurss_rappresentante_legale" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_modifica]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_modifica]"
+                      name="aurss_data_modifica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_descr_utente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_descr_utente]"
+                      name="aurss_descr_utente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_relazione_certificata]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_relazione_certificata]"
+                      name="aurss_relazione_certificata" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cert_auten_cod_pk]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cert_auten_cod_pk]"
+                      name="aurss_cert_auten_cod_pk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cert_cod_entita_rif]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cert_cod_entita_rif]"
+                      name="aurss_cert_cod_entita_rif" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_auten_codice_pk]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_auten_codice_pk]"
+                      name="aurss_auten_codice_pk" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_codice_entita_rif]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_codice_entita_rif]"
+                      name="aurss_codice_entita_rif" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cert_data_modifica]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cert_data_modifica]"
+                      name="aurss_cert_data_modifica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_indice_qualita_relazione]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_indice_qualita_relazione]"
+                      name="aurss_indice_qualita_relazione" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_codice_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_codice_carica]"
+                      name="aurss_codice_carica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_provenienza]"
+                      name="aurss_provenienza" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_iscrizione]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_iscrizione]"
+                      name="aurss_data_iscrizione" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_flag_chiusura]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_flag_chiusura]"
+                      name="aurss_flag_chiusura" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cap_agire]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cap_agire]"
+                      name="aurss_cap_agire" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_flag_se_elettore]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_flag_se_elettore]"
+                      name="aurss_flag_se_elettore" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_potere_firma]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_potere_firma]"
+                      name="aurss_potere_firma" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_quote_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_quote_partec]"
+                      name="aurss_quote_partec" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_perce_partec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_perce_partec]"
+                      name="aurss_perce_partec" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_quote_partec_e]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_quote_partec_e]"
+                      name="aurss_quote_partec_e" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_quota_c_valuta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_quota_c_valuta]"
+                      name="aurss_quota_c_valuta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cod_durata_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_cod_durata_carica]"
+                      name="aurss_cod_durata_carica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_anni_ese_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_anni_ese_carica]"
+                      name="aurss_anni_ese_carica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_pres_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_data_pres_carica]"
+                      name="aurss_data_pres_carica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_prog_pers]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_prog_pers]"
+                      name="aurss_prog_pers" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_progressivo_carica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_progressivo_carica]"
+                      name="aurss_progressivo_carica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_posizione]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[aurss_posizione]"
+                      name="aurss_posizione" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Destination - tb_stall_StoricoAllineamento_Aurss.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task 1\Source - Query.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{6F5D0B42-A7BF-4959-ADB2-2222CA04A839}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7274FF27-AD62-4C96-A042-93E84759FFDC}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[tb_stall_StoricoAllineamento_Aurss] (&#xA;[ausca_codice_fiscale] varchar(16) NOT NULL,&#xA;[aurss_ausca_codice_pk] int NOT NULL,&#xA;[ausco_codice_fiscale] varchar(16) NOT NULL,&#xA;[aurss_ausco_codice_pk] int NOT NULL,&#xA;[aurss_aussu_codice_pk] int,&#xA;[aurss_autis_codice_pk] int,&#xA;[aurss_data_inizio_validita] datetime2(3),&#xA;[aurss_data_di_fine_validita] datetime2(3),&#xA;[aurss_data_iscr_libro_soci] datetime2(3),&#xA;[aurss_data_atto_di_nomina] datetime2(3),&#xA;[aurss_data_nomina] datetime2(3),&#xA;[aurss_data_fine_carica] datetime2(3),&#xA;[aurss_note] varchar(200),&#xA;[aurss_rappresentante_legale] varchar(1),&#xA;[aurss_data_modifica] datetime2(3),&#xA;[aurss_descr_utente] varchar(50),&#xA;[aurss_relazione_certificata] char(1),&#xA;[aurss_cert_auten_cod_pk] int,&#xA;[aurss_cert_cod_entita_rif] int,&#xA;[aurss_auten_codice_pk] int,&#xA;[aurss_codice_entita_rif] int,&#xA;[aurss_cert_data_modifica] datetime2(3),&#xA;[aurss_indice_qualita_relazione] int,&#xA;[aurss_codice_carica] varchar(4),&#xA;[aurss_provenienza] varchar(30),&#xA;[aurss_data_iscrizione] datetime2(3),&#xA;[aurss_flag_chiusura] smallint,&#xA;[aurss_cap_agire] varchar(2),&#xA;[aurss_flag_se_elettore] varchar(1),&#xA;[aurss_potere_firma] varchar(1),&#xA;[aurss_quote_partec] varchar(15),&#xA;[aurss_perce_partec] varchar(4),&#xA;[aurss_quote_partec_e] varchar(17),&#xA;[aurss_quota_c_valuta] varchar(3),&#xA;[aurss_cod_durata_carica] varchar(2),&#xA;[aurss_anni_ese_carica] varchar(2),&#xA;[aurss_data_pres_carica] varchar(8),&#xA;[aurss_prog_pers] varchar(4),&#xA;[aurss_progressivo_carica] varchar(4),&#xA;[aurss_posizione] varchar(50)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{CDFC254E-35C2-463F-9C9C-A638347DCE41\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{E705D557-41ED-4059-9BD5-A8CE71E4D33A}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{E705D557-41ED-4059-9BD5-A8CE71E4D33A}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>

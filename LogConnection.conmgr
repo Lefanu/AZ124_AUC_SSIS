@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LogConnection"
+  DTS:DTSID="{37F0685E-F2E2-420F-9A11-050385ADCCAC}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::LogConnection_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::LogConnection_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::LogConnection_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::LogConnection_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::LogConnection_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SQLINPSSVIL04.INPS,1900;User ID=AUC_SSIS;Initial Catalog=SSIS_LOG;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="P8ZoVAj8CA=="
+        p4:IV="8VdRspGGRdc=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">nODPHniG9hh0YQ2SlpJqX9SqTTsf+Ea86CkjwdwzcOH/YvQ4CBQ57B3RJDQOXMGi4KvNxXjn2b+VeGaZ3CBSJD/2QKM298rnoXKHSkbai3n2cxOQtYiOpwHxRyBT6KQa0cI7xOGVsG3w39Wf9MCElHmG1TWZG5nA</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

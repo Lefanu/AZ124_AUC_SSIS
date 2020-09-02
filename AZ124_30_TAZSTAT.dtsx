@@ -1,0 +1,1352 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/8/2010 10:19:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PAIOLETTI"
+  DTS:CreatorName="PAIOLETTI\i.paioletti"
+  DTS:DelayValidation="True"
+  DTS:Description="Descrizione pacchetto SSIS"
+  DTS:DTSID="{E9E7785C-0AA7-4682-B641-484C68C2B509}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1040"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="AZ124_30_TAZSTAT"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="1394"
+  DTS:VersionGUID="{566A867A-3640-46EA-9A2F-0BD5F5CE012B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="LogConnection"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{176F604F-C90E-40C7-8BA6-7C9F5901B23C}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F5B03FBC-3F2D-4C8F-BEBA-9504949B17A9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="iIDLOTTO">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF834D19-848C-402E-A1DA-C2C3BC7C63D2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTANAGAZ_RowAffected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C5B3C03-439F-4F06-B582-B3FAD843E505}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTANAGAZ_RowDiscarded">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E907E3BB-BD3A-4418-A28D-61068F3D3841}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTANAGAZ_RowSelected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{60F2E769-2A71-48C2-ADA2-3F580D4F59B9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTANAPER_RowAffected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DDF499E2-B1C6-4857-B0B5-ACA4F8B9B0ED}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTANAPER_RowDiscarded">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{946E1775-DBAE-4234-AF57-077DC8583719}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTANAPER_RowSelected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6785F99-3F0D-4682-88A6-05199CDB482A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTRELAZ_RowAffected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD292F57-C502-47B1-9ECB-AA46588BAC19}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTRELAZ_RowDiscarded">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D541D14C-D734-4A20-85B5-3E3F7E315C66}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iTRELAZ_RowSelected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4AD15E49-F910-4238-B3DC-09DA81D7D3E5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="K_DB_TARGET_CONN_STRING">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=SQLINPSSVIL06.SER-TEST.INPS,2059;Initial Catalog=AUC;Persist Security Info=True;User ID=AUC;Password=sw54-1fr3</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{121D1112-1A8E-4A35-80F4-F0B8D7CB1998}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="K_LOG_ENABLED">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{31062175-FA72-4D6D-BDA3-FECAABEA1300}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceSQL">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{176F604F-C90E-40C7-8BA6-7C9F5901B23C}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:PropertyExpression
+    DTS:Name="LoggingMode">@[User::K_LOG_ENABLED]</DTS:PropertyExpression>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete tb_autaz_tazstat"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="delete tb_autaz_tazstat"
+      DTS:DTSID="{45f7eaa3-c53d-4d15-8024-6c58ed31a44c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete tb_autaz_tazstat"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="delete tb_autaz_tazstat" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TAZSTAT- --&gt; AUTAZ"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D805A7DF-AAD7-4813-AA85-93390D3BA79F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TAZSTAT- --&gt; AUTAZ"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DB2 - TAZSTAT"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+AZSTAPRO As autaz_azstapro,
+AZSTAAZI As autaz_azstaazi,
+AZSTACOD As autaz_azstacod,
+AZSTAZON As autaz_azstazon,
+AZCODOPR As autaz_azcodopr,
+AZMATDIP As autaz_azmatdip,
+AZREGION As autaz_azregion,
+AZDATOPR As autaz_azdatopr,
+AZORAOPR As autaz_azoraopr,
+AZPROVEN As autaz_azproven,
+AZFLAGOP As autaz_azflagop,
+AZFLAG01 As autaz_azflag01,
+AZFLAG02 As autaz_azflag02,
+AZFLAG03 As autaz_azflag03,
+AZFLAG04 As autaz_azflag04,
+AZFLAG05 As autaz_azflag05,
+AZDATOPR * 100000000 + AZORAOPR As autaz_data_operazione
+FROM DB2DA.TAZSTAT 
+WHERE AZDATOPR BETWEEN INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMM')||'01') 
+AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
+--FETCH FIRST 100 ROWS ONLY</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Connections[OleDbConnection]"
+                  connectionManagerID="{7C7A26B9-ED11-4E9A-A5CA-F1D1A9880C76}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DB2DM04Connection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAPRO]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTAPRO]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAPRO]"
+                      name="AUTAZ_AZSTAPRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAAZI]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTAAZI]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAAZI]"
+                      name="AUTAZ_AZSTAAZI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTACOD]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTACOD]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTACOD]"
+                      name="AUTAZ_AZSTACOD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAZON]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTAZON]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAZON]"
+                      name="AUTAZ_AZSTAZON"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZCODOPR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZCODOPR]"
+                      length="2"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZCODOPR]"
+                      name="AUTAZ_AZCODOPR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZMATDIP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZMATDIP]"
+                      length="8"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZMATDIP]"
+                      name="AUTAZ_AZMATDIP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZREGION]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZREGION]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZREGION]"
+                      name="AUTAZ_AZREGION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZDATOPR]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZDATOPR]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZDATOPR]"
+                      name="AUTAZ_AZDATOPR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZORAOPR]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZORAOPR]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZORAOPR]"
+                      name="AUTAZ_AZORAOPR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZPROVEN]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZPROVEN]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZPROVEN]"
+                      name="AUTAZ_AZPROVEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAGOP]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAGOP]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAGOP]"
+                      name="AUTAZ_AZFLAGOP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG01]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG01]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG01]"
+                      name="AUTAZ_AZFLAG01"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG02]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG02]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG02]"
+                      name="AUTAZ_AZFLAG02"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG03]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG03]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG03]"
+                      name="AUTAZ_AZFLAG03"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG04]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG04]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG04]"
+                      name="AUTAZ_AZFLAG04"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG05]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG05]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG05]"
+                      name="AUTAZ_AZFLAG05"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_DATA_OPERAZIONE]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_DATA_OPERAZIONE]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_DATA_OPERAZIONE]"
+                      name="AUTAZ_DATA_OPERAZIONE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTAPRO]"
+                      dataType="decimal"
+                      name="AUTAZ_AZSTAPRO" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTAAZI]"
+                      dataType="decimal"
+                      name="AUTAZ_AZSTAAZI" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTACOD]"
+                      dataType="decimal"
+                      name="AUTAZ_AZSTACOD" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZSTAZON]"
+                      dataType="decimal"
+                      name="AUTAZ_AZSTAZON" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZCODOPR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="AUTAZ_AZCODOPR" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZMATDIP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="AUTAZ_AZMATDIP" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZREGION]"
+                      dataType="decimal"
+                      name="AUTAZ_AZREGION" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZDATOPR]"
+                      dataType="decimal"
+                      name="AUTAZ_AZDATOPR" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZORAOPR]"
+                      dataType="decimal"
+                      name="AUTAZ_AZORAOPR" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZPROVEN]"
+                      dataType="decimal"
+                      name="AUTAZ_AZPROVEN" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAGOP]"
+                      dataType="decimal"
+                      name="AUTAZ_AZFLAGOP" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG01]"
+                      dataType="decimal"
+                      name="AUTAZ_AZFLAG01" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG02]"
+                      dataType="decimal"
+                      name="AUTAZ_AZFLAG02" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG03]"
+                      dataType="decimal"
+                      name="AUTAZ_AZFLAG03" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG04]"
+                      dataType="decimal"
+                      name="AUTAZ_AZFLAG04" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_AZFLAG05]"
+                      dataType="decimal"
+                      name="AUTAZ_AZFLAG05" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].ExternalColumns[AUTAZ_DATA_OPERAZIONE]"
+                      dataType="decimal"
+                      name="AUTAZ_DATA_OPERAZIONE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTAPRO]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTAPRO]"
+                      name="AUTAZ_AZSTAPRO" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTAAZI]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTAAZI]"
+                      name="AUTAZ_AZSTAAZI" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTACOD]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTACOD]"
+                      name="AUTAZ_AZSTACOD" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTAZON]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZSTAZON]"
+                      name="AUTAZ_AZSTAZON" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZCODOPR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZCODOPR]"
+                      name="AUTAZ_AZCODOPR" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZMATDIP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZMATDIP]"
+                      name="AUTAZ_AZMATDIP" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZREGION]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZREGION]"
+                      name="AUTAZ_AZREGION" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZDATOPR]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZDATOPR]"
+                      name="AUTAZ_AZDATOPR" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZORAOPR]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZORAOPR]"
+                      name="AUTAZ_AZORAOPR" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZPROVEN]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZPROVEN]"
+                      name="AUTAZ_AZPROVEN" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAGOP]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAGOP]"
+                      name="AUTAZ_AZFLAGOP" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG01]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG01]"
+                      name="AUTAZ_AZFLAG01" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG02]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG02]"
+                      name="AUTAZ_AZFLAG02" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG03]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG03]"
+                      name="AUTAZ_AZFLAG03" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG04]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG04]"
+                      name="AUTAZ_AZFLAG04" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG05]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_AZFLAG05]"
+                      name="AUTAZ_AZFLAG05" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_DATA_OPERAZIONE]"
+                      dataType="decimal"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[AUTAZ_DATA_OPERAZIONE]"
+                      name="AUTAZ_DATA_OPERAZIONE" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="tb_autaz_tazstat"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tb_autaz_tazstat]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Connections[OleDbConnection]"
+                  connectionManagerID="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TargetConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZSTAPRO]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZSTAPRO"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstapro]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAPRO]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZSTAAZI]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZSTAAZI"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstaazi]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAAZI]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZSTACOD]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZSTACOD"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstacod]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTACOD]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZSTAZON]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZSTAZON"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstazon]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZSTAZON]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZCODOPR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="AUTAZ_AZCODOPR"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azcodopr]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZCODOPR]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZMATDIP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="AUTAZ_AZMATDIP"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azmatdip]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZMATDIP]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZREGION]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZREGION"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azregion]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZREGION]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZDATOPR]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZDATOPR"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azdatopr]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZDATOPR]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZORAOPR]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZORAOPR"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azoraopr]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZORAOPR]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZPROVEN]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZPROVEN"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azproven]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZPROVEN]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZFLAGOP]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZFLAGOP"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflagop]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAGOP]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZFLAG01]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZFLAG01"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag01]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG01]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZFLAG02]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZFLAG02"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag02]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG02]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZFLAG03]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZFLAG03"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag03]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG03]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZFLAG04]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZFLAG04"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag04]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG04]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_AZFLAG05]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_AZFLAG05"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag05]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_AZFLAG05]" />
+                    <inputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].Columns[AUTAZ_DATA_OPERAZIONE]"
+                      cachedDataType="decimal"
+                      cachedName="AUTAZ_DATA_OPERAZIONE"
+                      externalMetadataColumnId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_data_operazione_str]"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output].Columns[AUTAZ_DATA_OPERAZIONE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_codice_pk]"
+                      dataType="i8"
+                      name="autaz_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstapro]"
+                      dataType="i4"
+                      name="autaz_azstapro" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstaazi]"
+                      dataType="i4"
+                      name="autaz_azstaazi" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstacod]"
+                      dataType="i4"
+                      name="autaz_azstacod" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azstazon]"
+                      dataType="i4"
+                      name="autaz_azstazon" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azcodopr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="autaz_azcodopr" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azmatdip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="autaz_azmatdip" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azregion]"
+                      dataType="i4"
+                      name="autaz_azregion" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azdatopr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="autaz_azdatopr" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azoraopr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="autaz_azoraopr" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_data_operazione]"
+                      dataType="dbTimeStamp"
+                      name="autaz_data_operazione" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azproven]"
+                      dataType="i4"
+                      name="autaz_azproven" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflagop]"
+                      dataType="i4"
+                      name="autaz_azflagop" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag01]"
+                      dataType="i4"
+                      name="autaz_azflag01" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag02]"
+                      dataType="i4"
+                      name="autaz_azflag02" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag03]"
+                      dataType="i4"
+                      name="autaz_azflag03" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag04]"
+                      dataType="i4"
+                      name="autaz_azflag04" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_azflag05]"
+                      dataType="i4"
+                      name="autaz_azflag05" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_data_modifica]"
+                      dataType="dbTimeStamp"
+                      name="autaz_data_modifica" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_descr_utente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="autaz_descr_utente" />
+                    <externalMetadataColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input].ExternalColumns[autaz_data_operazione_str]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="autaz_data_operazione_str" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TAZSTAT- --&gt; AUTAZ.Paths[OLE DB Source Output]"
+              endId="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (1)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (1)"
+      DTS:DTSID="{02FCC539-FBE0-4CCB-9690-B0F4960503A2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (1)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;  VALUES&#xA;    ('B','SSIS-TAZSTAT',GETDATE(),'30-03','Package AZ124_30 Inizio 2019-10-01');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (2)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (2)"
+      DTS:Disabled="True"
+      DTS:DTSID="{C6E3902B-DED9-47C1-93A8-008A342C61D2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (2)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-02','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (3)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (3)"
+      DTS:Disabled="True"
+      DTS:DTSID="{8ED53C43-B2F2-4F37-A900-C18800F33D9E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (3)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-03','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (4)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (4)"
+      DTS:Disabled="True"
+      DTS:DTSID="{224B51F7-B96E-42D5-B8D9-62839850324B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (4)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-04','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (5)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (5)"
+      DTS:Disabled="True"
+      DTS:DTSID="{CDC5715B-8602-4E9F-AA2D-53D6C527575E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (5)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-05','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (6)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (6)"
+      DTS:Disabled="True"
+      DTS:DTSID="{11FC877E-ADCA-473A-9A50-5F46F609D6B3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (6)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="5">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-06','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG END"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG END"
+      DTS:DTSID="{CCDAEE06-42A0-4775-88FE-195AA7C09539}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG END"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;  VALUES&#xA;    ('B','SSIS-TAZSTAT',GETDATE(),'30-99','Package AZ124_30 Fine 2019-10-03');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A1A3374-44F4-476B-A475-52F321E947D4}"
+      DTS:From="Package\Trace AuLOG (1)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo"
+      DTS:To="Package\delete tb_autaz_tazstat" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{09C02894-71BD-4831-B59A-C759652725A9}"
+      DTS:From="Package\delete tb_autaz_tazstat"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 1"
+      DTS:To="Package\TAZSTAT- --&gt; AUTAZ" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{4B1005F9-6928-4F60-BA24-C90A7FC8FDB4}"
+      DTS:From="Package\TAZSTAT- --&gt; AUTAZ"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 2"
+      DTS:To="Package\Trace AuLOG END" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Questa sezione CDATA contiene le informazioni sul layout del pacchetto e include informazioni quali coordinate (x,y), larghezza e altezza.-->
+<!--Se si modifica manualmente la sezione e si commette un errore, è possibile eliminarla. -->
+<!--Sarà comunque possibile caricare manualmente il pacchetto, ma le informazioni precedenti sul layout verranno perse e gli elementi verranno nuovamente disposti nell'area di progettazione all'interno dell'apposita finestra.-->
+<Objects
+  Version="sql12">
+  <!--Ogni nodo seguente conterrà proprietà che non influiscono sul comportamento di runtime.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\delete tb_autaz_tazstat"
+          TopLeft="45.5,117.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\TAZSTAT- --&gt; AUTAZ"
+          TopLeft="56.5,202.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Trace AuLOG (1)"
+          TopLeft="62.5,33.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Trace AuLOG (2)"
+          TopLeft="767,205.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Trace AuLOG (3)"
+          TopLeft="772,146.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Trace AuLOG (4)"
+          TopLeft="778,82.4999999999999" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Trace AuLOG (5)"
+          TopLeft="769,26.4999999999999" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Trace AuLOG (6)"
+          TopLeft="776,264.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Trace AuLOG END"
+          TopLeft="65.5,284.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo]"
+          TopLeft="140.75,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 1]"
+          TopLeft="143.25,159.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 2]"
+          TopLeft="147.25,244.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TAZSTAT- --&gt; AUTAZ">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat"
+          TopLeft="14.5000000000001,232.5" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT"
+          TopLeft="21.5,108.5" />
+        <EdgeLayout
+          Id="Package\TAZSTAT- --&gt; AUTAZ.Paths[OLE DB Source Output]"
+          TopLeft="95.2500000000001,150.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,82"
+              Start="0,0"
+              End="0,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TAZSTAT- --&gt; AUTAZ\DB2 - TAZSTAT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

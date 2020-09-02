@@ -1,0 +1,1978 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/8/2010 10:19:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PAIOLETTI"
+  DTS:CreatorName="PAIOLETTI\i.paioletti"
+  DTS:DelayValidation="True"
+  DTS:Description="Descrizione pacchetto SSIS"
+  DTS:DTSID="{5082E6AF-5BA4-4913-8D23-7E99CEB5AECF}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0600.250"
+  DTS:LocaleID="1040"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="AZ124_16_Osiride"
+  DTS:VersionBuild="1946"
+  DTS:VersionGUID="{221B6571-315C-4E59-8315-93E638F87D7D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FlatFileConnection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9D45668C-7EE0-4BD3-B25A-1E7349AB80CE}"
+      DTS:ObjectName="FlatFileConnection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1040"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\INPS\Osiride_Out\Osiride2.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="1671"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AUT99_RIGA"
+              DTS:DTSID="{D6841EC7-3981-4658-861F-F6355335FE07}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LogConnection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3619C070-31D9-4FF6-BA21-A9929A1266CB}"
+      DTS:ObjectName="LogConnection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLINPSSVIL04\SQL04,1900;User ID=AUC_SSIS;Initial Catalog=SSIS_LOG;Provider=SQLNCLI11;Auto Translate=False;Application Name=SSIS-0  Importaz_tab_catalogo-{DEE1AC56-2E0E-42A0-BCA8-6022615AACD3}ARIANNA.msdb.sa1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARU4RM8kMFUC1WZRI2zfmmwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADhBaQAC7ZHgCwFAn6X/y2l+WSgcQjBpIgK0LufPNrT1AAAAAAOgAAAAAIAACAAAAAiw9G1O7s2Ogrki84enooREC5QXJDOXV++VZE31tWPEhAAAADA2Z9CcD7LJZf/Bo8CBqNfQAAAAIjGytmuNfUdroH0ie5AY99okRAXCbfXvpw1kJ5EEDtX8QkmWBayFogmJxbcAW5DWBJri3qouG1u/KbO0Vg4kuQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TargetConnection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+      DTS:ObjectName="TargetConnection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SQLINPSSVIL06.SER-TEST.INPS,2059;User ID=AUC;Initial Catalog=AUC;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=false;Application Name=SSIS-1  ImportINPS-{B19C49F7-778F-4489-B704-955CBF9985C1}TargetConnection;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARU4RM8kMFUC1WZRI2zfmmwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAH/koWvujGqUxlA7/bBMx4hJ6CBi5/D0bFmwTPAbaRGAAAAAAOgAAAAAIAACAAAAAmg3iqXwJAGKj8+yaGJgs4m5od6zIBLBzBhmRbz3sHySAAAADLEzhCdupf3XAi4UJ15tubXjQ+P0j1UQpv2qh41aHldkAAAADIFTubjmG5WI1BZ15CzdBVoIsS4ijijwN9uV/F8FsIEG3zrApDC3AMU8tIYZGhxTlauIG+1opinjOBOWw6Z9w0</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\INPS\Anagrafe Unica del Contribuente\AUC-SSIS\Configurazioni\INPS\PRODUZIONE\AZ124_14_ComUnicaToAUC_PROD.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{03197DFA-C85B-47F0-A8D0-0EE747D8AAC0}"
+      DTS:ObjectName="PROD" />
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\INPS\Anagrafe Unica del Contribuente\AUC-SSIS\Configurazioni\INPS\COLLAUDO\AZ124_14_ComUnicaToAUC_COLL.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{DBCB9808-75DF-4F82-BC26-0A87AA1B3B75}"
+      DTS:ObjectName="COLL" />
+    <DTS:Configuration
+      DTS:ConfigurationString="C:\INPS\Anagrafe Unica del Contribuente\AUC-SSIS\Configurazioni\INPS\SVILUPPO\AZ124_14_ComUnicaToAUC_SVIL.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{86417765-68B5-4B92-A76E-05629C4A1E8A}"
+      DTS:ObjectName="SVIL" />
+  </DTS:Configurations>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="LogConnection"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{8FC2DB72-AF04-417A-B7DD-B28EEAB7863C}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55188CEE-BF60-4F18-90FF-89A0E37D7D60}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="K_DB_TARGET_CONN_STRING">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=SQLINPSSVIL06.SER-TEST.INPS,2059;Initial Catalog=AUC;Persist Security Info=True;User ID=AUC;Password=sw54-1fr3</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{67251966-893B-4A8E-8623-E2893282ED95}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="K_LOG_ENABLED">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3110428F-3CAA-4FAC-909C-3027F2484D52}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="oFileList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C476FB7D-D609-4815-A637-B0CBA312629A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sDestinazione">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1D306414-9EB3-4718-9D58-3B1DD0E515E1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sFile">
+      <DTS:VariableValue
+        DTS:DataType="8">OsirideOut</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BCE852B6-D49F-4073-91B0-F09D815C5263}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strPathOutput">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\INPS\Anagrafe Unica del Contribuente\MigrazioneInfoCamereToAUC\SA_VINPSM_1_7_2013</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{591C5839-79E5-4C27-A4C6-7BBDBBB14065}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="varID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{8FC2DB72-AF04-417A-B7DD-B28EEAB7863C}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:PropertyExpression
+    DTS:Name="LoggingMode">@[User::K_LOG_ENABLED]</DTS:PropertyExpression>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\OSIRIDE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{278029C3-0617-4010-8B03-164C9A948306}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="OSIRIDE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Aggiornamento AUSVI Data di Registrazione Osiride"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Aggiornamento AUSVI Data di Registrazione Osiride"
+          DTS:DTSID="{21448624-CCAC-4BB8-B545-42BB10792440}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Aggiornamento AUSVI Data di Registrazione Osiride"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="UPDATE tb_ausvi_visura_soggetto&#xA;SET ausvi_data_registrazione_osiride = GETDATE()&#xA;FROM tb_auvis_visure &#xA;INNER JOIN tb_ausvi_visura_soggetto ON tb_auvis_visure.auvis_CF = tb_ausvi_visura_soggetto.ausvi_codice_fiscale&#xA;WHERE tb_auvis_visure.auvis_flag03 = 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Aggiornamento colonna auvis_nome_file"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Aggiornamento colonna auvis_nome_file"
+          DTS:DTSID="{AA5FD257-6020-4C71-9C9A-535A8CFBAFAA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Aggiornamento colonna auvis_nome_file"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">" UPDATE tb_auvis_visure SET auvis_nome_file = ' " + (DT_WSTR, 255) @[User::sFile]  + "' WHERE auvis_flag03 = 1 ;"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource=" UPDATE tb_auvis_visure SET auvis_nome_file = ' OsirideOut' WHERE auvis_flag03 = 1 ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Elaborazione"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Elaborazione"
+          DTS:DTSID="{66D828DB-26DE-4AB3-8D08-37CF013DB796}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Elaborazione"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="DECLARE @return_value int&#xA;EXEC @return_value = [dbo].[SP_Osiride_Start]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Estrai Output"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ABDC7E4C-603E-4FAE-A0B1-566A6BE1DF74}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Estrai Output"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              version="1">
+              <components>
+                <component
+                  refId="Package\OSIRIDE\Estrai Output\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Flat File Destination"
+                  localeId="1040"
+                  name="Flat File Destination">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\OSIRIDE\Estrai Output\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FlatFileConnection]"
+                      connectionManagerRefId="Package.ConnectionManagers[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\OSIRIDE\Estrai Output\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\OSIRIDE\Estrai Output\Flat File Destination.Inputs[Flat File Destination Input].Columns[AUT99_RIGA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2000"
+                          cachedName="AUT99_RIGA"
+                          externalMetadataColumnId="Package\OSIRIDE\Estrai Output\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AUT99_RIGA]"
+                          lineageId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output].Columns[AUT99_RIGA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\OSIRIDE\Estrai Output\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AUT99_RIGA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1671"
+                          name="AUT99_RIGA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="TB_AUT99_Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TB_AUT99_OSIRIDE_OUT]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT AUT99_RIGA
+FROM TB_AUT99_OSIRIDE_OUT
+ORDER BY IdRiga;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[TargetConnection]"
+                      connectionManagerRefId="Package.ConnectionManagers[TargetConnection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output].Columns[AUT99_RIGA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output].ExternalColumns[AUT99_RIGA]"
+                          length="2000"
+                          lineageId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output].Columns[AUT99_RIGA]"
+                          name="AUT99_RIGA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output].ExternalColumns[AUT99_RIGA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2000"
+                          name="AUT99_RIGA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output].Columns[AUT99_RIGA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2000"
+                          lineageId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output].Columns[AUT99_RIGA]"
+                          name="AUT99_RIGA" />
+                        <outputColumn
+                          refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\OSIRIDE\Estrai Output.Paths[OLE DB Source Output]"
+                  endId="Package\OSIRIDE\Estrai Output\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\OSIRIDE\Estrai Output\TB_AUT99_Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Infasamento tb_austosi_storico_osiride"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Infasamento tb_austosi_storico_osiride"
+          DTS:DTSID="{F988DF6E-1040-48A9-81FD-AB564B189989}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Infasamento tb_austosi_storico_osiride"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[tb_austosi_storico_osiride]&#xA;           ([austosi_ausca_codice_pk]&#xA;           ,[austosi_codice_fiscale]&#xA;           ,[austosi_nome_file]&#xA;           ,[austosi_data_registrazione_osiride]&#xA;           ,[austosi_data_modifica]&#xA;           ,[austosi_descr_utente])&#xA;&#xA;SELECT &#xA;ausvi_ausca_codice_pk,&#xA;ausvi_codice_fiscale,&#xA;auvis_nome_file,&#xA;ausvi_data_registrazione_osiride,&#xA;GetDate(),&#xA;'Adminplus'&#xA;FROM tb_auvis_visure &#xA;INNER JOIN tb_ausvi_visura_soggetto ON tb_auvis_visure.auvis_CF = tb_ausvi_visura_soggetto.ausvi_codice_fiscale&#xA;WHERE (tb_auvis_visure.auvis_flag03 = 1)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\NomeFile"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="NomeFile"
+          DTS:DTSID="{7E634EAC-FF19-4484-A939-8C0E112BCF73}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NomeFile"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Select 'Osiride.fi.'+ Replace(convert(varchar(30),getdate(),112),'-','')"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::sFile" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Percorsi e Filename"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="Script Task"
+          DTS:DTSID="{8BB2B79B-63ED-4EE1-8CE5-8445AF1A2173}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Percorsi e Filename"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_1f4ca96ca5b642c385c9700cd571e978"
+              VSTAMajorVersion="3"
+              VSTAMinorVersion="0"
+              Language="VisualBasic"
+              ReadOnlyVariables="User::sFile,User::strPathOutput">
+              <ProjectItem
+                Name="st_1f4ca96ca5b642c385c9700cd571e978.vbproj"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ST_1f4ca96ca5b642c385c9700cd571e978.vbproj</RootNamespace>
+    <AssemblyName>ST_1f4ca96ca5b642c385c9700cd571e978.vbproj</AssemblyName>
+    <StartupObject></StartupObject>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ProjectGuid>{DB0B0CCA-56A6-4A77-91BE-F7ED73DC7DA0}</ProjectGuid>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScriptMain.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="" />
+        <Host Name="SSIS_ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="$safeprojectname" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\AssemblyInfo.vb"
+                Encoding="UTF8"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("ST_1f4ca96ca5b642c385c9700cd571e978.vbproj")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("ST_1f4ca96ca5b642c385c9700cd571e978.vbproj")> 
+<Assembly: AssemblyCopyright("Copyright @  2017")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("2cf8b645-48d1-4d10-a6fb-01d55da5cdd9")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\Settings.Designer.vb"
+                Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>st_1f4ca96ca5b642c385c9700cd571e978</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>st_1f4ca96ca5b642c385c9700cd571e978</msb:DisplayName>
+		<msb:ProjectId>{DA23BABF-8024-48B0-B670-8CC3C8E0A0C2}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="st_1f4ca96ca5b642c385c9700cd571e978.vbproj"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="ScriptMain.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
+                Name="ScriptMain.vb"
+                Encoding="UTF8"><![CDATA[' Microsoft SQL Server Integration Services Script Task
+' Write scripts using Microsoft Visual Basic 2008.
+' The ScriptMain is the entry point class of the script.
+
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Runtime
+Imports System.Data.SqlClient
+
+
+
+<Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute> _
+<System.CLSCompliantAttribute(False)> _
+Partial Public Class ScriptMain
+	Inherits Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+
+	Enum ScriptResults
+		Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success
+		Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+	End Enum
+	
+
+	' The execution engine calls this method when the task executes.
+	' To access the object model, use the Dts property. Connections, variables, events,
+	' and logging features are available as members of the Dts property as shown in the following examples.
+	'
+	' To reference a variable, call Dts.Variables("MyCaseSensitiveVariableName").Value
+	' To post a log entry, call Dts.Log("This is my log text", 999, Nothing)
+	' To fire an event, call Dts.Events.FireInformation(99, "test", "hit the help message", "", 0, True)
+	'
+	' To use the connections collection use something like the following:
+	' ConnectionManager cm = Dts.Connections.Add("OLEDB")
+	' cm.ConnectionString = "Data Source=localhost;Initial Catalog=AdventureWorks;Provider=SQLNCLI10;Integrated Security=SSPI;Auto Translate=False;"
+	'
+	' Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+	' 
+	' To open Help, press F1.
+
+	Public Sub Main()
+		'
+		' Add your code here
+        '
+        'Dim sFullPath As String
+
+        'sFullPath = Dts.Variables["sFile"].Value.
+        '+ Dts.Variables["sFile"].Value
+        'FlatFileConnection()
+        '    Dts.Variables["sFile"].Value;
+
+        'sFile()
+        'strPathOutput()
+
+        'Dim myFlatFileConnection As String
+        Dim sFullPath As String
+        Dim sFileName As String
+        Dim sPercorso As String
+        'Dim sFullPath2 As String
+
+        'myFlatFileConnection = DirectCast(Dts.Connections("FlatFileConnection").AcquireConnection(Dts.Transaction), String)
+        'sFullPath = DirectCast(Dts.Variables["sFile"].Value, String)
+        'sFullPath = DirectCast(Dts.Variables["User::sFile"].Value, String)
+        sFileName = Dts.Variables("User::sFile").Value.ToString
+        sPercorso = Dts.Variables("User::strPathOutput").Value.ToString
+        sFullPath = sPercorso.Trim + sFileName.Trim + ".txt"
+
+        'MsgBox(myFlatFileConnection, MsgBoxStyle.Information, "Flat File Connection")
+        'MsgBox(sPercorso, MsgBoxStyle.Information, "sPercorso")
+        'MsgBox(sFileName, MsgBoxStyle.Information, "sFileName")
+        'MsgBox(sFullPath, MsgBoxStyle.Information, "sFullPath")
+
+        Dts.Connections("FlatFileConnection").ConnectionString = sFullPath
+
+		Dts.TaskResult = ScriptResults.Success
+	End Sub
+
+End Class]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\Resources.resx"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\Resources.Designer.vb"
+                Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace]]></ProjectItem>
+              <BinaryItem
+                Name="ST_1f4ca96ca5b642c385c9700cd571e978.vbproj.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDACGtVVsAAAAAAAAAAOAAIiALAVAAABoAAAAIAAAAAAAAcjkA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACA5AABPAAAAAEAAAIgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAeBkAAAAgAAAAGgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAIgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABU
+OQAAAAAAAEgAAAACAAUApCIAAMQVAAABAAAAAAAAAGg4AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
+AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
+CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqQnMiAAAKKCYAAAqACAAABCoeAignAAAKKgAAGzABAD8A
+AAAAAAAAfgcAAAQtMn4IAAAEKCYAAAooKAAACn4HAAAELRxzDQAABoAHAAAE3hB+CAAABCgmAAAK
+KCkAAArcfgcAAAQqAAEQAAACAB0ADCkAEAAAAAAeAigqAAAKKhMwAwB9AAAAAQAAEQIoKwAACm8s
+AAAKcjMAAHBvLQAACm8uAAAKby8AAAoLAigrAAAKbywAAApySwAAcG8tAAAKby4AAApvLwAACm8w
+AAAKB28wAAAKcnMAAHAoMQAACgoCKCsAAApvMgAACnJ9AABwbzMAAAoGbzQAAAoCKCsAAAoWbzUA
+AAoqNgIDKCYAAAooNgAACioeAig3AAAKKi7QCAAAAigjAAAKKh4CKC8AAAoqABMwAQAUAAAAAgAA
+EQKMBQAAGy0IKAEAACsKKwICCgYqIgP+FQUAABsqAAAAEzACACgAAAADAAARAns5AAAKbzoAAAoK
+BowIAAAbLRIoAgAAKwoCezkAAAoGbzsAAAoGKkoCKCIAAAoCczwAAAp9OQAACioAQlNKQgEAAQAA
+AAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA3AcAACN+AABICAAATAkAACNTdHJpbmdzAAAAAJQR
+AACkAAAAI1VTADgSAAAQAAAAI0dVSUQAAABIEgAAfAMAACNCbG9iAAAAAAAAAAIAAAFXHaIJCQ8A
+AAD6ATMAFgAAAQAAADAAAAAKAAAADAAAABkAAAAEAAAAPAAAAAIAAAA3AAAAAwAAAAQAAAAIAAAA
+CQAAAAgAAAABAAAABQAAAAEAAAADAAAAAwAAAAIAAAAAADIFAQAAAAAABgAxA7QHBgDWA7QHBgAI
+AvUGDwBoCAAABgBJAusFBgAUA+sFBgC9A+sFBgBRA+sFBgBqA+sFBgCQAusFBgCFA2oFBgA1Am4H
+BgCxAW4HBgDcAusFBgCrAjAECgDUAY8GCgCcARwFCgAcAhwFDgB0AUQHDgDFBggHBgDEAvUGDgBg
+Ao0HDgB4Ao0ABgDhCGoFDgCrBkQHDgD5Ao0ABgAnAWoFDgABAOAECgC/AXsFBgBtBtQHBgD9BdYF
+CgCEAcEFBgDrAfUGEgCbA7cEEgBYAbcEBgBoBGoFBgB2BWoFBgDgAGoFBgBCCesFBgCnCLQHBgDt
+Bh8EEgAKBbcEFgB7CAQBFgDXAAQBBgBhBGoFFgCbCAQBFgB9BgQBBgDWBmoFAAAAACsAAAAAAAEA
+AQAAAAAAswUQCU0AAQABAAAAAADDBhAJUQABAAIAAAEQAOgIEAlhAAEAAwAAAAAAHQjlB2EABQAI
+AAABEACFCG0EgQAHAAwAAQAAAJgFbQSNAAkADwAFAQAANgcAAGEACQARAAUBAAAQAAAAYQAJABgA
+AgEAAMYIAACVAAoAGgAxADIGDQExAAkGFQExAB0GHQExAEsGJQERAM4GLQERAEwBMQERAPQDNQER
+ANsIOQEhAAYJywAGBnwAPAFWgLYIPwFWgCwBPwFQIAAAAAAGGOAGBgABAFggAAAAAAYY4AYGAAEA
+YCAAAAAAERjmBkMBAQCKIAAAAAATCLYGRwEBAJYgAAAAABMIowVMAQEAoiAAAAAAEwinBlEBAQCu
+IAAAAAATCCYHVgEBALogAAAAAAMY4AYGAAEAwiAAAAAAFghpBlsBAQDuIAAAAAAWCDQBYAEBAPUg
+AAAAABYIQAFlAQEA/SAAAAAAERjmBkMBAgAOIQAAAAAGGOAGBgACABghAAAAABYI/ANrAQIAdCEA
+AAAABhjgBgYAAgB8IQAAAAAGAJ4FBgACAAUiAAAAAMYCkAijAAIAEyIAAAAAxgLLAKgAAwAbIgAA
+AACDACQBcAEDACciAAAAAMYCXwSLAAMAMCIAAAAAEQBpAHUBAwBQIgAAAAABAFUAfQEEALogAAAA
+AAYY4AYGAAUAXCIAAAAAAwiyAEoABQCQIgAAAAAGGOAGBgAFAAAAAQAZBAAAAQAHBgAAAQDCAAAA
+AQDCAAkA4AYBABEA4AYGABkA4AYKACkA4AYQADEA4AYQADkA4AYQAEEA4AYQAEkA4AYQAFEA4AYQ
+AFkA4AYVAGEA4AYVAGkA4AYQAHEA4AYQAHkA4AYQAIEA4AYaAJEA4AYgAKkA4AYGALEA4AYGALkA
+4AYGANEA4AYmAOkA4AYQAAkB4AYGABEB4AYGAJkA4AYGAKEA4AYGAAwA4AYGABQA4AYGABwA4AYG
+ACQA4AYGAAwAsgBKABQAsgBKABwAsgBKACQAsgBKAMEA4AYGANkA8gBPANkAPglXAPEA4AZdAEEB
+EARlAAEB4AYGAEkBsAZqAEkB8ghqABkB4AYGABkBvgh0AFEBdwh6AFkBYQWAAGEB/AOHAMEAXwSL
+AGkBcQWLAGkB1AiPAFEBlwiWAHEBYQWcAHkBSgQQAFEB9wgBAMEAkAijAMEAywCoAIEBowC0ADQA
+BgnLADwA/ANKADwABgTiADwA4AYGAAgALAADAQgAMAAIASkAqwA0Ay4ACwCtAS4AEwC2AS4AGwDV
+AS4AIwDeAS4AKwAOAi4AMwAOAi4AOwDeAS4AQwAUAi4ASwAOAi4AUwArAi4AWwAOAi4AYwAxAi4A
+awBbAi4AcwBoAkAAiwAIAUAAgwCwAkMAewC5AkMAgwCwAkkAqwBFA2MAewC5AmMAgwCwAmkAqwBZ
+A4AAiwAIAYMAkwAIAYMAmwAIAYMAewC5AokAqwBmA6AAiwAIAakAgwDVAcAAiwAIAckAgwDVAeAA
+iwAIAeMAuwAIAeMAUwAOAukAswAIAQMBgwCwAgMBowDSAiMBgwCwAiMBWwAOAiACgwCwAiACiwAI
+AUACgwCwAkACiwAIAWACgwCwAmACiwAIAYACgwCwAoACiwAIAaACiwAIAcACiwAIAeACiwAIAeAC
+gwCwAgADiwAIASADiwAIASADgwCwAm8ArAC/AAQAAQAFAAUABgAHAAkACAAAAMUGhQEAALUFigEA
+AKsGjwEAADgHlAEAAG0GmQEAAFABngEAABkEowEAALYAqAECAAQAAwACAAUABQACAAYABwACAAcA
+CQACAAkACwACAAoADQABAAsADQACAA4ADwACABgAEQAuADUAPABDALEAxADTANoABIAAAAEAAAAA
+AAAAAAAAAAAAbQQAAAQAAAAAAAAAAAAAAOgAhAAAAAAABAAAAAAAAAAAAAAA6ABqBQAAAAAKAAAA
+AAAAAAAAAADxAI0AAAAAAAwAAAAAAAAAAAAAAPoAmAQAAAAADAAAAAAAAAAAAAAA+gA0AAAAAAAA
+AAAAAQAAACkIAAAIAAQACQAEAAoABwAAABAAEgBTAAAAEAArAFMAAAAAAC0AUwBxALoAcQDdAAAA
+AAAAQ29udGV4dFZhbHVlYDEAVGhyZWFkU2FmZU9iamVjdFByb3ZpZGVyYDEAPE1vZHVsZT4ATWlj
+cm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAFQARGlzcG9zZV9fSW5zdGFuY2VfXwBDcmVhdGVf
+X0luc3RhbmNlX18AdmFsdWVfXwBtc2NvcmxpYgBNaWNyb3NvZnQuVmlzdWFsQmFzaWMAQ3JlYXRl
+SW5zdGFuY2UAZ2V0X0dldEluc3RhbmNlAGluc3RhbmNlAEdldEhhc2hDb2RlAFZhcmlhYmxlAFJ1
+bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRz
+LlJ1bnRpbWUAR2V0VHlwZQBGYWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAF9yZXNDdWx0
+dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvbkJhc2UAQXBwbGljYXRp
+b25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxlU3RhdGUAR3VpZEF0dHJpYnV0ZQBIZWxwS2V5
+d29yZEF0dHJpYnV0ZQBHZW5lcmF0ZWRDb2RlQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVB
+dHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQ29t
+VmlzaWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAFN0YW5kYXJkTW9kdWxlQXR0
+cmlidXRlAEhpZGVNb2R1bGVOYW1lQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRl
+AFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBEZWJ1Z2dlckhpZGRlbkF0dHJpYnV0ZQBBc3NlbWJs
+eUZpbGVWZXJzaW9uQXR0cmlidXRlAE15R3JvdXBDb2xsZWN0aW9uQXR0cmlidXRlAEFzc2VtYmx5
+RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3Nl
+bWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAQ0xTQ29tcGxp
+YW50QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNv
+bXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAbV9WYWx1ZQBnZXRf
+VmFsdWUAc2V0X1ZhbHVlAEdldE9iamVjdFZhbHVlAFN5c3RlbS5UaHJlYWRpbmcAU3lzdGVtLlJ1
+bnRpbWUuVmVyc2lvbmluZwBzZXRfQ29ubmVjdGlvblN0cmluZwBUb1N0cmluZwBNYXRoAFNUXzFm
+NGNhOTZjYTViNjQyYzM4NWM5NzAwY2Q1NzFlOTc4LnZicHJvagBNaWNyb3NvZnQuU3FsU2VydmVy
+LlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuVGFza3MuU2NyaXB0VGFzawBNaWNy
+b3NvZnQuVmlzdWFsQmFzaWMuTXlTZXJ2aWNlcy5JbnRlcm5hbABTY3JpcHRPYmplY3RNb2RlbABT
+eXN0ZW0uQ29tcG9uZW50TW9kZWwAU1RfMWY0Y2E5NmNhNWI2NDJjMzg1Yzk3MDBjZDU3MWU5Nzgu
+dmJwcm9qLmRsbABnZXRfSXRlbQBTeXN0ZW0AVHJpbQBFbnVtAFN5c3RlbS5Db21wb25lbnRNb2Rl
+bC5EZXNpZ24AU2NyaXB0TWFpbgBnZXRfQXBwbGljYXRpb24ATXlBcHBsaWNhdGlvbgBTeXN0ZW0u
+Q29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBDdWx0
+dXJlSW5mbwBtX0FwcE9iamVjdFByb3ZpZGVyAG1fVXNlck9iamVjdFByb3ZpZGVyAG1fQ29tcHV0
+ZXJPYmplY3RQcm92aWRlcgBtX015V2ViU2VydmljZXNPYmplY3RQcm92aWRlcgBnZXRfUmVzb3Vy
+Y2VNYW5hZ2VyAENvbm5lY3Rpb25NYW5hZ2VyAFN5c3RlbS5Db2RlRG9tLkNvbXBpbGVyAGdldF9V
+c2VyAEVudGVyAGdldF9Db21wdXRlcgBNeUNvbXB1dGVyAF9yZXNNZ3IAQWN0aXZhdG9yAC5jdG9y
+AC5jY3RvcgBNb25pdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMu
+RGV2aWNlcwBnZXRfV2ViU2VydmljZXMATXlXZWJTZXJ2aWNlcwBNaWNyb3NvZnQuVmlzdWFsQmFz
+aWMuQXBwbGljYXRpb25TZXJ2aWNlcwBTeXN0ZW0uUnVudGltZS5JbnRlcm9wU2VydmljZXMATWlj
+cm9zb2Z0LlZpc3VhbEJhc2ljLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJ1bnRpbWUuQ29tcGls
+ZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzFmNGNhOTZjYTViNjQyYzM4NWM5NzAwY2Q1
+NzFlOTc4LnZicHJvai5NeS5SZXNvdXJjZXMATXlSZXNvdXJjZXMAU1RfMWY0Y2E5NmNhNWI2NDJj
+Mzg1Yzk3MDBjZDU3MWU5NzgudmJwcm9qLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9k
+ZXMAZ2V0X1ZhcmlhYmxlcwBNeVNldHRpbmdzAEVxdWFscwBnZXRfQ29ubmVjdGlvbnMAUnVudGlt
+ZUhlbHBlcnMAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAQ29uY2F0AG1fU3luY09iamVj
+dABNeVByb2plY3QARXhpdABzZXRfVGFza1Jlc3VsdABtX0NvbnRleHQAU1RfMWY0Y2E5NmNhNWI2
+NDJjMzg1Yzk3MDBjZDU3MWU5NzgudmJwcm9qLk15AGdldF9Bc3NlbWJseQAAADFNAHkALgBSAGUA
+cwBvAHUAcgBjAGUAcwAuAE0AeQBSAGUAcwBvAHUAcgBjAGUAcwAAF1UAcwBlAHIAOgA6AHMARgBp
+AGwAZQAAJ1UAcwBlAHIAOgA6AHMAdAByAFAAYQB0AGgATwB1AHQAcAB1AHQAAAkuAHQAeAB0AAAl
+RgBsAGEAdABGAGkAbABlAEMAbwBuAG4AZQBjAHQAaQBvAG4AAAB5gJ4ajjLkRYWvi8wd+rnmAAQg
+AQEIAyAAAQUgAQEREQQgAQEOBCABAQIFIAIBDg4FIAEBEUUHIAQBDg4ODgYVEiQBEgwGFRIkARII
+BhUSJAESZQYVEiQBEiAEIAATAAcAARJtEYCZBSAAEoCdByACAQ4SgJ0EAAEcHAQAAQEcBAcCDg4F
+IAASgKkFIAASgK0GIAESgLEcAyAAHAMgAA4GAAMODg4OBSAAEoC5BiABEoC9HAQgAQIcAyAACAQH
+AR4AAh4ABRABAB4ABAoBHgAEBwETAAYVEiQBEwAHBhUScQETAAYVEnEBEwACEwAECgETAAUgAQET
+AAi3elxWGTTgiQiwP19/EdUKOgiJhF3NgIDMkQQAAAAABAEAAAAHBhUSJAESDAcGFRIkARIIBwYV
+EiQBEmUHBhUSJAESIAMGEnkDBhJ9AwYSGAIGHAIGCAMGESgDAAABBAAAEgwEAAASCAQAABJlBAAA
+EiAEAAASeQQAABJ9BQABARJ9BAAAEhgEIAASbQcQAQEeAB4ABzABAQEQHgAECAASDAQIABIIBAgA
+EmUECAASIAQIABJ5BAgAEn0ECAASGAQoABMACAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0
+aW9uVGhyb3dzAQgBAAIAAAAAAC8BACpTVF8xZjRjYTk2Y2E1YjY0MmMzODVjOTcwMGNkNTcxZTk3
+OC52YnByb2oAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxNwAABQEAAQAAKQEAJDJjZjhiNjQ1
+LTQ4ZDEtNGQxMC1hNmZiLTAxZDU1ZGE1Y2RkOQAADAEABzEuMC4wLjAAAEcBABouTkVURnJhbWV3
+b3JrLFZlcnNpb249djQuMAEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUQLk5FVCBGcmFtZXdvcmsg
+NAgBAAEAAAAAABgBAApNeVRlbXBsYXRlCDExLjAuMC4wAABhAQA0U3lzdGVtLldlYi5TZXJ2aWNl
+cy5Qcm90b2NvbHMuU29hcEh0dHBDbGllbnRQcm90b2NvbBJDcmVhdGVfX0luc3RhbmNlX18TRGlz
+cG9zZV9fSW5zdGFuY2VfXwAAABABAAtNeS5Db21wdXRlcgAAEwEADk15LkFwcGxpY2F0aW9uAAAM
+AQAHTXkuVXNlcgAAEwEADk15LldlYlNlcnZpY2VzAAAAALQAAADOyu++AQAAAJEAAABsU3lzdGVt
+LlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3Vs
+dHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNv
+dXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAABIOQAAAAAAAAAA
+AABiOQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVDkAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBt
+c2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAAAsBAAAAAAAAAAAAAAsBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAEjAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAaAMAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQAAAAAAAAAAAH4AKwABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABT
+AFQAXwAxAGYANABjAGEAOQA2AGMAYQA1AGIANgA0ADIAYwAzADgANQBjADkANwAwADAAYwBkADUA
+NwAxAGUAOQA3ADgALgB2AGIAcAByAG8AagAAAAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBu
+AAAAAAAxAC4AMAAuADAALgAwAAAAfgAvAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAFQA
+XwAxAGYANABjAGEAOQA2AGMAYQA1AGIANgA0ADIAYwAzADgANQBjADkANwAwADAAYwBkADUANwAx
+AGUAOQA3ADgALgB2AGIAcAByAG8AagAuAGQAbABsAAAAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAA
+eQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAxADcAAAAqAAEAAQBM
+AGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAIYALwABAE8AcgBpAGcAaQBuAGEA
+bABGAGkAbABlAG4AYQBtAGUAAABTAFQAXwAxAGYANABjAGEAOQA2AGMAYQA1AGIANgA0ADIAYwAz
+ADgANQBjADkANwAwADAAYwBkADUANwAxAGUAOQA3ADgALgB2AGIAcAByAG8AagAuAGQAbABsAAAA
+AAB2ACsAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAVABfADEAZgA0AGMAYQA5ADYAYwBh
+ADUAYgA2ADQAMgBjADMAOAA1AGMAOQA3ADAAMABjAGQANQA3ADEAZQA5ADcAOAAuAHYAYgBwAHIA
+bwBqAAAAAAA0AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAw
+AAAAOAAIAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAdDkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
+            </ScriptProject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Percorso Output"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Percorso Output"
+          DTS:DTSID="{009A31CC-D8B8-4A32-928C-278A2D2F880F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Percorso Output"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="SELECT [ausys_valore] FROM [dbo].[tb_ausys_sistema] WHERE [ausys_parametro] = 'PathOutputOsiride';"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::strPathOutput" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\OSIRIDE\Trace AuLOG (14-23)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Trace AuLOG (14-23)"
+          DTS:DTSID="{8180A497-995B-4DA0-839D-DBA7CF897611}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Trace AuLOG (14-23)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-ComUnicaToAUC',GETDATE(),'14-23','OSIRIDE - Fine Stored');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DC0D856C-74BB-4D05-8033-146FB83F4417}"
+          DTS:From="Package\OSIRIDE\Percorso Output"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\OSIRIDE\NomeFile" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C659133B-625C-4C70-AD7A-61BEFDF8563E}"
+          DTS:From="Package\OSIRIDE\NomeFile"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\OSIRIDE\Percorsi e Filename" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{4EB67064-B882-463D-B2CD-848CCF59AD5B}"
+          DTS:From="Package\OSIRIDE\Percorsi e Filename"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\OSIRIDE\Estrai Output" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{3557B3E8-53D5-470A-BE02-59743E2197E8}"
+          DTS:From="Package\OSIRIDE\Elaborazione"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\OSIRIDE\Trace AuLOG (14-23)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{B3A00F71-66B0-46F8-9FB5-5969535109F7}"
+          DTS:From="Package\OSIRIDE\Trace AuLOG (14-23)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\OSIRIDE\Percorso Output" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{87DED2D7-334B-4888-939D-98F132CEB0AA}"
+          DTS:From="Package\OSIRIDE\Estrai Output"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\OSIRIDE\Aggiornamento AUSVI Data di Registrazione Osiride" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{A798B0CF-3FE0-4056-9F83-555A805A6E70}"
+          DTS:From="Package\OSIRIDE\Aggiornamento colonna auvis_nome_file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\OSIRIDE\Infasamento tb_austosi_storico_osiride" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\OSIRIDE.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{7D498D0D-2244-419C-829C-24206306242E}"
+          DTS:From="Package\OSIRIDE\Aggiornamento AUSVI Data di Registrazione Osiride"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\OSIRIDE\Aggiornamento colonna auvis_nome_file" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (14-22) 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (14-22)"
+      DTS:DTSID="{CA34A704-E84D-4047-8D85-8CA460F2A009}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (14-22) 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;    ('B','SSIS-ComUnicaToAUC',GETDATE(),'14-22','OSIRIDE - Inizio');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG (14-24)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (14-24)"
+      DTS:DTSID="{B13B77CD-466A-4CE5-BA1D-0BD0E13A724E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG (14-24)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B19C49F7-778F-4489-B704-955CBF9985C1}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;    ('B','SSIS-ComUnicaToAUC',GETDATE(),'14-24','OSIRIDE - Fine');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7EB279AD-E706-4A21-A42C-24CC356D3B0F}"
+      DTS:From="Package\Trace AuLOG (14-22) 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\OSIRIDE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A76A2C9-883F-440D-97CA-9DF9E120737B}"
+      DTS:From="Package\OSIRIDE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Trace AuLOG (14-24)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="206,44"
+          Id="Package\OSIRIDE\Aggiornamento AUSVI Data di Registrazione Osiride"
+          TopLeft="62.566037735849,632.698113207549" />
+        <NodeLayout
+          Size="276,44"
+          Id="Package\OSIRIDE\Aggiornamento colonna auvis_nome_file"
+          TopLeft="54.9433962264156,740.962264150945" />
+        <NodeLayout
+          Size="172,44"
+          Id="Package\OSIRIDE\Elaborazione"
+          TopLeft="33.3207547169823,22.132075471698" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\OSIRIDE\Estrai Output"
+          TopLeft="52.0754716981137,474.132075471698" />
+        <NodeLayout
+          Size="232,44"
+          Id="Package\OSIRIDE\Infasamento tb_austosi_storico_osiride"
+          TopLeft="61.2830188679254,874.849056603773" />
+        <NodeLayout
+          Size="130,44"
+          Id="Package\OSIRIDE\NomeFile"
+          TopLeft="55.8490566037744,269.566037735847" />
+        <NodeLayout
+          Size="177,43"
+          Id="Package\OSIRIDE\Percorsi e Filename"
+          TopLeft="45.0943396226412,362.754716981133" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\OSIRIDE\Percorso Output"
+          TopLeft="50.8301886792451,194.207547169812" />
+        <NodeLayout
+          Size="173,44"
+          Id="Package\OSIRIDE\Trace AuLOG (14-23)"
+          TopLeft="31.3962264150941,110.018867924529" />
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint]"
+          TopLeft="118.490566037737,238.132075471698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="2.49056603773533,31.4339622641492"
+              Start="0,0"
+              End="2.49056603773533,23.9339622641492">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7358490566039" />
+                  <mssgle:LineSegment
+                    End="2.49056603773533,15.7358490566039" />
+                  <mssgle:LineSegment
+                    End="2.49056603773533,23.9339622641492" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 1]"
+          TopLeft="120.849056603774,313.566037735847">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="12.7452830188668,49.188679245286"
+              Start="0,0"
+              End="12.7452830188668,41.688679245286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.594339622643" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.594339622643"
+                    Point2="0,24.594339622643"
+                    Point3="4,24.594339622643" />
+                  <mssgle:LineSegment
+                    End="8.74528301886676,24.594339622643" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.74528301886676,24.594339622643"
+                    Point2="12.7452830188668,24.594339622643"
+                    Point3="12.7452830188668,28.594339622643" />
+                  <mssgle:LineSegment
+                    End="12.7452830188668,41.688679245286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 2]"
+          TopLeft="133.594339622641,405.754716981133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-14.0188679245275,68.3773584905648"
+              Start="0,0"
+              End="-14.0188679245275,60.8773584905648">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1886792452824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.1886792452824"
+                    Point2="0,34.1886792452824"
+                    Point3="-4,34.1886792452824" />
+                  <mssgle:LineSegment
+                    End="-10.0188679245275,34.1886792452824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.0188679245275,34.1886792452824"
+                    Point2="-14.0188679245275,34.1886792452824"
+                    Point3="-14.0188679245275,38.1886792452824" />
+                  <mssgle:LineSegment
+                    End="-14.0188679245275,60.8773584905648" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 3]"
+          TopLeft="119.094339622641,66.0566037735844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.20754716980991,43.962264150945"
+              Start="0,0"
+              End="-1.20754716980991,36.462264150945">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:LineSegment
+                    End="-1.20754716980991,22" />
+                  <mssgle:LineSegment
+                    End="-1.20754716980991,36.462264150945" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 4]"
+          TopLeft="117.886792452831,153.943396226416">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0.603773584905866,40.2641509433961"
+              Start="0,0"
+              End="0.603773584905866,32.7641509433961">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1509433962274" />
+                  <mssgle:LineSegment
+                    End="0.603773584905866,20.1509433962274" />
+                  <mssgle:LineSegment
+                    End="0.603773584905866,32.7641509433961" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 5]"
+          TopLeft="119.735849056604,518.056603773584">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="45.6226415094352,114.641509433965"
+              Start="0,0"
+              End="45.6226415094352,107.141509433965">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.3207547169804" />
+                  <mssgle:LineSegment
+                    End="45.6226415094352,57.3207547169804" />
+                  <mssgle:LineSegment
+                    End="45.6226415094352,107.141509433965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 6]"
+          TopLeft="192.867924528302,784.886792452831">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-15.6603773584902,89.9622641509413"
+              Start="0,0"
+              End="-15.6603773584902,82.4622641509413">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.9811320754707" />
+                  <mssgle:LineSegment
+                    End="-15.6603773584902,44.9811320754707" />
+                  <mssgle:LineSegment
+                    End="-15.6603773584902,82.4622641509413" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\OSIRIDE.PrecedenceConstraints[Constraint 7]"
+          TopLeft="165.358490566039,676.622641509435">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="27.5094339622628,64.3396226415098"
+              Start="0,0"
+              End="27.5094339622628,56.8396226415098">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1886792452824" />
+                  <mssgle:LineSegment
+                    End="27.5094339622628,32.1886792452824" />
+                  <mssgle:LineSegment
+                    End="27.5094339622628,56.8396226415098" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="SELECT AUT99_RIGA&#xD;&#xA;FROM TB_AUT99_OSIRIDE_OUT&#xD;&#xA;ORDER BY IdRiga;"
+          ParentId="Package\OSIRIDE"
+          Size="292,83"
+          Id="6630ce1b-c5fc-49a4-bd21-a1b038ca3cab"
+          TopLeft="205.207547169812,495.867924528302">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Courier New"
+              Size="17.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="-- T-SQL - ELABORAZIONE E POPOLAMENTO DI TUTTE LE TABELLE ---"
+          ParentId="Package\OSIRIDE"
+          Size="446,38"
+          Id="8d491fc9-664c-4797-b926-9ea7ed13f94a"
+          TopLeft="215.018867924529,36.5471698113215">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF0000FF"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection>
+                  <av:TextDecoration
+                    Location="Underline" />
+                </av:TextDecorationCollection>
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="PercorsoCompleto + NomeFile"
+          ParentId="Package\OSIRIDE"
+          Size="313,45"
+          Id="0202ee6e-5191-4621-a5c7-b8dc4f140053"
+          TopLeft="211.396226415094,355.301886792451">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="17.25"
+              Color="#FF080000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="-- PRODUZIONE DEL FILE DI TESTO DI OUTPUT"
+          ParentId="Package\OSIRIDE"
+          Size="328,38"
+          Id="459374fa-6c4c-4221-b939-47c940ef7055"
+          TopLeft="208.943396226416,466.547169811322">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF0000FF"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection>
+                  <av:TextDecoration
+                    Location="Underline" />
+                </av:TextDecorationCollection>
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="- Imposta il percorso completo&#xD;&#xA;- Cambia dinamicamente la connessione al &quot;FlatFileConnection&quot;"
+          ParentId="Package\OSIRIDE"
+          Size="816,63"
+          Id="e7c6106e-97fd-479d-9a58-db9149aa92ae"
+          TopLeft="206.754716981133,381.981132075471">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Courier New"
+              Size="17.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Select 'Osiride.fi.'+ Replace(convert(varchar(30),getdate(),112),'-','')"
+          ParentId="Package\OSIRIDE"
+          Size="824,44"
+          Id="77364e3c-1db3-4ebd-93c3-a2e0dd3e86fd"
+          TopLeft="228.037735849057,298.396226415094">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Courier New"
+              Size="17.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="-- DETERMINA IL NOME DEL FILE"
+          ParentId="Package\OSIRIDE"
+          Size="226,38"
+          Id="1e7ea21a-cef2-4337-a509-afa03893c634"
+          TopLeft="227.962264150943,275.566037735847">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF0000FF"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection>
+                  <av:TextDecoration
+                    Location="Underline" />
+                </av:TextDecorationCollection>
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="SELECT [ausys_valore] FROM [dbo].[tb_ausys_sistema] &#xD;&#xA;WHERE [ausys_parametro] = 'PathOutputOsiride';"
+          ParentId="Package\OSIRIDE"
+          Size="633,63"
+          Id="b3b37ae5-db52-446c-ba11-bb6ea8070398"
+          TopLeft="216.528301886792,197.377358490565">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Courier New"
+              Size="17.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="DECLARE @return_value int&#xD;&#xA;EXEC @return_value = [dbo].[SP_Osiride_Start]"
+          ParentId="Package\OSIRIDE"
+          Size="527,63"
+          Id="5d1fda6c-9741-4cf7-bd45-a9e6ac5eea36"
+          TopLeft="213.886792452831,53.7169811320746">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Courier New"
+              Size="17.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="-- Infasamento della tabella dello Storico Osiride &#xD;&#xA;[tb_austosi_storico_osiride]&#x9;--&#x9;"
+          ParentId="Package\OSIRIDE"
+          Size="540,58"
+          Id="687352de-cdde-4b54-a5bd-c3f0dacdbfd5"
+          TopLeft="312.188679245284,880.547169811322">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Courier New"
+              Size="15"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="-- DETERMINA IL PATH DI OUTPUT LEGGENDO AUSYS"
+          ParentId="Package\OSIRIDE"
+          Size="424,38"
+          Id="27810926-645e-49b3-9b16-4cd5248d9b90"
+          TopLeft="218.301886792453,176.056603773584">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF0000FF"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection>
+                  <av:TextDecoration
+                    Location="Underline" />
+                </av:TextDecorationCollection>
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="1068,994"
+          Size="1068,1038"
+          Id="Package\OSIRIDE"
+          TopLeft="5.5,119.688679245282" />
+        <NodeLayout
+          Size="140,44"
+          Id="Package\Trace AuLOG (14-22) 1"
+          TopLeft="519.462264150943,5.5" />
+        <NodeLayout
+          Size="135,44"
+          Id="Package\Trace AuLOG (14-24)"
+          TopLeft="471.990566037737,1243.04716981132" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="589.462264150943,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-49.9622641509432,70.1886792452824"
+              Start="0,0"
+              End="-49.9622641509432,62.6886792452824">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0943396226412" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.0943396226412"
+                    Point2="0,35.0943396226412"
+                    Point3="-4,35.0943396226412" />
+                  <mssgle:LineSegment
+                    End="-45.9622641509432,35.0943396226412" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.9622641509432,35.0943396226412"
+                    Point2="-49.9622641509432,35.0943396226412"
+                    Point3="-49.9622641509432,39.0943396226412" />
+                  <mssgle:LineSegment
+                    End="-49.9622641509432,62.6886792452824" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="539.495283018869,1157.68867924528">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,85.3584905660391"
+              Start="0,0"
+              End="0,77.8584905660391">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.8584905660391" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

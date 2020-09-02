@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SourceConnection"
+  DTS:DTSID="{4D31519F-AF43-4F67-B8A0-999F2E6E7414}"
+  DTS:Description="Catalogo SQL Sorgente"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::SourceConnection_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Description">@[$Project::SourceConnection_Description]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::SourceConnection_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::SourceConnection_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::SourceConnection_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="RetainSameConnection">@[$Project::SourceConnection_RetainSameConnection]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::SourceConnection_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::SourceConnection_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Retain="True"
+      DTS:ConnectionString="Data Source=SQLINPSSVIL06.SER-TEST.INPS,2059;User ID=AUC;Initial Catalog=auc;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=false;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="o2XthgYDWw=="
+        p4:IV="Iy/xO6qANWw=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">7osNCu9LRZheIMzsaekzHmhmzWUKYuu6yWT20gnvrIt2it48k/avYXHo3FkhMg6kPM+v1X5r1adNEaMsa1X0CSuAB1GYk9ADEMYXH+glmuIJNDv429hIxjtI+iPBHQwhqgrZ86G8xb2jD30WE9vz8y1fnxqhrzI5</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

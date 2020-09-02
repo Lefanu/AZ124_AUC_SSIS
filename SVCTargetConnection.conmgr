@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SVCTargetConnection"
+  DTS:DTSID="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+  DTS:Description="Target SVC"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::SVCTargetConnection_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Description">@[$Project::SVCTargetConnection_Description]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::SVCTargetConnection_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Name">@[$Project::SVCTargetConnection_Name]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::SVCTargetConnection_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="RetainSameConnection">@[$Project::SVCTargetConnection_RetainSameConnection]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::SVCTargetConnection_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::SVCTargetConnection_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SQLINPSSVIL81;User ID=SVC;Initial Catalog=SVC;Provider=SQLNCLI11;Persist Security Info=True;Auto Translate=false;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="gNMK7VwzWg=="
+        p4:IV="UdmWb0t2KQg=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">lz2rQRbxldsP73+V+sMZB0cVhBMWbIn7LhzsmuvcEKG3y3+JS6g3mT/eS0V47mGum3SPD+2fIU6jgtAPRDDsGTwQ+2yz7PrVDH2VXW1O7iVRjEWvCL7XzsM9gfeoygvfQRjSvNoIhNSZXDqyaM1oOWmiZiHUXZSF</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

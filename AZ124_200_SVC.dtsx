@@ -1,0 +1,2373 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/8/2010 10:19:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PAIOLETTI"
+  DTS:CreatorName="PAIOLETTI\i.paioletti"
+  DTS:Description="Descrizione pacchetto SSIS"
+  DTS:DTSID="{8DFA8470-788A-438E-B488-8E0709C2D71B}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1040"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="AZ124_200_SVC"
+  DTS:VersionBuild="2495"
+  DTS:VersionGUID="{490C880F-BA56-4440-8389-1DD1C7583960}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="LogConnection"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{E6F2A69C-D31A-4636-9898-B4CE4DA8173A}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{100FB171-7BE5-4848-83D8-86953576F19F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Abilitato">
+      <DTS:VariableValue
+        DTS:DataType="18">88</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B1C22ADA-FE2F-47BF-B6BE-498165A19D2A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AL">
+      <DTS:VariableValue
+        DTS:DataType="8">29991231</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B70A941E-EF76-430D-9DCB-6B7F5503B5EE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AZ124_20_SVC">
+      <DTS:VariableValue
+        DTS:DataType="8">-</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA4848C2-8EB9-4DD2-ABE4-1A6C01B6BF55}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DAL">
+      <DTS:VariableValue
+        DTS:DataType="8">19000101</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83FC619B-2909-43CF-8608-B6C30ECE7004}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="iIDLOTTO">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B4242A6F-70D3-49BA-97A4-A4BE7DE7BDD1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="K_DB_TARGET_CONN_STRING">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=SQLINPSSVIL06.SER-TEST.INPS,2059;Initial Catalog=AUC;Persist Security Info=True;User ID=AUC;Password=sw54-1fr3</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6BA73F1F-6553-42BF-82EC-F20039AC3968}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="K_LOG_ENABLED">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29E9AE61-495B-4725-BC44-70A6D06AA4C6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sDataLimiteInferiore">
+      <DTS:VariableValue
+        DTS:DataType="8">2017-10-19</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">2,7,OnError,12,OnTaskFailed</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{E6F2A69C-D31A-4636-9898-B4CE4DA8173A}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:PropertyExpression
+    DTS:Name="LoggingMode">@[User::K_LOG_ENABLED]</DTS:PropertyExpression>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CANCELLA LE VISURE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Inizializza tb_svgio_giornaliere"
+      DTS:Disabled="True"
+      DTS:DTSID="{8ea997b8-e592-4232-b69a-0873d9944713}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CANCELLA LE VISURE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM tb_svvis_visure WHERE svvis_generica = 'S';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Estrazione CF"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Estrazione CF"
+      DTS:DTSID="{9af692c9-b28e-4110-8f5d-3735edbe134b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Estrazione CF"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="UPDATE tb_svvis_visure&#xA;SET svvis_codice_fiscale = dati_id.value('@c-fiscale', 'varchar(16)') , &#xA;svvis_descr_utente = 'AdminPlus' &#xA;FROM tb_svvis_visure &#xA;CROSS APPLY svvis_visura_xml.nodes('/blocchi-impresa/dati-identificativi') AS T1(dati_id) &#xA;WHERE svvis_generica = 'S'&#xA;AND svvis_descr_utente = '-A-'  ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{94277e7f-3121-4572-8ea1-61d4298d6411}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="tb_svall_allegato -&gt; tmp_tb_svvis_visure"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tb_svscv_scarti_visure"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tb_svscv_scarti_visure]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Connections[OleDbConnection]"
+                  connectionManagerID="{1352d62a-f983-4165-8a1a-9242559c2f4e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SVCTargetConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].Columns[svvis_id_Key]"
+                      cachedDataType="i4"
+                      cachedName="svvis_id_Key"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_id_Key]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_id_Key]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].Columns[svvis_generica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="svvis_generica"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_generica]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_generica]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_ERRORE]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].Columns[svvis_codice_fiscale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="svvis_codice_fiscale"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_codice_fiscale]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_codice_fiscale]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].Columns[svvis_visura_xml]"
+                      cachedDataType="nText"
+                      cachedName="svvis_visura_xml"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_visura_xml]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_visura_xml]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_codice_pk]"
+                      dataType="i8"
+                      name="svscv_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_svvis_codice_pk]"
+                      dataType="i8"
+                      name="svscv_svvis_codice_pk" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_id_Key]"
+                      dataType="i4"
+                      name="svscv_id_Key" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_generica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="svscv_generica" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="svscv_codice_fiscale" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_visura_xml]"
+                      dataType="nText"
+                      name="svscv_visura_xml" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_messaggio]"
+                      dataType="image"
+                      name="svscv_messaggio" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="svscv_area" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_lotto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="svscv_lotto" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_ERRORE]"
+                      codePage="1252"
+                      dataType="text"
+                      name="svscv_ERRORE" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_data_modifica]"
+                      dataType="dbTimeStamp"
+                      name="svscv_data_modifica" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input].ExternalColumns[svscv_descr_utente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="svscv_descr_utente" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - tmp_tb_svvis_visure"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tmp_tb_svvis_visure]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Connections[OleDbConnection]"
+                  connectionManagerID="{1352d62a-f983-4165-8a1a-9242559c2f4e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SVCTargetConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].Columns[svvis_visura_xml]"
+                      cachedDataType="nText"
+                      cachedName="svvis_visura_xml"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_visura_xml]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_visura_xml]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].Columns[svvis_id_Key]"
+                      cachedDataType="i4"
+                      cachedName="svvis_id_Key"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_id_Key]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_id_Key]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].Columns[svvis_generica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="svvis_generica"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_generica]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_generica]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].Columns[svvis_codice_fiscale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="svvis_codice_fiscale"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_codice_fiscale]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_codice_fiscale]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_id_Key]"
+                      dataType="i4"
+                      name="svvis_id_Key" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_generica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="svvis_generica" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="svvis_codice_fiscale" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_visura_xml]"
+                      dataType="nText"
+                      name="svvis_visura_xml" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_visura_str]"
+                      codePage="1252"
+                      dataType="text"
+                      name="svvis_visura_str" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_flag]"
+                      dataType="i4"
+                      name="svvis_flag" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input].ExternalColumns[svvis_codice_pk]"
+                      dataType="i8"
+                      name="svvis_codice_pk" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Executes a custom script.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Executes a custom script."
+              localeId="1040"
+              name="Get Error Description"
+              version="9">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_8d5e48be3d5a4ff3adf70a7e08b023f4.vbproj")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SC_8d5e48be3d5a4ff3adf70a7e08b023f4.vbproj")> 
+<Assembly: AssemblyCopyright("Copyright @  2012")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("97381624-b3ca-4922-a2d0-2b724dd34422")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Input 0", StringComparison.Ordinal) Then
+            Input0_ProcessInput(New Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+
+        While Buffer.NextRow()
+            Input0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Input0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public ReadOnly Property [ErrorCode]() As Int32
+        Get
+            Return Buffer.GetInt32(Me.BufferColumnIndexes(0))
+        End Get
+    End Property
+    Public ReadOnly Property [ErrorCode_IsNull] As Boolean
+        Get
+            Return IsNull(0)
+        End Get
+    End Property
+
+    Public ReadOnly Property [ErrorColumn]() As Int32
+        Get
+            Return Buffer.GetInt32(Me.BufferColumnIndexes(1))
+        End Get
+    End Property
+    Public ReadOnly Property [ErrorColumn_IsNull] As Boolean
+        Get
+            Return IsNull(1)
+        End Get
+    End Property
+
+    Public ReadOnly Property [svvisidKey]() As Int32
+        Get
+            Return Buffer.GetInt32(Me.BufferColumnIndexes(2))
+        End Get
+    End Property
+    Public ReadOnly Property [svvisidKey_IsNull] As Boolean
+        Get
+            Return IsNull(2)
+        End Get
+    End Property
+
+    Public ReadOnly Property [svvisgenerica]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(3))
+        End Get
+    End Property
+    Public ReadOnly Property [svvisgenerica_IsNull] As Boolean
+        Get
+            Return IsNull(3)
+        End Get
+    End Property
+
+    Public WriteOnly Property [ErrorDescription]() As String
+        Set
+            Me(4) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [ErrorDescription_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(4)
+            Else
+                Throw new InvalidOperationException("Impossibile impostare la proprietà IsNull su False. Assegnare un valore alla colonna.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' Microsoft SQL Server Integration Services Script Component
+' Write scripts using Microsoft Visual Basic 2008.
+' ScriptMain is the entry point class of the script.
+
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+
+
+    Public Overrides Sub PreExecute()
+        MyBase.PreExecute()
+        '
+        ' Add your code here for preprocessing or remove if not needed
+        '
+    End Sub
+
+    Public Overrides Sub PostExecute()
+        MyBase.PostExecute()
+        '
+        ' Add your code here for postprocessing or remove if not needed
+        ' You can set read/write variables here, for example:
+        ' Me.Variables.MyIntVar = 100
+        '
+    End Sub
+
+    Public Overrides Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+        'Use the incoming error number as a parameter to GetErrorDescription
+        Row.ErrorDescription = ComponentMetaData.GetErrorDescription(Row.ErrorCode)
+
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>sc_8d5e48be3d5a4ff3adf70a7e08b023f4</msb:CodeName>
+		<msb:DisplayName>sc_8d5e48be3d5a4ff3adf70a7e08b023f4</msb:DisplayName>
+		<msb:ProjectId>{84DA6181-AFC9-41FB-822A-A9160DF58EBC}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="sc_8d5e48be3d5a4ff3adf70a7e08b023f4.vbproj"/>
+		<msb:File Include="BufferWrapper.vb"/>
+		<msb:File Include="main.vb"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+		<msb:File Include="ComponentWrapper.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[sc_8d5e48be3d5a4ff3adf70a7e08b023f4.vbproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SC_8d5e48be3d5a4ff3adf70a7e08b023f4.vbproj</RootNamespace>
+    <AssemblyName>SC_AA5DC26BB5E541EDAF29EE1DE0F73AA5</AssemblyName>
+    <StartupObject></StartupObject>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ProjectGuid>{72215ABC-5D3C-4BED-92B2-41DD6795F31E}</ProjectGuid>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=12.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+    <Compile Include="main.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" />
+        <Host Name="SSIS_ScriptComponent" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_AA5DC26BB5E541EDAF29EE1DE0F73AA5.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAGHSb1wAAAAAAAAAAOAAIiALAVAAACAAAAAIAAAAAAAAPj8A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOw+AABPAAAAAEAAAGgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAARB8AAAAgAAAAIAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAGgEAAAAQAAAAAYAAAAiAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAKAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAg
+PwAAAAAAAEgAAAACAAUAkCMAAKQaAAABAAAAAAAAADQ+AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
+AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
+CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqKgIDBAUoJgAACipSAnsnAAAKAnsoAAAKFpRvKQAACioi
+AhYoKgAACipSAnsnAAAKAnsoAAAKF5RvKQAACioiAhcoKgAACipSAnsnAAAKAnsoAAAKGJRvKQAA
+CioiAhgoKgAACipSAnsnAAAKAnsoAAAKGZRvKwAACioiAhkoKgAACiomAhoDKCwAAAoqWgMsCAIa
+KC0AAAoqcjMAAHBzLgAACnoAAAATMAEACQAAAAEAABECKC8AAAoKBioAAAATMAEACQAAAAEAABEC
+KDAAAAoKBip+AigxAAAKAgJzHQAABn0HAAAEAgJzHgAABn0IAAAEKpIEcuAAAHAabzIAAAosFQIF
+AgMoMwAACg4EcwwAAAZvGwAABipKKwcCA28cAAAGA28XAAAGLfEqBio6AigiAAAKAgN9CQAABCo6
+AigiAAAKAgN9CgAABCoeAigZAAAGKh4CKDQAAAoqHgIoNQAACipiAwIoNgAACgNvDQAABm83AAAK
+bxUAAAYqQnMiAAAKKDgAAAqADAAABCoeAig5AAAKKgAbMAEAPwAAAAAAAAB+CwAABC0yfgwAAAQo
+OAAACig6AAAKfgsAAAQtHHMkAAAGgAsAAATeEH4MAAAEKDgAAAooOwAACtx+CwAABCoAARAAAAIA
+HQAMKQAQAAAAADYCAyg4AAAKKDwAAAoqHgIoPQAACiou0AwAAAIoIwAACioeAig+AAAKKgAAEzAB
+ABQAAAACAAARAowFAAAbLQgoAQAAKworAgIKBioiA/4VBQAAGyoAAAATMAIAKAAAAAMAABECe0AA
+AApvQQAACgoGjAgAABstEigCAAArCgJ7QAAACgZvQgAACgYqSgIoIgAACgJzQwAACn1AAAAKKgBC
+U0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAABQCgAAI34AALwKAAAwCwAAI1N0cmlu
+Z3MAAAAA7BUAAPAAAAAjVVMA3BYAABAAAAAjR1VJRAAAAOwWAAC4AwAAI0Jsb2IAAAAAAAAAAgAA
+AVcVogkJDwAAAPoBMwAWAAABAAAAMAAAAA0AAAANAAAALgAAABIAAABDAAAAPQAAAAMAAAAFAAAA
+EgAAABMAAAAIAAAAAQAAAAYAAAABAAAAAgAAAAMAAAACAAAAAAAkBQEAAAAAAAYAbAP0CAYAFgT0
+CAYAQwI1CA8AqAkAAAYAhAJbBgYATwNbBgYA/QNbBgYAjANbBgYApQNbBgYAywJbBgYAwAPUBQYA
+cAKuCAYA7AGuCAYAFwNbBgYA5gKHBAoADwKmBwoA1wEOBQoAVwIOBQ4ArwGECA4ABQhICAYA/wI1
+CA4AmwLNCA4AswLcAAYAGQrUBQ4A6weECA4ANAPcAAYAhgHUBQ4AGgDkBAoA+gHbBQYAlgcUCQYA
+wQZGBhIAhQdiARYAdgdiARIAzQZiARIAWQpiARIA1gNiAQYAtATUBQoAvwExBgYAJgI1CAYANAHU
+BQYAJQtbBgYAbQbUBQYArQTUBQYAsAbUBRoAAQC+BwYABAr0CAYALQh2BAYAFgjUBQAAAABxAAAA
+AAABAAEAAAAAACMG5ApNAAEAAQAAAAAAAwjkClEAAQACAAABEAAgCuQKYQABAAMAAAAAAF0JJQlh
+AAUACAABAAAAaQe5BIEABwAMAAEAAAA7CrkEjQAHABkAAQAAAPgJuQRhAAkAHQABAAAAtwm5BGEA
+CgAeAAEAAAD4BbkEHAALAB8AAAEQAOYJuQSZAAsAIwAFAQAAdggAAGEADQAmAAUBAAApAAAAYQAN
+AC0AMQAyBxkBMQAJByEBMQAdBykBMQBLBzEBEQAOCDkBEQCjAT0BBgD4CUEBBgC3CUUBAQBJCkkB
+AQBJCkkBEQBLBE4BEQATClIBIQC7CuEAUCAAAAAABhggCAYAAQBYIAAAAAAGGCAIBgABAGAgAAAA
+ABEYJghVAQEAiiAAAAAAEwj2B1kBAQCWIAAAAAATCBMGXgEBAKIgAAAAABMI5wdjAQEAriAAAAAA
+EwhmCGgBAQC6IAAAAAADGCAIBgABAMIgAAAAABYIkgdtAQEA7iAAAAAAFgiLAXIBAQD1IAAAAAAW
+CJcBdwEBAP0gAAAAAAYYIAhlAAIACCEAAAAABggmAboABQAdIQAAAAAGCGUFkwAFACYhAAAAAAYI
+Awa6AAUAOyEAAAAABgh6BZMABQBEIQAAAAAGCBILugAFAFkhAAAAAAYIrQWTAAUAYiEAAAAABgir
+AL4ABQB3IQAAAAAGCEwFkwAFAIAhAAAAAAYIhwYQAAUAiiEAAAAABgiRBRUABgCkIQAAAACGANwK
+kwAHALwhAAAAAIYAKgqTAAcA0SEAAAAABhggCAYABwDxIQAAAADGAq4KfQEHABYiAAAAAEYDpwqJ
+AQsAKSIAAAAARgPFCokBDAArIgAAAAAGGCAIjwENADoiAAAAAAYYIAiPAQ4ASSIAAAAABhggCAYA
+DwBRIgAAAADGAjQEBgAPAFkiAAAAAMYCPwQGAA8AYSIAAAAAxgLFCokBDwB6IgAAAAARGCYIVQEQ
+AIsiAAAAAAYYIAgGABAAlCIAAAAAFghTBJYBEADwIgAAAADGAvEJtQAQAP4iAAAAAMYCGgG6ABEA
+BiMAAAAAgwCDAZsBEQASIwAAAADGAqEEvgARABwjAAAAABEAmACgAREAPCMAAAAAAQCEAKgBEgC6
+IAAAAAAGGCAIBgATAEgjAAAAAAMIAQFKABMAfCMAAAAABhggCAYAEwAAAAEAcAQAAAEAiwcAAAIA
+wQkAAAMA2wYAAAEAcAQAAAEAcAQAAAEAegAAAAIAWAEAAAMAiwcAAAQA2wYAAAEAiwcAAAEA4AoA
+AAEAXwoAAAEAXwoAAAEA4AoAAAEAywYAAAEAEQEAAAEAEQEJACAIAQARACAIBgAZACAICgApACAI
+EAAxACAIEAA5ACAIEABBACAIEABJACAIEABRACAIEABZACAIFQBhACAIFQBpACAIEABxACAIEAB5
+ACAIEACBACAIGgCRACAIIACpACAIBgCxACAIBgC5ACAIBgDRACAIJgDpACAIEAAhASAIBgA5ASAI
+BgCZACAIBgChACAIBgAMACAIBgAUACAIBgAcACAIBgAkACAIBgAMAAEBSgAUAAEBSgAcAAEBSgAk
+AAEBSgDBACAIBgDZAEYBTwDZACELVwDxACAIXQABASAIZQABAYsHcQABAcEJdgAJAUQAegABAbwF
+fwAJAaoEhAABAcsFiQABAcMFAQBRASAIEAABAdwKkwABASoKkwAZASAIBgBZAfEJlwAZAdUJnwAZ
+ATQEBgAZAT8EBgAZAb0ApQBpAZwGhABxAWcEqwAxASAIBgB5AfAHsAB5ATYKsADBAPEJtQDBABoB
+ugDBAKEEvgCBAfIAygA0ALsK4QA8AFMESgA8AF0E+AA8ACAIBgApAKsAcAMuAAsA5AEuABMA7QEu
+ABsADAIuACMAFQIuACsARQIuADMARQIuADsAFQIuAEMASwIuAEsARQIuAFMAYgIuAFsARQIuAGMA
+aAIuAGsAkgIuAHMAnwJAAIsA5wJAAIMA7AJDAHsA9QJDAIMA7AJJAKsAgQNjAHsA9QJjAIMA7AJp
+AKsAlQOAAIsA5wKDAJMA5wKDAJsA5wKDAHsA9QKJAKsAogOgAIsA5wKpAIMADALAAIsA5wLDAFMA
+RQLJAIMADALgAIsA5wLjAFMARQIDAVMARQIjAVMARQJDAbMA5wJDAVMARQKDAYMA7AKDAaMADgOj
+AYMA7AKjAVsARQIpArsA5wKgA1MARQLAA1MARQLABIMA7ALABIsA5wLgBIMA7ALgBIsA5wIABYMA
+7AIABYsA5wIgBYMA7AIgBYsA5wJABYsA5wJgBYsA5wKABYsA5wKABYMA7AKgBYsA5wLABYsA5wLA
+BYMA7AKPAMIA1QAEAAEABQAFAAYABwALABEADQASAAAABQiwAQAAJQa1AQAA6we6AQAAeAi/AQAA
+lgfEAQAApwHJAQAAKgHOAQAAaQXSAQAABwbOAQAAfgXSAQAAFgvOAQAAsQXSAQAArwDWAQAAUAXS
+AQAAnwbWAQAAlQXSAQAAcATaAQAABQHfAQIABAADAAIABQAFAAIABgAHAAIABwAJAAIACQALAAIA
+CgANAAEACwANAAIADQAPAAIADgARAAIADwATAAIAEAAVAAIAEQAXAAIAEgAZAAIAEwAbAAIAFAAd
+AAEAFQAfAAEAFgAhAAIAJQAjAAIALQAlAC4ANQA8AEMAxwDaAOkA8AAEgAAAAQAAAAAAAAAAAAAA
+AABNAAAABAAAAAAAAAAAAAAA/gDTAAAAAAAEAAAAAAAAAAAAAAD+ANQFAAAAAAoAAAAAAAAAAAAA
+AAcB3AAAAAAADAAAAAAAAAAAAAAAEAFpCgAAAAAMAAAAAAAAAAAAAAAQAYYKAAAAAAwAAAAAAAAA
+AAAAABAB5QYAAAAAAAAAAAEAAABpCQAADAAEAA0ABAAAABAAGgCCAAAAEABVAIIAAAAAAFcAggB/
+ANAAfwDzAAAAAAAASURUU0NvbXBvbmVudE1ldGFEYXRhMTAwAENvbnRleHRWYWx1ZWAxAFRocmVh
+ZFNhZmVPYmplY3RQcm92aWRlcmAxAEdldEludDMyAFNDX0FBNURDMjZCQjVFNTQxRURBRjI5RUUx
+REUwRjczQUE1ADxNb2R1bGU+AElucHV0SUQAVABEaXNwb3NlX19JbnN0YW5jZV9fAENyZWF0ZV9f
+SW5zdGFuY2VfXwBnZXRfc3Z2aXNnZW5lcmljYQBnZXRfQ29tcG9uZW50TWV0YURhdGEAbXNjb3Js
+aWIATWljcm9zb2Z0LlZpc3VhbEJhc2ljAENyZWF0ZUluc3RhbmNlAGdldF9HZXRJbnN0YW5jZQBp
+bnN0YW5jZQBHZXRIYXNoQ29kZQBnZXRfRXJyb3JDb2RlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5
+cGVGcm9tSGFuZGxlAElucHV0TmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBH
+ZXRUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAF9yZXNDdWx0dXJlAEFwcGxpY2F0aW9uQmFz
+ZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBHdWlkQXR0cmli
+dXRlAEhlbHBLZXl3b3JkQXR0cmlidXRlAEdlbmVyYXRlZENvZGVBdHRyaWJ1dGUARGVidWdnZXJO
+b25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0
+dHJpYnV0ZQBDb21WaXNpYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAU3RhbmRh
+cmRNb2R1bGVBdHRyaWJ1dGUASGlkZU1vZHVsZU5hbWVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1h
+cmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAERlYnVnZ2VySGlkZGVuQXR0cmli
+dXRlAEFzc2VtYmx5RmlsZVZlcnNpb25BdHRyaWJ1dGUATXlHcm91cENvbGxlY3Rpb25BdHRyaWJ1
+dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0
+cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0
+ZQBDTFNDb21wbGlhbnRBdHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRy
+aWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmli
+dXRlAFByZUV4ZWN1dGUAUG9zdEV4ZWN1dGUAbV9WYWx1ZQBnZXRfVmFsdWUAc2V0X1ZhbHVlAEdl
+dE9iamVjdFZhbHVlAFN5c3RlbS5UaHJlYWRpbmcAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBU
+b1N0cmluZwBHZXRTdHJpbmcATWF0aABTQ184ZDVlNDhiZTNkNWE0ZmYzYWRmNzBhN2UwOGIwMjNm
+NC52YnByb2oATWljcm9zb2Z0LlZpc3VhbEJhc2ljLk15U2VydmljZXMuSW50ZXJuYWwAU3lzdGVt
+LkNvbXBvbmVudE1vZGVsAFNDX0FBNURDMjZCQjVFNTQxRURBRjI5RUUxREUwRjczQUE1LmRsbABn
+ZXRfc3Z2aXNnZW5lcmljYV9Jc051bGwAZ2V0X0Vycm9yQ29kZV9Jc051bGwAZ2V0X0Vycm9yQ29s
+dW1uX0lzTnVsbABzZXRfRXJyb3JEZXNjcmlwdGlvbl9Jc051bGwAZ2V0X3N2dmlzaWRLZXlfSXNO
+dWxsAFNldE51bGwAc2V0X0l0ZW0AU3lzdGVtAFN5c3RlbS5Db21wb25lbnRNb2RlbC5EZXNpZ24A
+U2NyaXB0TWFpbgBnZXRfRXJyb3JDb2x1bW4AZ2V0X0FwcGxpY2F0aW9uAE15QXBwbGljYXRpb24A
+U3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rp
+b24ASW52YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBzZXRfRXJyb3JEZXNjcmlwdGlvbgBHZXRFcnJv
+ckRlc2NyaXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABP
+dXRwdXRNYXAATWljcm9zb2Z0LlNxbFNlcnZlci5EVFNQaXBlbGluZVdyYXAAbV9BcHBPYmplY3RQ
+cm92aWRlcgBtX1VzZXJPYmplY3RQcm92aWRlcgBtX0NvbXB1dGVyT2JqZWN0UHJvdmlkZXIAbV9N
+eVdlYlNlcnZpY2VzT2JqZWN0UHJvdmlkZXIASW5wdXQwQnVmZmVyAFBpcGVsaW5lQnVmZmVyAFNj
+cmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAFN5c3RlbS5Db2RlRG9tLkNvbXBpbGVyAE1p
+Y3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVsaW5lLldyYXBwZXIAZ2V0X1VzZXIARW50ZXIAZ2V0
+X0NvbXB1dGVyAE15Q29tcHV0ZXIAX3Jlc01ncgBBY3RpdmF0b3IALmN0b3IALmNjdG9yAE1vbml0
+b3IAU3lzdGVtLkRpYWdub3N0aWNzAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5EZXZpY2VzAGdldF9X
+ZWJTZXJ2aWNlcwBNeVdlYlNlcnZpY2VzAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5BcHBsaWNhdGlv
+blNlcnZpY2VzAFN5c3RlbS5SdW50aW1lLkludGVyb3BTZXJ2aWNlcwBNaWNyb3NvZnQuVmlzdWFs
+QmFzaWMuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5
+c3RlbS5SZXNvdXJjZXMAU0NfOGQ1ZTQ4YmUzZDVhNGZmM2FkZjcwYTdlMDhiMDIzZjQudmJwcm9q
+Lk15LlJlc291cmNlcwBNeVJlc291cmNlcwBTQ184ZDVlNDhiZTNkNWE0ZmYzYWRmNzBhN2UwOGIw
+MjNmNC52YnByb2ouUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBWYXJpYWJsZXMA
+QnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAE15U2V0dGluZ3MARXF1YWxzAENv
+bm5lY3Rpb25zAFJ1bnRpbWVIZWxwZXJzAG1fU3luY09iamVjdABNeVByb2plY3QARW5kT2ZSb3dz
+ZXQARXhpdABVc2VyQ29tcG9uZW50AFBhcmVudENvbXBvbmVudABTY3JpcHRDb21wb25lbnQATWlj
+cm9zb2Z0LlNxbFNlcnZlci5UeFNjcmlwdABNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9z
+dABJbnB1dDBfUHJvY2Vzc0lucHV0AG1fQ29udGV4dABJbnB1dDBfUHJvY2Vzc0lucHV0Um93AE5l
+eHRSb3cAU0NfOGQ1ZTQ4YmUzZDVhNGZmM2FkZjcwYTdlMDhiMDIzZjQudmJwcm9qLk15AGdldF9z
+dnZpc2lkS2V5AGdldF9Bc3NlbWJseQAAAAAxTQB5AC4AUgBlAHMAbwB1AHIAYwBlAHMALgBNAHkA
+UgBlAHMAbwB1AHIAYwBlAHMAAICrSQBtAHAAbwBzAHMAaQBiAGkAbABlACAAaQBtAHAAbwBzAHQA
+YQByAGUAIABsAGEAIABwAHIAbwBwAHIAaQBlAHQA4AAgAEkAcwBOAHUAbABsACAAcwB1ACAARgBh
+AGwAcwBlAC4AIABBAHMAcwBlAGcAbgBhAHIAZQAgAHUAbgAgAHYAYQBsAG8AcgBlACAAYQBsAGwA
+YQAgAGMAbwBsAG8AbgBuAGEALgABD0kAbgBwAHUAdAAgADAAAClDqX5lGJlKjCR7tBbyZpEABCAB
+AQgDIAABBSABARERBCABAQ4EIAEBAgUgAgEODgUgAQERRQcgBAEODg4OBhUSNAESDAYVEjQBEggG
+FRI0ARJlBhUSNAESMAQgABMABwABEm0RgKEFIAASgKUHIAIBDhKApQsgAwESgIUdCBKAiQQGEoCF
+AwYdCAQgAQgIBCABAggEIAEOCAUgAgEIHAMHAQIDIAACByACAg4RgLEFIAEdCAgFIAASgLUEAAEc
+HAQAAQEcBCABAhwDIAAIAyAADgQHAR4AAh4ABRABAB4ABAoBHgAEBwETAAYVEjQBEwAHBhUScQET
+AAYVEnEBEwACEwAECgETAAUgAQETAAi3elxWGTTgiQiwP19/EdUKOgiJhF3NgIDMkQcGFRI0ARIM
+BwYVEjQBEggHBhUSNAESZQcGFRI0ARIwAwYSeQMGEn0DBhIgAwYSJAQGEoCNAwYSLAIGHAMAAAEE
+AAASDAQAABIIBAAAEmUEAAASMAQAABJ5BAAAEn0FAAEBEn0LIAQBCA4SgIUSgIkFIAEBEhgGIAEB
+EoCNBAAAEiwEIAASbQcQAQEeAB4ABzABAQEQHgAECAASDAQIABIIBAgAEmUECAASMAQIABJ5BAgA
+En0DKAAIAygAAgMoAA4ECAASLAQoABMACAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9u
+VGhyb3dzAQgBAAIAAAAAAC8BACpTQ184ZDVlNDhiZTNkNWE0ZmYzYWRmNzBhN2UwOGIwMjNmNC52
+YnByb2oAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxMgAABQEAAQAAKQEAJDk3MzgxNjI0LWIz
+Y2EtNDkyMi1hMmQwLTJiNzI0ZGQzNDQyMgAADAEABzEuMC4wLjAAAEcBABouTkVURnJhbWV3b3Jr
+LFZlcnNpb249djQuMAEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUQLk5FVCBGcmFtZXdvcmsgNAQB
+AAAACAEAAQAAAAAAGAEACk15VGVtcGxhdGUIMTEuMC4wLjAAAGEBADRTeXN0ZW0uV2ViLlNlcnZp
+Y2VzLlByb3RvY29scy5Tb2FwSHR0cENsaWVudFByb3RvY29sEkNyZWF0ZV9fSW5zdGFuY2VfXxNE
+aXNwb3NlX19JbnN0YW5jZV9fAAAAEAEAC015LkNvbXB1dGVyAAATAQAOTXkuQXBwbGljYXRpb24A
+AAwBAAdNeS5Vc2VyAAATAQAOTXkuV2ViU2VydmljZXMAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0
+ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBD
+dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJl
+c291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAABQ/AAAAAAAA
+AAAAAC4/AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgPwAAAAAAAAAAAAAAAF9Db3JEbGxNYWlu
+AG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQ
+AAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhA
+AAAMBAAAAAAAAAAAAAAMBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv
+/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYA
+YQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAA
+ALAEbAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAASAMAAAEAMAAwADAAMAAwADQA
+YgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkATgBh
+AG0AZQAAAAAAAAAAAH4AKwABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMA
+XwA4AGQANQBlADQAOABiAGUAMwBkADUAYQA0AGYAZgAzAGEAZABmADcAMABhADcAZQAwADgAYgAw
+ADIAMwBmADQALgB2AGIAcAByAG8AagAAAAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAA
+AAAxAC4AMAAuADAALgAwAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwBB
+AEEANQBEAEMAMgA2AEIAQgA1AEUANQA0ADEARQBEAEEARgAyADkARQBFADEARABFADAARgA3ADMA
+QQBBADUALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBw
+AHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADEAMgAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUA
+bQBhAHIAawBzAAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAA
+AFMAQwBfAEEAQQA1AEQAQwAyADYAQgBCADUARQA1ADQAMQBFAEQAQQBGADIAOQBFAEUAMQBEAEUA
+MABGADcAMwBBAEEANQAuAGQAbABsAAAAdgArAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABT
+AEMAXwA4AGQANQBlADQAOABiAGUAMwBkADUAYQA0AGYAZgAzAGEAZABmADcAMABhADcAZQAwADgA
+YgAwADIAMwBmADQALgB2AGIAcAByAG8AagAAAAAANAAIAAEAUAByAG8AZAB1AGMAdABWAGUAcgBz
+AGkAbwBuAAAAMQAuADAALgAwAC4AMAAAADgACAABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMA
+aQBvAG4AAAAxAC4AMAAuADAALgAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAQD8AAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_aa5dc26bb5e541edaf29ee1de0f73aa5</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataShaChecksum"
+                  typeConverter="NOTBROWSABLE">991753f29a78b6b07c752f7e87d1480ac19d83bd</property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">fe44266e0540c5e3b6db82242c844cfc</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0].Columns[svvis_id_Key]"
+                      cachedDataType="i4"
+                      cachedName="svvis_id_Key"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_id_Key]" />
+                    <inputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0].Columns[svvis_generica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="svvis_generica"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_generica]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Outputs[Output 0].Columns[ErrorDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Outputs[Output 0].Columns[ErrorDescription]"
+                      name="ErrorDescription" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - tb_svall_allegato"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  top(500000) 
+svvis_id_Key, 
+svvis_generica,
+CAST(svvis_codice_pk as varchar(16)) As svvis_codice_fiscale,
+CONVERT(XML, REPLACE(CONVERT(VARCHAR(MAX), CONVERT(VARBINARY(MAX), tb_svall_allegato.svall_allegato)), CHAR(0), '')) As svvis_visura_xml
+FROM tb_svvis_visure with(nolock)
+INNER JOIN tb_svall_allegato ON svvis_id_Key = svall_ID_Key
+AND svvis_generica = svall_generica
+WHERE (svall_tipo = 'VIS') 
+AND (UPPER(svall_formato)) = 'XML'
+AND svvis_generica = 'S' 
+AND isnull(svvis_flag,0) = 0 
+ORDER by svvis_codice_pk</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Connections[OleDbConnection]"
+                  connectionManagerID="{1352d62a-f983-4165-8a1a-9242559c2f4e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SVCTargetConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_id_Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_id_Key]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_id_Key]"
+                      name="svvis_id_Key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_generica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_generica]"
+                      length="2"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_generica]"
+                      name="svvis_generica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_visura_xml]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_visura_xml]"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_visura_xml]"
+                      name="svvis_visura_xml"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_codice_fiscale]"
+                      length="16"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].Columns[svvis_codice_fiscale]"
+                      name="svvis_codice_fiscale"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_id_Key]"
+                      dataType="i4"
+                      name="svvis_id_Key" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_generica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="svvis_generica" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_visura_xml]"
+                      dataType="nText"
+                      name="svvis_visura_xml" />
+                    <externalMetadataColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output].ExternalColumns[svvis_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="svvis_codice_fiscale" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_id_Key]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_id_Key]"
+                      name="svvis_id_Key" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_generica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_generica]"
+                      name="svvis_generica" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_codice_fiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_codice_fiscale]"
+                      name="svvis_codice_fiscale" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_visura_xml]"
+                      dataType="nText"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[svvis_visura_xml]"
+                      name="svvis_visura_xml" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure.Paths[OLE DB Source Error Output]"
+              endId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Inputs[Input 0]"
+              name="OLE DB Source Error Output"
+              startId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Error Output]" />
+            <path
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure.Paths[OLE DB Source Output]"
+              endId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure.Paths[Output 0]"
+              endId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure.Inputs[OLE DB Destination Input]"
+              name="Output 0"
+              startId="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AULOG (200-1)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AULOG (200-1)"
+      DTS:DTSID="{385B06A1-528B-4F5F-9B6B-CA7FF2DFACBA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AULOG (200-1)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;    ('B','SVC',GETDATE(),'200-01','Package AZ124_200 Inizio 2019-02-25');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AULOG (END-PACKAGE)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AULOG (END-PACKAGE)"
+      DTS:DTSID="{aa223472-5bfa-4664-863e-7fb20206a375}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AULOG (END-PACKAGE)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;    ('B','SVC',GETDATE(),'200-99','Package AZ124_200 Fine 2019-02-25');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AULOG 200-2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AULOG 200-2"
+      DTS:DTSID="{6dfffc10-0045-4436-ae3e-c3cffc98151c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AULOG 200-2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;    ('B','SVC',GETDATE(),'200-02','Step 2 Inizio BIN 2 XML');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AULOG 200-3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AULOG 200-3"
+      DTS:DTSID="{86f6ccd2-4020-45bf-90c5-66e4c78864d5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AULOG 200-3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;    ('B','SVC',GETDATE(),'200-03','Step 3 Inizio Estrazione CF');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tmp_tb_svvis_visure"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Truncate tmp_tb_svvis_visure"
+      DTS:DTSID="{37af5aed-339a-40df-8215-708a1f02b4a8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tmp_tb_svvis_visure"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[tmp_tb_svvis_visure]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Visura Bin To XML"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Visura Bin To XML"
+      DTS:DTSID="{bb78d151-726c-4339-9454-5f63f659f6d1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Visura Bin To XML"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1352d62a-f983-4165-8a1a-9242559c2f4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="UPDATE tb_svvis_visure&#xA;SET tb_svvis_visure.svvis_flag = 1,&#xA;svvis_visura_xml = tmp_tb_svvis_visure.svvis_visura_xml,&#xA;svvis_descr_utente = '-A-' &#xA;FROM tmp_tb_svvis_visure &#xA;INNER JOIN tb_svvis_visure ON tmp_tb_svvis_visure.svvis_id_Key = tb_svvis_visure.svvis_id_Key &#xA;AND tmp_tb_svvis_visure.svvis_generica = tb_svvis_visure.svvis_generica ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo]"
+      DTS:CreationName=""
+      DTS:DTSID="{574060C1-C1BA-4D8C-AE69-7487FAD760EE}"
+      DTS:From="Package\Estrazione CF"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo"
+      DTS:To="Package\Trace AULOG (END-PACKAGE)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{831DD1A1-B1FE-4BF8-B1C7-0B4B11F7B5D4}"
+      DTS:From="Package\Trace AULOG (200-1)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 1"
+      DTS:To="Package\Truncate tmp_tb_svvis_visure" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{063B92A1-A6CF-4958-84C6-1E72FCE3FF45}"
+      DTS:From="Package\Truncate tmp_tb_svvis_visure"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 2"
+      DTS:To="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0BFC610-4075-4A78-AF3E-644C3DD1EBF5}"
+      DTS:From="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 3"
+      DTS:To="Package\Trace AULOG 200-2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BD1E5148-E8E8-407A-88B9-2CE0CB74D4CD}"
+      DTS:From="Package\Visura Bin To XML"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 4"
+      DTS:To="Package\Trace AULOG 200-3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0A7D051-E32A-42C1-8CEB-6C0335ECC580}"
+      DTS:From="Package\Trace AULOG 200-2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 5"
+      DTS:To="Package\Visura Bin To XML" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{4888F6AF-6787-4DD8-90E8-57E86C291FAB}"
+      DTS:From="Package\Trace AULOG 200-3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 6"
+      DTS:To="Package\Estrazione CF" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Questa sezione CDATA contiene le informazioni sul layout del pacchetto e include informazioni quali coordinate (x,y), larghezza e altezza.-->
+<!--Se si modifica manualmente la sezione e si commette un errore, è possibile eliminarla. -->
+<!--Sarà comunque possibile caricare manualmente il pacchetto, ma le informazioni precedenti sul layout verranno perse e gli elementi verranno nuovamente disposti nell'area di progettazione all'interno dell'apposita finestra.-->
+<Objects
+  Version="sql12">
+  <!--Ogni nodo seguente conterrà proprietà che non influiscono sul comportamento di runtime.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\CANCELLA LE VISURE"
+          TopLeft="433.444444444444,168.388888888889" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Estrazione CF"
+          TopLeft="123.611111111111,675.944444444444" />
+        <NodeLayout
+          Size="272,42"
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure"
+          TopLeft="67,313" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Trace AULOG (200-1)"
+          TopLeft="105.611111111111,102.944444444444" />
+        <NodeLayout
+          Size="164,48"
+          Id="Package\Trace AULOG (END-PACKAGE)"
+          TopLeft="117.777777777778,760.944444444444" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Trace AULOG 200-2"
+          TopLeft="116.277777777778,400.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Trace AULOG 200-3"
+          TopLeft="125.611111111111,583.944444444444" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Truncate tmp_tb_svvis_visure"
+          TopLeft="89.666666666667,209.666666666667" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Visura Bin To XML"
+          TopLeft="128.611111111111,488.222222222222" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo]"
+          TopLeft="203.444444444444,717.944444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 1]"
+          TopLeft="197.888888888889,144.944444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.722222222223"
+              Start="0,0"
+              End="0,57.222222222223">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.222222222223" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 2]"
+          TopLeft="201.333333333334,251.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.333333333333"
+              Start="0,0"
+              End="0,53.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 3]"
+          TopLeft="206.388888888889,355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5"
+              Start="0,0"
+              End="0,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 4]"
+          TopLeft="211.111111111111,530.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.7222222222221"
+              Start="0,0"
+              End="0,46.2222222222221">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.2222222222221" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 5]"
+          TopLeft="210.194444444445,442.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.722222222222"
+              Start="0,0"
+              End="0,38.222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 6]"
+          TopLeft="209.361111111111,625.944444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="SVC 200"
+          ParentId="Package"
+          Size="253,82"
+          Id="285c2ddf-1cae-4a03-acc0-8c0d1d48a1ae"
+          TopLeft="95.5,1.49999999999989">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Verdana"
+              Size="48"
+              Color="#FF00FF00"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection>
+                  <av:TextDecoration
+                    Location="Underline" />
+                </av:TextDecorationCollection>
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Get Error Description"
+          TopLeft="421.518867924528,218" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure"
+          TopLeft="402,331" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure"
+          TopLeft="45.5188679245283,202.896226415094" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato"
+          TopLeft="56,59" />
+        <EdgeLayout
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure.Paths[Output 0]"
+          TopLeft="510.518867924528,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="14.981132075472,71"
+              Start="0,0"
+              End="14.981132075472,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="10.981132075472,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.981132075472,35.5"
+                    Point2="14.981132075472,35.5"
+                    Point3="14.981132075472,39.5" />
+                  <mssgle:LineSegment
+                    End="14.981132075472,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure.Paths[OLE DB Source Output]"
+          TopLeft="156,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="8.51886792452831,101.896226415094"
+              Start="0,0"
+              End="8.51886792452831,94.396226415094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.948113207547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.948113207547"
+                    Point2="0,50.948113207547"
+                    Point3="4,50.948113207547" />
+                  <mssgle:LineSegment
+                    End="4.51886792452831,50.948113207547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.51886792452831,50.948113207547"
+                    Point2="8.51886792452831,50.948113207547"
+                    Point3="8.51886792452831,54.948113207547" />
+                  <mssgle:LineSegment
+                    End="8.51886792452831,94.396226415094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure.Paths[OLE DB Source Error Output]"
+          TopLeft="188,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="322.518867924528,117"
+              Start="0,0"
+              End="322.518867924528,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.3571428571429"
+                    Point2="0,47.3571428571429"
+                    Point3="4,47.3571428571429" />
+                  <mssgle:LineSegment
+                    End="318.518867924528,47.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="318.518867924528,47.3571428571429"
+                    Point2="322.518867924528,47.3571428571429"
+                    Point3="322.518867924528,51.3571428571429" />
+                  <mssgle:LineSegment
+                    End="322.518867924528,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="89.164394899764,52.3571428571429,144.190078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tb_svscv_scarti_visure">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Destination - tmp_tb_svvis_visure">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\tb_svall_allegato -&gt; tmp_tb_svvis_visure\Source - tb_svall_allegato">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
