@@ -10,13 +10,13 @@
   DTS:DTSID="{E9E7785C-0AA7-4682-B641-484C68C2B509}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="1040"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="AZ124_30_TAZSTAT"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="1394"
-  DTS:VersionGUID="{566A867A-3640-46EA-9A2F-0BD5F5CE012B}">
+  DTS:VersionBuild="1443"
+  DTS:VersionGUID="{787872ED-A714-4F1B-AB65-CF085AA822C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -142,10 +142,40 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{4D566DD7-AC6C-40C7-940B-F81EA370476F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RichiesteCUI_DATA_AGG">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B5A53F0E-2A0E-423F-AE15-E3CBB6BD9D81}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RichiesteInternet_DATA_AGG">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{31062175-FA72-4D6D-BDA3-FECAABEA1300}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="SourceSQL">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{14566700-1057-40D0-8D9E-EF8772B42D38}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TAZSTAT_DATA_AGG">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -220,6 +250,88 @@
     DTS:Name="LoggingMode">@[User::K_LOG_ENABLED]</DTS:PropertyExpression>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Cancella Richieste_DMAnagrafica"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{82C8D2BA-D1FC-43A4-B790-93691CB491EB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cancella Richieste_DMAnagrafica"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="DELETE dbo.Richieste_DMAnagrafica &#xA;WHERE &#xA;&#x9;Provenienza = 'CUI' AND (DataInizio &gt; ? OR ISNULL(DataAccoglimento, '1900-01-01') &gt; ?)&#xA;OR &#xA;&#x9;Provenienza = 'INTERNET' AND (DataInizio &gt; ? OR ISNULL(DataAccoglimento, '1900-01-01') &gt; ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RichiesteCUI_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RichiesteCUI_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RichiesteInternet_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::RichiesteInternet_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Completa i campi da AUC"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{3843D51C-2E6D-45C5-964C-A67C78E4FE86}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Completa i campi da AUC"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="UPDATE D&#xA;SET &#xA;&#x9;D.Denominazione&#x9;&#x9;= P.aupoc_denom_posiz_contr,&#xA;&#x9;D.DataInizioAttivita&#x9;&#x9;= P.aupoc_data_inizio_attivita,&#xA;&#x9;D.CodiceFiscale&#x9;&#x9;= A.ausca_codice_fiscale,&#xA;&#x9;D.CodiceClassificazione &#x9;= U.aungi_codice_forma,&#xA;&#x9;D.Classificazione&#x9;&#x9;= U.aungi_descr_breve&#xA;FROM dbo.Richieste_DMAnagrafica D&#xA;JOIN dbo.tb_aupoc_pos_contr P&#xA;    ON D.MatricolaAzienda = P.aupoc_posizione&#xA;JOIN dbo.tb_ausca_sog_contr_az A&#xA;    ON P.aupoc_ausca_codice_pk = A.ausca_codice_pk&#xA;JOIN dbo.tb_aungi_nat_giur_ct U&#xA;&#x9;ON U.aungi_codice_pk = A.ausca_aungi_codice_pk&#xA;WHERE &#xA;&#x9;Provenienza = 'CUI' AND (DataInizio &gt; ? OR ISNULL(DataAccoglimento, '1900-01-01') &gt; ?)&#xA;OR &#xA;&#x9;Provenienza = 'INTERNET' AND (DataInizio &gt; ? OR ISNULL(DataAccoglimento, '1900-01-01') &gt; ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RichiesteCUI_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RichiesteCUI_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RichiesteInternet_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::RichiesteInternet_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\delete tb_autaz_tazstat"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="delete tb_autaz_tazstat"
@@ -228,7 +340,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="delete tb_autaz_tazstat"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -236,7 +348,1566 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="delete tb_autaz_tazstat" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete tb_autaz_tazstat where autaz_data_operazione_str &gt; ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::TAZSTAT_DATA_AGG"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="20"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Popola Richieste_DMAnagrafica"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Attività Flusso di dati"
+      DTS:DTSID="{C94F7591-290A-4CAC-8F5E-894701081109}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Popola Richieste_DMAnagrafica"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonna derivata;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;0"
+              description="Crea nuovi valori di colonna applicando espressioni alle colonne di input della trasformazione. Creare nuove colonne oppure sovrascrivere quelle esistenti. Ad esempio, concatenare i valori delle colonne 'first name' e 'last name' per creare una colonna 'full name'."
+              name="Colonna derivata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata]"
+                  description="Input della trasformazione Colonna derivata"
+                  name="Input colonna derivata">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata].Columns[codpro]"
+                      cachedDataType="numeric"
+                      cachedName="codpro"
+                      cachedPrecision="2"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[codpro]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata].Columns[sedzon]"
+                      cachedDataType="numeric"
+                      cachedName="sedzon"
+                      cachedPrecision="2"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[sedzon]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata].Columns[adempimento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="adempimento"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[adempimento]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata]"
+                  description="Output predefinito della trasformazione Colonna derivata"
+                  exclusionGroup="1"
+                  name="Output colonna derivata"
+                  synchronousInputId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[Sede_4_Cifre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[Sede_4_Cifre]"
+                      name="Sede_4_Cifre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,4,1252)([RIGHT]("0" + (DT_STR,2,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[codpro]},2) + [RIGHT]("0" + (DT_STR,2,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[sedzon]},2))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,4,1252)(RIGHT("0" + (DT_STR,2,1252)codpro,2) + RIGHT("0" + (DT_STR,2,1252)sedzon,2))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[Provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[Provenienza]"
+                      name="Provenienza"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,20,1252)"CUI"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)"CUI"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[TipoRichiesta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[TipoRichiesta]"
+                      name="TipoRichiesta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,20,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[adempimento]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)adempimento</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output errori colonna derivata]"
+                  description="Output degli errori della trasformazione Colonna derivata"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Output errori colonna derivata"
+                  synchronousInputId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output errori colonna derivata].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output errori colonna derivata].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output errori colonna derivata].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output errori colonna derivata].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonna derivata;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;0"
+              description="Crea nuovi valori di colonna applicando espressioni alle colonne di input della trasformazione. Creare nuove colonne oppure sovrascrivere quelle esistenti. Ad esempio, concatenare i valori delle colonne 'first name' e 'last name' per creare una colonna 'full name'."
+              name="Colonna derivata 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata]"
+                  description="Input della trasformazione Colonna derivata"
+                  name="Input colonna derivata">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata].Columns[CODPRO]"
+                      cachedDataType="numeric"
+                      cachedName="CODPRO"
+                      cachedPrecision="2"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[CODPRO]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata].Columns[SEDZON]"
+                      cachedDataType="numeric"
+                      cachedName="SEDZON"
+                      cachedPrecision="2"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[SEDZON]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata].Columns[TIPORICH]"
+                      cachedDataType="i2"
+                      cachedName="TIPORICH"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[TIPORICH]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata].Columns[MATAZI]"
+                      cachedDataType="numeric"
+                      cachedName="MATAZI"
+                      cachedPrecision="10"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[MATAZI]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata]"
+                  description="Output predefinito della trasformazione Colonna derivata"
+                  exclusionGroup="1"
+                  name="Output colonna derivata"
+                  synchronousInputId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[Sede_4_Cifre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[Sede_4_Cifre]"
+                      name="Sede_4_Cifre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,4,1252)([RIGHT]("0" + (DT_STR,2,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[CODPRO]},2) + [RIGHT]("0" + (DT_STR,2,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[SEDZON]},2))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,4,1252)(RIGHT("0" + (DT_STR,2,1252)CODPRO,2) + RIGHT("0" + (DT_STR,2,1252)SEDZON,2))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[Provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[Provenienza]"
+                      name="Provenienza"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,20,1252)"INTERNET"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)"INTERNET"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[TipoRichiesta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[TipoRichiesta]"
+                      name="TipoRichiesta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,20,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[TIPORICH]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)TIPORICH</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[MatricolaAzienda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Calcolo"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[MatricolaAzienda]"
+                      name="MatricolaAzienda"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione colonna derivata"
+                          name="Expression">(DT_STR,10,1252)([RIGHT]("000000000" + (DT_STR,10,1252)#{Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[MATAZI]},10))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Espressione descrittiva colonna derivata"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)(RIGHT("000000000" + (DT_STR,10,1252)MATAZI,10))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output errori colonna derivata]"
+                  description="Output degli errori della trasformazione Colonna derivata"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Output errori colonna derivata"
+                  synchronousInputId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output errori colonna derivata].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output errori colonna derivata].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output errori colonna derivata].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output errori colonna derivata].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origine OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;7"
+              description="Origine OLE DB"
+              name="RichiesteCUI"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowset">[dbo].[RichiesteCUI]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL da eseguire."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+	codpro,
+	ISNULL(sedzon, 0) AS sedzon,
+	data_trasmissione	AS DataInizio,
+	data_esito		AS DataAccoglimento,
+	im_matricola	AS MatricolaAzienda,
+	protocollo_dm	AS NumeroPratica,
+	esito		AS Esito,
+	adempimento
+FROM dbo.RichiesteCUI
+WHERE data_trasmissione &gt; ? OR ISNULL(data_esito, '1900-01-01') &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="Variabile che contiene il comando SQL da eseguire."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la modalità utilizzata per accedere al database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mapping tra i parametri nel comando SQL e le variabili."
+                  name="ParameterMapping">"Parametro0:Input",{4D566DD7-AC6C-40C7-940B-F81EA370476F};"Parametro1:Input",{4D566DD7-AC6C-40C7-940B-F81EA370476F};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Connections[OleDbConnection]"
+                  connectionManagerID="{B038B3C7-121A-4FA6-A561-BF16E314C85C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DMAnagrafica]"
+                  description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB]"
+                  name="Output origine OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[codpro]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[codpro]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[codpro]"
+                      name="codpro"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[sedzon]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[sedzon]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[sedzon]"
+                      name="sedzon"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[adempimento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[adempimento]"
+                      length="3"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[adempimento]"
+                      name="adempimento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[DataInizio]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[DataInizio]"
+                      name="DataInizio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[DataAccoglimento]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[DataAccoglimento]"
+                      name="DataAccoglimento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[MatricolaAzienda]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[MatricolaAzienda]"
+                      length="10"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[MatricolaAzienda]"
+                      name="MatricolaAzienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[NumeroPratica]"
+                      length="50"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[NumeroPratica]"
+                      name="NumeroPratica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[Esito]"
+                      length="1"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[Esito]"
+                      name="Esito"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[adempimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="adempimento" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[codpro]"
+                      dataType="numeric"
+                      name="codpro"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[sedzon]"
+                      dataType="numeric"
+                      name="sedzon"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      name="DataInizio" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      name="DataAccoglimento" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[MatricolaAzienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="MatricolaAzienda" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumeroPratica" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].ExternalColumns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Esito" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB]"
+                  isErrorOut="true"
+                  name="Output errori origine OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[DataInizio]"
+                      name="DataInizio" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[DataAccoglimento]"
+                      name="DataAccoglimento" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[MatricolaAzienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[MatricolaAzienda]"
+                      name="MatricolaAzienda" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[NumeroPratica]"
+                      name="NumeroPratica" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[Esito]"
+                      name="Esito" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[codpro]"
+                      dataType="numeric"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[codpro]"
+                      name="codpro"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[sedzon]"
+                      dataType="numeric"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[sedzon]"
+                      name="sedzon"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[adempimento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output errori origine OLE DB].Columns[adempimento]"
+                      name="adempimento" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origine OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;7"
+              description="Origine OLE DB"
+              name="RichiesteInternet"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowset">[dbo].[RichiesteInternet]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL da eseguire."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+	CODPRO,
+	ISNULL(SEDZON, 0) AS SEDZON,
+	DATARICH	 AS DataInizio,
+	DATAVAR		AS DataAccoglimento,
+	MATAZI,
+	SEGNAT		AS NumeroPratica,
+	STATORICH	AS Esito,
+	TIPORICH
+FROM dbo.RichiesteInternet
+WHERE DATARICH &gt; ? OR ISNULL(DATAVAR, '1900-01-01') &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="Variabile che contiene il comando SQL da eseguire."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la modalità utilizzata per accedere al database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mapping tra i parametri nel comando SQL e le variabili."
+                  name="ParameterMapping">"Parametro0:Input",{B5A53F0E-2A0E-423F-AE15-E3CBB6BD9D81};"Parametro1:Input",{B5A53F0E-2A0E-423F-AE15-E3CBB6BD9D81};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Connections[OleDbConnection]"
+                  connectionManagerID="{B038B3C7-121A-4FA6-A561-BF16E314C85C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DMAnagrafica]"
+                  description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB]"
+                  name="Output origine OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[CODPRO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[CODPRO]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[CODPRO]"
+                      name="CODPRO"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[SEDZON]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[SEDZON]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[SEDZON]"
+                      name="SEDZON"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[TIPORICH]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[TIPORICH]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[TIPORICH]"
+                      name="TIPORICH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[DataInizio]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[DataInizio]"
+                      name="DataInizio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[DataAccoglimento]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[DataAccoglimento]"
+                      name="DataAccoglimento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[NumeroPratica]"
+                      length="40"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[NumeroPratica]"
+                      name="NumeroPratica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[Esito]"
+                      length="1"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[Esito]"
+                      name="Esito"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[MATAZI]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[MATAZI]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[MATAZI]"
+                      name="MATAZI"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[TIPORICH]"
+                      dataType="i2"
+                      name="TIPORICH" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[CODPRO]"
+                      dataType="numeric"
+                      name="CODPRO"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[SEDZON]"
+                      dataType="numeric"
+                      name="SEDZON"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      name="DataInizio" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      name="DataAccoglimento" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NumeroPratica" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Esito" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].ExternalColumns[MATAZI]"
+                      dataType="numeric"
+                      name="MATAZI"
+                      precision="10" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB]"
+                  isErrorOut="true"
+                  name="Output errori origine OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[DataInizio]"
+                      name="DataInizio" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[DataAccoglimento]"
+                      name="DataAccoglimento" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[MATAZI]"
+                      dataType="numeric"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[MATAZI]"
+                      name="MATAZI"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[NumeroPratica]"
+                      name="NumeroPratica" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[Esito]"
+                      name="Esito" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[CODPRO]"
+                      dataType="numeric"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[CODPRO]"
+                      name="CODPRO"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[SEDZON]"
+                      dataType="numeric"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[SEDZON]"
+                      name="SEDZON"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[TIPORICH]"
+                      dataType="i2"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output errori origine OLE DB].Columns[TIPORICH]"
+                      name="TIPORICH" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destinazione OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;4"
+              description="Destinazione OLE DB"
+              name="Richieste_DMAnagrafica"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowset">[dbo].[Richieste_DMAnagrafica]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL da eseguire."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la modalità utilizzata per accedere al database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se i valori specificati per le colonne Identity verranno copiati nella destinazione. Se false, i valori delle colonne Identity verranno generati automaticamente nella destinazione. Applicabile solo se è abilitato il caricamento rapido."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se per le colonne con valori Null, tali valori verranno inseriti nella destinazione. Se false, per le colonne con valori Null verranno inseriti i valori predefiniti corrispondenti nella destinazione. Applicabile solo se è attivato il caricamento rapido."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica le opzioni da utilizzare con il caricamento rapido. Applicabile solo se è attivato il caricamento rapido."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica se vengono eseguiti commit durante l'inserimento dei dati. Il valore 0 indica che verrà eseguito un solo commit al termine dell'inserimento dei dati. Applicabile solo se è attivato il caricamento rapido."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Connections[OleDbConnection]"
+                  connectionManagerID="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TargetConnection]"
+                  description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB]"
+                  errorOrTruncationOperation="Inserimento"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input destinazione OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[DataInizio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataInizio"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[DataInizio]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataInizio]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[DataAccoglimento]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataAccoglimento"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[DataAccoglimento]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataAccoglimento]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[MatricolaAzienda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="MatricolaAzienda"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[MatricolaAzienda]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[MatricolaAzienda]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[NumeroPratica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NumeroPratica"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[NumeroPratica]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[NumeroPratica]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[Esito]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Esito"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Esito]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Esito]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[Sede_4_Cifre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Sede_4_Cifre"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Sede_4_Cifre]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Sede_4_Cifre]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[Provenienza]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Provenienza"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Provenienza]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Provenienza]" />
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].Columns[TipoRichiesta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoRichiesta"
+                      externalMetadataColumnId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[TipoRichiesta]"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[TipoRichiesta]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Sede_4_Cifre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Sede_4_Cifre" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      name="DataInizio" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      name="DataAccoglimento" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[MatricolaAzienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MatricolaAzienda" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[CodiceFiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="CodiceFiscale" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NumeroPratica" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Denominazione]"
+                      codePage="1252"
+                      dataType="str"
+                      length="405"
+                      name="Denominazione" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[CodiceClassificazione]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CodiceClassificazione" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Classificazione]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Classificazione" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[DataInizioAttivita]"
+                      dataType="dbDate"
+                      name="DataInizioAttivita" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="Esito" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[Provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Provenienza" />
+                    <externalMetadataColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB].ExternalColumns[TipoRichiesta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TipoRichiesta" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Outputs[Output errori destinazione OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Output errori destinazione OLE DB"
+                  synchronousInputId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unione input multipli;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;1"
+              description="Combina righe di più flussi di dati senza ordinarle. Ad esempio, aggiungere nuovamente le righe al flusso di dati dopo avere corretto gli errori. Se l'ordinamento è importante, è consigliabile utilizzare la trasformazione Unione."
+              name="Unione input multipli"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3]"
+                  hasSideEffects="true"
+                  name="Input unione input multipli 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[DataInizio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataInizio"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[DataInizio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataInizio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[DataAccoglimento]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataAccoglimento"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[DataAccoglimento]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataAccoglimento]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[NumeroPratica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="NumeroPratica"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[NumeroPratica]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[NumeroPratica]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[Esito]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Esito"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB].Columns[Esito]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Esito]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[Sede_4_Cifre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Sede_4_Cifre"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[Sede_4_Cifre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Sede_4_Cifre]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[Provenienza]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Provenienza"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[Provenienza]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Provenienza]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[TipoRichiesta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoRichiesta"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[TipoRichiesta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[TipoRichiesta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3].Columns[MatricolaAzienda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="MatricolaAzienda"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata].Columns[MatricolaAzienda]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[MatricolaAzienda]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1]"
+                  hasSideEffects="true"
+                  name="Input unione input multipli 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[DataInizio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataInizio"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[DataInizio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataInizio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[DataAccoglimento]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataAccoglimento"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[DataAccoglimento]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataAccoglimento]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[MatricolaAzienda]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="MatricolaAzienda"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[MatricolaAzienda]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[MatricolaAzienda]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[NumeroPratica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NumeroPratica"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[NumeroPratica]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[NumeroPratica]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[Esito]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Esito"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB].Columns[Esito]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Esito]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[Sede_4_Cifre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Sede_4_Cifre"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[Sede_4_Cifre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Sede_4_Cifre]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[Provenienza]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Provenienza"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[Provenienza]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Provenienza]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1].Columns[TipoRichiesta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="TipoRichiesta"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata].Columns[TipoRichiesta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID derivazione colonna output"
+                          name="OutputColumnLineageID">#{Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[TipoRichiesta]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Input unione input multipli 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1]"
+                  name="Unione input multipli Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataInizio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataInizio]"
+                      name="DataInizio" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataAccoglimento]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[DataAccoglimento]"
+                      name="DataAccoglimento" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[MatricolaAzienda]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[MatricolaAzienda]"
+                      name="MatricolaAzienda" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[NumeroPratica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[NumeroPratica]"
+                      name="NumeroPratica" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Esito]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Esito]"
+                      name="Esito" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Sede_4_Cifre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Sede_4_Cifre]"
+                      name="Sede_4_Cifre" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Provenienza]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[Provenienza]"
+                      name="Provenienza" />
+                    <outputColumn
+                      refId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[TipoRichiesta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1].Columns[TipoRichiesta]"
+                      name="TipoRichiesta" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Popola Richieste_DMAnagrafica.Paths[Output colonna derivata]"
+              endId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 3]"
+              name="Output colonna derivata"
+              startId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Outputs[Output colonna derivata]" />
+            <path
+              refId="Package\Popola Richieste_DMAnagrafica.Paths[Output colonna derivata1]"
+              endId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Inputs[Input unione input multipli 1]"
+              name="Output colonna derivata"
+              startId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Outputs[Output colonna derivata]" />
+            <path
+              refId="Package\Popola Richieste_DMAnagrafica.Paths[Output origine OLE DB]"
+              endId="Package\Popola Richieste_DMAnagrafica\Colonna derivata.Inputs[Input colonna derivata]"
+              name="Output origine OLE DB"
+              startId="Package\Popola Richieste_DMAnagrafica\RichiesteCUI.Outputs[Output origine OLE DB]" />
+            <path
+              refId="Package\Popola Richieste_DMAnagrafica.Paths[Output origine OLE DB1]"
+              endId="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1.Inputs[Input colonna derivata]"
+              name="Output origine OLE DB"
+              startId="Package\Popola Richieste_DMAnagrafica\RichiesteInternet.Outputs[Output origine OLE DB]" />
+            <path
+              refId="Package\Popola Richieste_DMAnagrafica.Paths[Unione input multipli Output 1]"
+              endId="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica.Inputs[Input destinazione OLE DB]"
+              name="Unione input multipli Output 1"
+              startId="Package\Popola Richieste_DMAnagrafica\Unione input multipli.Outputs[Unione input multipli Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SELECT Data_Agg"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{58a9b2ad-b77b-4566-a09a-5d5b4b736a14}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SELECT Data_Agg"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="SELECT convert(bigint,[ausys_valore]) as Data_Agg&#xA;FROM [dbo].[tb_ausys_sistema]&#xA;WHERE [ausys_parametro] = 'TAZSTAT_DATA_AGG';"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Data_Agg"
+            SQLTask:DtsVariableName="User::TAZSTAT_DATA_AGG" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SELECT Data_Agg RichiesteCUI"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{e8e73353-7f1a-40d4-9398-b4f581a146ed}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SELECT Data_Agg RichiesteCUI"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="SELECT convert(varchar(200),[ausys_valore]) as Data_Agg&#xA;FROM [dbo].[tb_ausys_sistema]&#xA;WHERE [ausys_parametro] = 'RichiesteCUI_DATA_AGG';"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Data_Agg"
+            SQLTask:DtsVariableName="User::RichiesteCUI_DATA_AGG" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SELECT Data_Agg RichiesteInternet"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{7d4d5e26-652c-4dc1-9dba-9ed5c9bcc006}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SELECT Data_Agg RichiesteInternet"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="SELECT convert(varchar(200),[ausys_valore]) as Data_Agg&#xA;FROM [dbo].[tb_ausys_sistema]&#xA;WHERE [ausys_parametro] = 'RichiesteInternet_DATA_AGG';"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Data_Agg"
+            SQLTask:DtsVariableName="User::RichiesteInternet_DATA_AGG" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SET Data_Agg"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{074d535f-9f48-49b4-9b6f-f38b0501561f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SET Data_Agg"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="DECLARE @data_agg VARCHAR(30);&#xA;SET @data_agg = (SELECT MAX(autaz_data_operazione_str) FROM dbo.tb_autaz_tazstat);&#xA;&#xA;UPDATE dbo.tb_ausys_sistema&#xA;SET ausys_valore = @data_agg&#xA;WHERE ausys_parametro = 'TAZSTAT_DATA_AGG';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SET Date Aggiornamento Richieste_DMAnagrafica"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Attività Esegui SQL"
+      DTS:DTSID="{3b1b73c8-eb65-496c-a985-c78737016c91}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SET Date Aggiornamento Richieste_DMAnagrafica"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:SqlStatementSource="DECLARE @data_Inizio_CUI DATETIME, @data_Inizio_INTERNET DATETIME, @data_Accoglimento_CUI DATETIME, @data_Accoglimento_INTERNET DATETIME;&#xA;&#xA;SELECT &#xA;&#x9;@data_Inizio_CUI&#x9;&#x9;&#x9;= MAX(DataInizio),&#xA;&#x9;@data_Accoglimento_CUI&#x9;&#x9;= MAX(DataAccoglimento)&#xA;FROM dbo.Richieste_DMAnagrafica WHERE Provenienza = 'CUI';&#xA;&#xA;SELECT &#xA;&#x9;@data_Inizio_INTERNET&#x9;&#x9;= MAX(DataInizio),&#xA;&#x9;@data_Accoglimento_INTERNET&#x9;= MAX(DataAccoglimento)&#xA;FROM dbo.Richieste_DMAnagrafica WHERE Provenienza = 'INTERNET';&#xA;&#xA;UPDATE dbo.tb_ausys_sistema&#xA;SET ausys_valore = ISNULL(CONVERT(VARCHAR(50), CASE WHEN @data_Inizio_CUI &lt; @data_Accoglimento_CUI THEN @data_Inizio_CUI ELSE @data_Accoglimento_CUI END, 121), '1900-01-01')&#xA;WHERE ausys_parametro = 'RichiesteCUI_DATA_AGG';&#xA;&#xA;UPDATE dbo.tb_ausys_sistema&#xA;SET ausys_valore = ISNULL(CONVERT(VARCHAR(50), CASE WHEN @data_Inizio_INTERNET &lt; @data_Accoglimento_INTERNET THEN @data_Inizio_INTERNET ELSE @data_Accoglimento_INTERNET END, 121), '1900-01-01')&#xA;WHERE ausys_parametro = 'RichiesteInternet_DATA_AGG';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -301,9 +1972,8 @@ AZFLAG04 As autaz_azflag04,
 AZFLAG05 As autaz_azflag05,
 AZDATOPR * 100000000 + AZORAOPR As autaz_data_operazione
 FROM DB2DA.TAZSTAT 
-WHERE AZDATOPR BETWEEN INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMM')||'01') 
-AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
---FETCH FIRST 100 ROWS ONLY</property>
+WHERE AZDATOPR * 100000000 + AZORAOPR &gt; ?
+--FETCH FIRST 10 ROWS ONLY</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -324,7 +1994,7 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parametro0:Input",{14566700-1057-40D0-8D9E-EF8772B42D38};</property>
               </properties>
               <connections>
                 <connection
@@ -1009,7 +2679,7 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
       DTS:LocaleID="-1"
       DTS:ObjectName="Trace AuLOG (1)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -1021,111 +2691,6 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Trace AuLOG (2)"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Trace AuLOG (2)"
-      DTS:Disabled="True"
-      DTS:DTSID="{C6E3902B-DED9-47C1-93A8-008A342C61D2}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Trace AuLOG (2)"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-02','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Trace AuLOG (3)"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Trace AuLOG (3)"
-      DTS:Disabled="True"
-      DTS:DTSID="{8ED53C43-B2F2-4F37-A900-C18800F33D9E}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Trace AuLOG (3)"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-03','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Trace AuLOG (4)"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Trace AuLOG (4)"
-      DTS:Disabled="True"
-      DTS:DTSID="{224B51F7-B96E-42D5-B8D9-62839850324B}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Trace AuLOG (4)"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-04','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Trace AuLOG (5)"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Trace AuLOG (5)"
-      DTS:Disabled="True"
-      DTS:DTSID="{CDC5715B-8602-4E9F-AA2D-53D6C527575E}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Trace AuLOG (5)"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-05','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Trace AuLOG (6)"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Trace AuLOG (6)"
-      DTS:Disabled="True"
-      DTS:DTSID="{11FC877E-ADCA-473A-9A50-5F46F609D6B3}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Trace AuLOG (6)"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
-          SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log] (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;VALUES&#xA;('B','SSIS-TAZSTAT',GETDATE(),'30-06','-----');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Trace AuLOG END"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Trace AuLOG END"
@@ -1134,7 +2699,7 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
       DTS:LocaleID="-1"
       DTS:ObjectName="Trace AuLOG END"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -1145,16 +2710,56 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
           SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;  VALUES&#xA;    ('B','SSIS-TAZSTAT',GETDATE(),'30-99','Package AZ124_30 Fine 2019-10-03');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG Fine scarico DMAnagrafica"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (1)"
+      DTS:DTSID="{0ee7eb97-9b5c-40b8-8092-846799f9d8ae}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG Fine scarico DMAnagrafica"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;  VALUES&#xA;    ('B','SSIS-TAZSTAT',GETDATE(),'30-67','Package AZ124_30 Fine DMAnagrafica');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trace AuLOG Inizio scarico DMAnagrafica"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Trace AuLOG (1)"
+      DTS:DTSID="{994b1882-4ad0-4791-94c2-271343a88e65}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trace AuLOG Inizio scarico DMAnagrafica"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="INSERT INTO [tb_aulog_log]&#xA;    (aulog_tipo_contesto,aulog_nome_attore,aulog_data_log,aulog_descr_breve,aulog_descr_lunga)&#xA;  VALUES&#xA;    ('B','SSIS-TAZSTAT',GETDATE(),'30-66','Package AZ124_30 Inizio DMAnagrafica');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Vincolo]"
       DTS:CreationName=""
-      DTS:DTSID="{7A1A3374-44F4-476B-A475-52F321E947D4}"
+      DTS:DTSID="{F45D6519-5529-4297-BA76-8E2815F996FC}"
       DTS:From="Package\Trace AuLOG (1)"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Vincolo"
-      DTS:To="Package\delete tb_autaz_tazstat" />
+      DTS:To="Package\SELECT Data_Agg" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Vincolo 1]"
       DTS:CreationName=""
@@ -1164,13 +2769,85 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
       DTS:ObjectName="Vincolo 1"
       DTS:To="Package\TAZSTAT- --&gt; AUTAZ" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{9B5F3DC7-A1D7-4033-A848-1B2D3D0E8D9F}"
+      DTS:From="Package\Completa i campi da AUC"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 10"
+      DTS:To="Package\SET Date Aggiornamento Richieste_DMAnagrafica" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{C36A5A61-BBCD-45C2-A6A3-1AB0FE808684}"
+      DTS:From="Package\SET Date Aggiornamento Richieste_DMAnagrafica"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 11"
+      DTS:To="Package\Trace AuLOG Fine scarico DMAnagrafica" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Vincolo 2]"
       DTS:CreationName=""
-      DTS:DTSID="{4B1005F9-6928-4F60-BA24-C90A7FC8FDB4}"
+      DTS:DTSID="{42842201-D51E-491B-9426-D85F388F24D7}"
       DTS:From="Package\TAZSTAT- --&gt; AUTAZ"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Vincolo 2"
+      DTS:To="Package\SET Data_Agg" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{63B9E36D-3786-4EE3-BDF8-26E6D084A2EE}"
+      DTS:From="Package\SELECT Data_Agg"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 3"
+      DTS:To="Package\delete tb_autaz_tazstat" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{420A91E4-8E5D-4794-94E7-BFB9AAC63232}"
+      DTS:From="Package\SET Data_Agg"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 4"
       DTS:To="Package\Trace AuLOG END" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{325BAE1A-B556-4AFC-902B-14BD823A3B89}"
+      DTS:From="Package\Popola Richieste_DMAnagrafica"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 5"
+      DTS:To="Package\Completa i campi da AUC" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F1709A3-4ED6-4B2A-8E63-55AE0C368656}"
+      DTS:From="Package\SELECT Data_Agg RichiesteCUI"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 6"
+      DTS:To="Package\SELECT Data_Agg RichiesteInternet" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{92AC9537-F1F2-412C-9797-6A8ECEE4B1C0}"
+      DTS:From="Package\SELECT Data_Agg RichiesteInternet"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 7"
+      DTS:To="Package\Cancella Richieste_DMAnagrafica" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD640B9D-8C18-476C-9540-BBB8220884F4}"
+      DTS:From="Package\Cancella Richieste_DMAnagrafica"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 8"
+      DTS:To="Package\Popola Richieste_DMAnagrafica" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Vincolo 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{5927FAAB-6629-4062-9365-E9D1B11418BB}"
+      DTS:From="Package\Trace AuLOG Inizio scarico DMAnagrafica"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Vincolo 9"
+      DTS:To="Package\SELECT Data_Agg RichiesteCUI" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Questa sezione CDATA contiene le informazioni sul layout del pacchetto e include informazioni quali coordinate (x,y), larghezza e altezza.-->
@@ -1183,57 +2860,77 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Cancella Richieste_DMAnagrafica"
+          TopLeft="389.125,323" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Completa i campi da AUC"
+          TopLeft="409.625,509" />
         <NodeLayout
           Size="189,42"
           Id="Package\delete tb_autaz_tazstat"
-          TopLeft="45.5,117.5" />
+          TopLeft="30.5,252.5" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Popola Richieste_DMAnagrafica"
+          TopLeft="393.625,415" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SELECT Data_Agg"
+          TopLeft="38,150.5" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\SELECT Data_Agg RichiesteCUI"
+          TopLeft="391.625,124" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\SELECT Data_Agg RichiesteInternet"
+          TopLeft="382.625,226" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SET Data_Agg"
+          TopLeft="49.0000000000001,456.5" />
+        <NodeLayout
+          Size="328,42"
+          Id="Package\SET Date Aggiornamento Richieste_DMAnagrafica"
+          TopLeft="348.125,590" />
         <NodeLayout
           Size="180,42"
           Id="Package\TAZSTAT- --&gt; AUTAZ"
-          TopLeft="56.5,202.5" />
+          TopLeft="35,354.5" />
         <NodeLayout
           Size="158,42"
           Id="Package\Trace AuLOG (1)"
-          TopLeft="62.5,33.5" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Trace AuLOG (2)"
-          TopLeft="767,205.5" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Trace AuLOG (3)"
-          TopLeft="772,146.5" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Trace AuLOG (4)"
-          TopLeft="778,82.4999999999999" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Trace AuLOG (5)"
-          TopLeft="769,26.4999999999999" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Trace AuLOG (6)"
-          TopLeft="776,264.5" />
+          TopLeft="46,48.5" />
         <NodeLayout
           Size="165,42"
           Id="Package\Trace AuLOG END"
-          TopLeft="65.5,284.5" />
+          TopLeft="42.5000000000001,558.5" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Trace AuLOG Fine scarico DMAnagrafica"
+          TopLeft="371.125,678" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\Trace AuLOG Inizio scarico DMAnagrafica"
+          TopLeft="369.125,41" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Vincolo]"
-          TopLeft="140.75,75.5">
+          TopLeft="125,90.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,42"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,34.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1244,18 +2941,62 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Vincolo 1]"
-          TopLeft="143.25,159.5">
+          TopLeft="125,294.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,43"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,35.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 10]"
+          TopLeft="512.125,551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 11]"
+          TopLeft="512.125,632">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1266,18 +3007,172 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Vincolo 2]"
-          TopLeft="147.25,244.5">
+          TopLeft="125,396.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,40"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,32.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 3]"
+          TopLeft="125,192.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 4]"
+          TopLeft="125,498.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 5]"
+          TopLeft="512.125,457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 6]"
+          TopLeft="512.125,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 7]"
+          TopLeft="512.125,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 8]"
+          TopLeft="512.125,365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Vincolo 9]"
+          TopLeft="512.125,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1290,10 +3185,215 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Popola Richieste_DMAnagrafica">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Popola Richieste_DMAnagrafica\RichiesteInternet"
+          TopLeft="447,142.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Popola Richieste_DMAnagrafica\RichiesteCUI"
+          TopLeft="683.5,142.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Popola Richieste_DMAnagrafica\Unione input multipli"
+          TopLeft="666,346.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Popola Richieste_DMAnagrafica\Colonna derivata 1"
+          TopLeft="442.5,244.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Popola Richieste_DMAnagrafica\Colonna derivata"
+          TopLeft="674,244.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica"
+          TopLeft="655,448.5" />
+        <EdgeLayout
+          Id="Package\Popola Richieste_DMAnagrafica.Paths[Output colonna derivata]"
+          TopLeft="528,286.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="198.666666666667,60"
+              Start="0,0"
+              End="198.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6792873051225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6792873051225"
+                    Point2="0,35.6792873051225"
+                    Point3="4,35.6792873051225" />
+                  <mssgle:LineSegment
+                    End="194.666666666667,35.6792873051225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="194.666666666667,35.6792873051225"
+                    Point2="198.666666666667,35.6792873051225"
+                    Point3="198.666666666667,39.6792873051225" />
+                  <mssgle:LineSegment
+                    End="198.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Popola Richieste_DMAnagrafica.Paths[Unione input multipli Output 1]"
+          TopLeft="755,388.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Popola Richieste_DMAnagrafica.Paths[Output origine OLE DB1]"
+          TopLeft="528,184.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Popola Richieste_DMAnagrafica.Paths[Output origine OLE DB]"
+          TopLeft="755,184.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Popola Richieste_DMAnagrafica.Paths[Output colonna derivata1]"
+          TopLeft="755,286.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.3333333333334,60"
+              Start="0,0"
+              End="28.3333333333334,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6792873051225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6792873051225"
+                    Point2="0,35.6792873051225"
+                    Point3="4,35.6792873051225" />
+                  <mssgle:LineSegment
+                    End="24.3333333333334,35.6792873051225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.3333333333334,35.6792873051225"
+                    Point2="28.3333333333334,35.6792873051225"
+                    Point3="28.3333333333334,39.6792873051225" />
+                  <mssgle:LineSegment
+                    End="28.3333333333334,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Popola Richieste_DMAnagrafica\RichiesteInternet">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Popola Richieste_DMAnagrafica\RichiesteCUI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Popola Richieste_DMAnagrafica\Richieste_DMAnagrafica">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\TAZSTAT- --&gt; AUTAZ">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\TAZSTAT- --&gt; AUTAZ\tb_autaz_tazstat"
@@ -1307,7 +3407,7 @@ AND INT(varchar_format(last_day(add_months(current timestamp, -1)),'yyyyMMdd'))
           TopLeft="95.2500000000001,150.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,82"
               Start="0,0"
               End="0,74.5">

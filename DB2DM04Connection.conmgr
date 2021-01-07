@@ -17,12 +17,12 @@
     DTS:Name="UserName">@[$Project::DB2DM04Connection_UserName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=A01DB2;User ID=WEBU0053;Initial Catalog=A01DB2;Provider=DB2OLEDB;Persist Security Info=True;Defer Prepare=True;Network Transport Library=TCPIP;Host CCSID=20280;Max Pool Size=40;Connect Timeout=15;Network Address=svil.host.inps;Network Port=5025;Package Collection=COLDASV;Connection Pooling=True;">
+      DTS:ConnectionString="Data Source=svil.host.inps;User ID=WEBU0053;Initial Catalog=A01DB2;Provider=DB2OLEDB.1;Persist Security Info=True;Defer Prepare=True;Host CCSID=20280;Max Pool Size=40;Network Address=svil.host.inps;Network Port=5025;Package Collection=COLDASV;">
       <DTS:Password
         DTS:Name="Password"
         Sensitive="1"
-        p4:Salt="aOPx0miGig=="
-        p4:IV="QQmPN9LBufQ=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">OvRyTOj2HBf07+c+zUbhumBbM0Rmo/cYRj6hhKUsIgcTrN8teqyuCqlNqJZ5mgfamAm4HSlmBixV3VzGy7VEwTAIdiKjTVyvWD7OMSNIssDg57qE78RAmR1e/I+82MFjEzsop5tXk4d6A7iGIuLbsww2Q3rjwl17</DTS:Password>
+        p4:Salt="98DRZxIHZg=="
+        p4:IV="ndmaNkkIu24=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">pgEl/DpKTbP0JWZ8kJpxgmGCwPHSAaDHcH3ycxD4/9FQ5Z6TOtR4806NzTmJcmROZR/RBGMHOftjK8pAnnxTsJuSj1L5O+YZ6h1Mmi34Yj488PM6GLjB+6oYmp/6y4+7gGJyTgR7aV5ilCS6RObzEKCSQoPLSkF7</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

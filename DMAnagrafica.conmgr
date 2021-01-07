@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DMAnagrafica"
+  DTS:DTSID="{B038B3C7-121A-4FA6-A561-BF16E314C85C}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::DMAnagrafica_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DMAnagrafica_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::DMAnagrafica_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::DMAnagrafica_ServerName]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::DMAnagrafica_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SQLINPSSVIL01;User ID=DMAnagrafica;Initial Catalog=DMAnagrafica;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="5/LyA+MQTw=="
+        p4:IV="H1E4K81Lx9k=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">UjdXp4LGjuzQBmRkjuqBHlYRq2qoBoznJ48qdrxjJt6vYigyTPQeZvIDUPqPakiNoI/ClnO405o2t6Gs/DokYM/oY117eqQ3kmAdHrM0eB5eShNl7j7+ZxOKvviGA29sM3xouA/TukffuGcotN8SDNUItCYIMMal</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

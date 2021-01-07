@@ -10,13 +10,13 @@
   DTS:DTSID="{C92FEA17-EAE1-4B5A-94CC-DCA95E9509B6}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="1040"
   DTS:MaxErrorCount="0"
   DTS:ObjectName="AZ124_14_ComUnicaToAUC"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2159"
-  DTS:VersionGUID="{570F513F-A83E-4583-95A8-BB886B937DDA}">
+  DTS:VersionBuild="2162"
+  DTS:VersionGUID="{17C4BD9F-D5B8-4054-94F8-D323C3F804B4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -16030,7 +16030,7 @@ WHERE St_aurss_FLAG= 1 OR St_aurss_FLAG = 2 OR St_aurss_FLAG = 3;</property>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
                   SQLTask:BypassPrepare="False"
-                  SQLTask:SqlStatementSource="--Crea tabella temporanea per gestire più descrizioni&#xA;&#xA;CREATE TABLE #temp_Import_aurss_relazioni_cancellate(&#xA;&#x9;[St_aurss_CodicefiscaleAzienda] [varchar](16) NULL,&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto] [varchar](16) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione01] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione02] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione03] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione04] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione05] [varchar](999) NULL,&#xA;&#x9;[St_aurss_data_di_fine_validità] [date] NULL&#xA;) ON [PRIMARY]&#xA;&#xA;--Inserisce nella tabella temporanea i record ammissibili&#xA;&#xA;insert into #temp_Import_aurss_relazioni_cancellate(&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione01],&#xA;&#x9;[St_aurss_descrizione_cancellazione02],&#xA;&#x9;[St_aurss_descrizione_cancellazione03],&#xA;&#x9;[St_aurss_descrizione_cancellazione04],&#xA;&#x9;[St_aurss_descrizione_cancellazione05],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA;SELECT  dati_id.value('@c-fiscale', 'varchar(16)') AS CodiceFiscale,&#xA;  dati_persona.value('@c-fiscale','varchar(16)') as Cf_persona,&#xA;  descrizioni.value('descrizione[1]','varchar(999)') as descrizione1,&#xA;  descrizioni.value('descrizione[2]','varchar(999)') as descrizione2,&#xA;  descrizioni.value('descrizione[3]','varchar(999)') as descrizione3,&#xA;  descrizioni.value('descrizione[4]','varchar(999)') as descrizione4,&#xA;  descrizioni.value('descrizione[5]','varchar(999)') as descrizione5,&#xA;&#xA;  convert(date,iscrizione.value('@dt-iscrizione','varchar(15)'),103) as data&#xA;  &#xA; FROM tb_auvis_visure &#xA;  CROSS APPLY auvis_visura_xml.nodes('/blocchi-impresa/dati-identificativi') AS T1(dati_id)&#xA;  CROSS APPLY auvis_visura_xml.nodes('/blocchi-impresa/trascrizioni-persone-impresa/trascrizioni-ri/trascrizione-ri') as T5(trascrizioni)&#xA;  cross apply trascrizioni.nodes('persona') as T2(dati_persona)&#xA;  cross apply trascrizioni.nodes('tipo-trascrizione') as T3(tipo_trascrizione)&#xA;  cross apply trascrizioni.nodes('descrizioni') as T4(descrizioni)&#xA;  cross apply trascrizioni.nodes('iscrizione-modifica') as T6(iscrizione)&#xA;where tipo_trascrizione.value('@c-tipo-trascrizione','varchar(3)') = 'P3E' or tipo_trascrizione.value('@c-tipo-trascrizione','varchar(3)') = '105'&#xA;&#xA;&#xA;&#xA;-- Inserisce nella tabella delle relazioni cancellate i dati estratti dalle visure, esegue 5 inserimenti perchè sono 5 le descrizioni analizzate&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA;select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione01],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#x9;&#xA; where [St_aurss_descrizione_cancellazione01] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA;select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione02],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione02] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione03],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione03] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione04],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione04] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione05],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione05] is not null&#xA;&#xA;&#xA;-- Aggiorna la chiave esterna verso AUSCA&#xA;&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set [St_aurss_ausca_codice_pk] = ausca_codice_pk&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join tb_ausca_sog_contr_az&#xA;on ausca_codice_fiscale = [St_aurss_CodicefiscaleAzienda]&#xA;where [St_aurss_CodicefiscaleAzienda] is not null&#xA;&#xA;-- Aggiorna la chiave esterna verso AUSCO&#xA;&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set [St_aurss_ausco_codice_pk] = ausco_codice_pk&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join tb_ausco_sog_contr_col&#xA;on ausco_codice_fiscale = [St_aurss_CodicefiscaleSoggetto]&#xA;where [St_aurss_CodicefiscaleSoggetto] is not null&#xA;&#xA;&#xA;-- Valorizza la carica del soggetto chiuso, le relazioni senza carica valorizzata saranno scartate.&#xA;&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set [St_aurss_CodiceCarica] = aurss_codice_carica&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join tb_aurss_rel_sog_sog on [St_aurss_ausca_codice_pk] = aurss_ausca_codice_pk and [St_aurss_ausco_codice_pk] = aurss_ausco_codice_pk&#xA;inner join tb_autis_tipo_sog_col_ct on aurss_autis_codice_pk = autis_codice_pk&#xA;where aurss_relazione_certificata = 'S' and&#xA;charindex(autis_descr, [St_aurss_descrizione_cancellazione], 1) &gt; 0&#xA;&#xA;-- Cancella i record anomali che non hanno legame con AUSCA e/o AUSCO&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set st_aurss_cancellato = 1&#xA;where ([St_aurss_ausca_codice_pk] is null or [St_aurss_ausco_codice_pk] is null) and st_aurss_cancellato = 0&#xA;&#xA;--Cancella i record che non hanno la carica determinata&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set st_aurss_cancellato = 2&#xA;where [St_aurss_CodiceCarica] is null and st_aurss_cancellato = 0&#xA;&#xA;-- Cancella i record presenti anche sulla tabella delle relazioni&#xA;-- che sono già presenti (aperti) [codice = 4] o sono da inserire [codice = null]&#xA; &#xA;update [Import_aurss_relazioni_cancellate]&#xA;set st_aurss_cancellato = 3&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join [dbo].[Import_aurss_relazione_soggetto_soggetto] on [Import_aurss_relazioni_cancellate].[St_aurss_ausca_codice_pk] = [Import_aurss_relazione_soggetto_soggetto].[St_aurss_ausca_codice_pk] &#xA;and [Import_aurss_relazioni_cancellate].[St_aurss_ausco_codice_pk] = [Import_aurss_relazione_soggetto_soggetto].[St_aurss_ausco_codice_pk] and [Import_aurss_relazioni_cancellate].[St_aurss_CodiceCarica] = [Import_aurss_relazione_soggetto_soggetto].[St_aurss_CodiceCarica]&#xA;where st_aurss_cancellato = 0 and ([St_aurss_FLAG] = 4 or [St_aurss_FLAG] is null)&#xA;&#xA;&#xA;--Crea una tabella temporanea dove inserire i record raggruppati&#xA;&#xA;create table #temp_cancellate (cfazienda varchar(16) null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   cfsoggetto varchar(16) null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   codiceCarica varchar(3) null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   ausca int null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   ausco int null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   dataFine date null) on [primary];&#xA;&#xA;insert into #temp_cancellate(&#xA;cfazienda, cfSoggetto, CodiceCarica, ausca, ausco, dataFine)&#xA;select &#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_CodiceCarica],&#xA;&#x9;[St_aurss_ausca_codice_pk],&#xA;&#x9;[St_aurss_ausco_codice_pk],&#xA;&#x9;max([St_aurss_data_di_fine_validità]) from [Import_aurss_relazioni_cancellate]&#xA;where st_aurss_cancellato = 0&#xA;group by &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_CodiceCarica],&#xA;&#x9;[St_aurss_ausca_codice_pk],&#xA;&#x9;[St_aurss_ausco_codice_pk]&#xA;&#xA;&#xA;--select * from #temp_cancellate&#xA;--where CfSoggetto = 'frvlrt62e26f205o'&#xA;-- Aggiornamento di AURSS per le sole relazioni esistenti ed aperte&#xA;&#xA;update tb_aurss_rel_sog_sog&#xA;set aurss_data_di_fine_validita = dataFine,&#xA; aurss_data_modifica = getdate(), aurss_descr_utente = 'Chiusura da Visura'&#xA;&#xA;--select aurss_data_di_fine_validita, dataFine, aurss_aussu_codice_pk &#xA;from tb_aurss_rel_sog_sog&#xA;inner join #temp_cancellate on  [ausca] = [aurss_ausca_codice_pk] and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[ausco] = [aurss_ausco_codice_pk] and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[CodiceCarica]    = [aurss_Codice_Carica] and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;aurss_relazione_certificata = 'S' and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(aurss_data_di_fine_validita is null or aurss_data_di_fine_validita &gt; dataFine)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and dataFine &gt; aurss_data_inizio_validita" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="--Crea tabella temporanea per gestire più descrizioni&#xA;&#xA;CREATE TABLE #temp_Import_aurss_relazioni_cancellate(&#xA;&#x9;[St_aurss_CodicefiscaleAzienda] [varchar](16) NULL,&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto] [varchar](16) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione01] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione02] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione03] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione04] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione05] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione06] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione07] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione08] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione09] [varchar](999) NULL,&#xA;&#x9;[St_aurss_descrizione_cancellazione10] [varchar](999) NULL,&#xA;&#x9;[St_aurss_data_di_fine_validità] [date] NULL&#xA;) ON [PRIMARY]&#xA;&#xA;--Inserisce nella tabella temporanea i record ammissibili&#xA;&#xA;insert into #temp_Import_aurss_relazioni_cancellate(&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione01],&#xA;&#x9;[St_aurss_descrizione_cancellazione02],&#xA;&#x9;[St_aurss_descrizione_cancellazione03],&#xA;&#x9;[St_aurss_descrizione_cancellazione04],&#xA;&#x9;[St_aurss_descrizione_cancellazione05],&#xA;&#x9;[St_aurss_descrizione_cancellazione06],&#xA;&#x9;[St_aurss_descrizione_cancellazione07],&#xA;&#x9;[St_aurss_descrizione_cancellazione08],&#xA;&#x9;[St_aurss_descrizione_cancellazione09],&#xA;&#x9;[St_aurss_descrizione_cancellazione10],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA;SELECT  dati_id.value('@c-fiscale', 'varchar(16)') AS CodiceFiscale,&#xA;  dati_persona.value('@c-fiscale','varchar(16)') as Cf_persona,&#xA;  descrizioni.value('descrizione[1]','varchar(999)') as descrizione1,&#xA;  descrizioni.value('descrizione[2]','varchar(999)') as descrizione2,&#xA;  descrizioni.value('descrizione[3]','varchar(999)') as descrizione3,&#xA;  descrizioni.value('descrizione[4]','varchar(999)') as descrizione4,&#xA;  descrizioni.value('descrizione[5]','varchar(999)') as descrizione5,&#xA;  descrizioni.value('descrizione[6]','varchar(999)') as descrizione6,&#xA;  descrizioni.value('descrizione[7]','varchar(999)') as descrizione7,&#xA;  descrizioni.value('descrizione[8]','varchar(999)') as descrizione8,&#xA;  descrizioni.value('descrizione[9]','varchar(999)') as descrizione9,&#xA;  descrizioni.value('descrizione[10]','varchar(999)') as descrizione10,&#xA;&#xA;  convert(date,iscrizione.value('@dt-iscrizione','varchar(15)'),103) as data&#xA;  &#xA; FROM tb_auvis_visure &#xA;  CROSS APPLY auvis_visura_xml.nodes('/blocchi-impresa/dati-identificativi') AS T1(dati_id)&#xA;  CROSS APPLY auvis_visura_xml.nodes('/blocchi-impresa/trascrizioni-persone-impresa/trascrizioni-ri/trascrizione-ri') as T5(trascrizioni)&#xA;  cross apply trascrizioni.nodes('persona') as T2(dati_persona)&#xA;  cross apply trascrizioni.nodes('tipo-trascrizione') as T3(tipo_trascrizione)&#xA;  cross apply trascrizioni.nodes('descrizioni') as T4(descrizioni)&#xA;  cross apply trascrizioni.nodes('iscrizione-modifica') as T6(iscrizione)&#xA;where tipo_trascrizione.value('@c-tipo-trascrizione','varchar(3)') = 'P3E' or tipo_trascrizione.value('@c-tipo-trascrizione','varchar(3)') = '105'&#xA;&#xA;&#xA;&#xA;-- Inserisce nella tabella delle relazioni cancellate i dati estratti dalle visure, esegue 5 inserimenti perchè sono 5 le descrizioni analizzate&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA;select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione01],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#x9;&#xA; where [St_aurss_descrizione_cancellazione01] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA;select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione02],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione02] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione03],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione03] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione04],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione04] is not null&#xA;&#xA;&#xA;insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione05],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione05] is not null&#xA; &#xA; insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione06],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione06] is not null&#xA; &#xA; insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione07],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione07] is not null&#xA; &#xA; insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione08],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione08] is not null&#xA; &#xA; insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione09],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione09] is not null&#xA; &#xA; insert into [dbo].[Import_aurss_relazioni_cancellate](&#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA;)&#xA; select &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_descrizione_cancellazione10],&#xA;&#x9;[St_aurss_data_di_fine_validità]&#xA; from #temp_Import_aurss_relazioni_cancellate&#xA; where [St_aurss_descrizione_cancellazione10] is not null&#xA;&#xA;&#xA;-- Aggiorna la chiave esterna verso AUSCA&#xA;&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set [St_aurss_ausca_codice_pk] = ausca_codice_pk&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join tb_ausca_sog_contr_az&#xA;on ausca_codice_fiscale = [St_aurss_CodicefiscaleAzienda]&#xA;where [St_aurss_CodicefiscaleAzienda] is not null&#xA;&#xA;-- Aggiorna la chiave esterna verso AUSCO&#xA;&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set [St_aurss_ausco_codice_pk] = ausco_codice_pk&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join tb_ausco_sog_contr_col&#xA;on ausco_codice_fiscale = [St_aurss_CodicefiscaleSoggetto]&#xA;where [St_aurss_CodicefiscaleSoggetto] is not null&#xA;&#xA;&#xA;-- Valorizza la carica del soggetto chiuso, le relazioni senza carica valorizzata saranno scartate.&#xA;&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set [St_aurss_CodiceCarica] = aurss_codice_carica&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join tb_aurss_rel_sog_sog on [St_aurss_ausca_codice_pk] = aurss_ausca_codice_pk and [St_aurss_ausco_codice_pk] = aurss_ausco_codice_pk&#xA;inner join tb_autis_tipo_sog_col_ct on aurss_autis_codice_pk = autis_codice_pk&#xA;where aurss_relazione_certificata = 'S' and&#xA;charindex(autis_descr, [St_aurss_descrizione_cancellazione], 1) &gt; 0&#xA;&#xA;-- Cancella i record anomali che non hanno legame con AUSCA e/o AUSCO&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set st_aurss_cancellato = 1&#xA;where ([St_aurss_ausca_codice_pk] is null or [St_aurss_ausco_codice_pk] is null) and st_aurss_cancellato = 0&#xA;&#xA;--Cancella i record che non hanno la carica determinata&#xA;update [Import_aurss_relazioni_cancellate]&#xA;set st_aurss_cancellato = 2&#xA;where [St_aurss_CodiceCarica] is null and st_aurss_cancellato = 0&#xA;&#xA;-- Cancella i record presenti anche sulla tabella delle relazioni&#xA;-- che sono già presenti (aperti) [codice = 4] o sono da inserire [codice = null]&#xA; &#xA;update [Import_aurss_relazioni_cancellate]&#xA;set st_aurss_cancellato = 3&#xA;from [Import_aurss_relazioni_cancellate]&#xA;inner join [dbo].[Import_aurss_relazione_soggetto_soggetto] on [Import_aurss_relazioni_cancellate].[St_aurss_ausca_codice_pk] = [Import_aurss_relazione_soggetto_soggetto].[St_aurss_ausca_codice_pk] &#xA;and [Import_aurss_relazioni_cancellate].[St_aurss_ausco_codice_pk] = [Import_aurss_relazione_soggetto_soggetto].[St_aurss_ausco_codice_pk] and [Import_aurss_relazioni_cancellate].[St_aurss_CodiceCarica] = [Import_aurss_relazione_soggetto_soggetto].[St_aurss_CodiceCarica]&#xA;where st_aurss_cancellato = 0 and ([St_aurss_FLAG] = 4 or [St_aurss_FLAG] is null)&#xA;&#xA;&#xA;--Crea una tabella temporanea dove inserire i record raggruppati&#xA;&#xA;create table #temp_cancellate (cfazienda varchar(16) null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   cfsoggetto varchar(16) null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   codiceCarica varchar(3) null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   ausca int null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   ausco int null,&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   dataFine date null) on [primary];&#xA;&#xA;insert into #temp_cancellate(&#xA;cfazienda, cfSoggetto, CodiceCarica, ausca, ausco, dataFine)&#xA;select &#xA;&#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_CodiceCarica],&#xA;&#x9;[St_aurss_ausca_codice_pk],&#xA;&#x9;[St_aurss_ausco_codice_pk],&#xA;&#x9;max([St_aurss_data_di_fine_validità]) from [Import_aurss_relazioni_cancellate]&#xA;where st_aurss_cancellato = 0&#xA;group by &#x9;[St_aurss_CodicefiscaleAzienda],&#xA;&#x9;[St_aurss_CodicefiscaleSoggetto],&#xA;&#x9;[St_aurss_CodiceCarica],&#xA;&#x9;[St_aurss_ausca_codice_pk],&#xA;&#x9;[St_aurss_ausco_codice_pk]&#xA;&#xA;&#xA;--select * from #temp_cancellate&#xA;--where CfSoggetto = 'frvlrt62e26f205o'&#xA;-- Aggiornamento di AURSS per le sole relazioni esistenti ed aperte&#xA;&#xA;update tb_aurss_rel_sog_sog&#xA;set aurss_data_di_fine_validita = dataFine,&#xA; aurss_data_modifica = getdate(), aurss_descr_utente = 'Chiusura da Visura'&#xA;&#xA;--select aurss_data_di_fine_validita, dataFine, aurss_aussu_codice_pk &#xA;from tb_aurss_rel_sog_sog&#xA;inner join #temp_cancellate on  [ausca] = [aurss_ausca_codice_pk] and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[ausco] = [aurss_ausco_codice_pk] and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[CodiceCarica]    = [aurss_Codice_Carica] and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;aurss_relazione_certificata = 'S' and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;(aurss_data_di_fine_validita is null or aurss_data_di_fine_validita &gt; dataFine)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and dataFine &gt; aurss_data_inizio_validita" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
@@ -38897,7 +38897,7 @@ WHERE isnull(auulo_ausca_codice_pk,0) &lt;&gt; 0;</property>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{febbc687-d52e-400c-a8c0-9b5a06d1ae4e}"
               SQLTask:BypassPrepare="False"
-              SQLTask:SqlStatementSource="INSERT INTO [dbo].[tb_ausvi_visura_soggetto] ( [ausvi_codice_fiscale])&#xA;&#xA;SELECT tb_auvis_visure.auvis_CF&#xA;FROM tb_auvis_visure INNER JOIN  tb_auvis_visure_esiti ON &#xA;                tb_auvis_visure.auvis_id = tb_auvis_visure_esiti.auvis_id INNER JOIN tb_ausca_sog_contr_az ON &#xA;                tb_auvis_visure.auvis_CF = tb_ausca_sog_contr_az.ausca_codice_fiscale&#xA;INNER JOIN Import_ausca_sog_contr_azienda ON &#xA;                 tb_ausca_sog_contr_az.ausca_codice_fiscale = Import_ausca_sog_contr_azienda.St_ausca_codice_fiscale&#xA;WHERE  (1 = 1) &#xA;                AND (ISNULL(tb_auvis_visure.auvis_CF, '----') &lt;&gt; '----') &#xA;                AND (tb_auvis_visure_esiti.auvis_elaborato = 1) &#xA;                AND (tb_auvis_visure.auvis_lavorabile = 0)&#xA;AND ( -- 08 05 2015 - Italo / Raffaele&#xA;                     ISnull(Import_ausca_sog_contr_azienda.St_codice_stato_infocamere,'-') &lt;&gt; 'I' OR&#xA;                   ( ISnull(Import_ausca_sog_contr_azienda.St_codice_stato_infocamere,'-') = 'I' AND ausca_codice_stato_infocamere = 'I' )&#xA;     )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[tb_ausvi_visura_soggetto] ( [ausvi_codice_fiscale])&#xA;&#xA;SELECT tb_auvis_visure.auvis_CF&#xA;FROM tb_auvis_visure INNER JOIN  tb_auvis_visure_esiti ON &#xA;                tb_auvis_visure.auvis_id = tb_auvis_visure_esiti.auvis_id INNER JOIN tb_ausca_sog_contr_az ON &#xA;                tb_auvis_visure.auvis_CF = tb_ausca_sog_contr_az.ausca_codice_fiscale&#xA;INNER JOIN Import_ausca_sog_contr_azienda ON &#xA;                 tb_ausca_sog_contr_az.ausca_codice_fiscale = Import_ausca_sog_contr_azienda.St_ausca_codice_fiscale&#xA;WHERE  (1 = 1) &#xA;                AND (ISNULL(tb_auvis_visure.auvis_CF, '----') &lt;&gt; '----') &#xA;                AND (tb_auvis_visure_esiti.auvis_elaborato = 1) &#xA;                AND (tb_auvis_visure.auvis_lavorabile = 0)&#xA;AND ( -- 08 05 2015 - Italo / Raffaele&#xA;                     ISnull(Import_ausca_sog_contr_azienda.St_codice_stato_infocamere,'-') &lt;&gt; 'I' OR&#xA;                   ( ISnull(Import_ausca_sog_contr_azienda.St_codice_stato_infocamere,'-') = 'I' AND ausca_codice_stato_infocamere = 'I' )&#xA;     )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -39659,15 +39659,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               Language="CSharp"
               ReadOnlyVariables="User::K_DB_TARGET_CONN_STRING,User::sPercorsoCompleto">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
-              <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -39872,6 +39863,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_995a7ab90cec48339a26a0824c9b4c09.Properties.Settings.get_Default():ST_995a7ab90cec48339a26a0824c9b4c09.Properties.Sett" +
+    "ings")]
+
+namespace ST_995a7ab90cec48339a26a0824c9b4c09.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
 /* The Script Task allows you to perform virtually any operation that can be accomplished in
@@ -40061,35 +40081,6 @@ namespace ST_995a7ab90cec48339a26a0824c9b4c09
 	</msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_995a7ab90cec48339a26a0824c9b4c09.Properties.Settings.get_Default():ST_995a7ab90cec48339a26a0824c9b4c09.Properties.Sett" +
-    "ings")]
-
-namespace ST_995a7ab90cec48339a26a0824c9b4c09.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -40119,6 +40110,15 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -45068,42 +45068,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           Id="Package\ACCODAMENTO NUOVI AUSCA\Scarico Target AUSCA\Destination (Errori) tb_INFO_Scarti_AUSCA"
           TopLeft="320.462264150943,347.877358490566" />
         <EdgeLayout
-          Id="Package\ACCODAMENTO NUOVI AUSCA\Scarico Target AUSCA.Paths[OLE DB Destination Error Output]"
-          TopLeft="119.330188679245,184.556603773585">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="299.056603773585,88.4905660377359"
-              Start="0,0"
-              End="299.056603773585,80.9905660377359">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.2452830188679" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.2452830188679"
-                    Point2="0,44.2452830188679"
-                    Point3="4,44.2452830188679" />
-                  <mssgle:LineSegment
-                    End="295.056603773585,44.2452830188679" />
-                  <mssgle:CubicBezierSegment
-                    Point1="295.056603773585,44.2452830188679"
-                    Point2="299.056603773585,44.2452830188679"
-                    Point3="299.056603773585,48.2452830188679" />
-                  <mssgle:LineSegment
-                    End="299.056603773585,80.9905660377359" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="76.3193956367925,49.2452830188679,146.4178125,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\ACCODAMENTO NUOVI AUSCA\Scarico Target AUSCA.Paths[Output 0]"
           TopLeft="416.924528301887,315.047169811321">
           <EdgeLayout.Curve>
@@ -45157,6 +45121,42 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ACCODAMENTO NUOVI AUSCA\Scarico Target AUSCA.Paths[OLE DB Destination Error Output]"
+          TopLeft="119.330188679245,184.556603773585">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="299.056603773585,88.4905660377359"
+              Start="0,0"
+              End="299.056603773585,80.9905660377359">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.2452830188679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.2452830188679"
+                    Point2="0,44.2452830188679"
+                    Point3="4,44.2452830188679" />
+                  <mssgle:LineSegment
+                    End="295.056603773585,44.2452830188679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="295.056603773585,44.2452830188679"
+                    Point2="299.056603773585,44.2452830188679"
+                    Point3="299.056603773585,48.2452830188679" />
+                  <mssgle:LineSegment
+                    End="299.056603773585,80.9905660377359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="76.3193956367925,49.2452830188679,146.4178125,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
